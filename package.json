@@ -47,6 +47,10 @@
     "css-variables",
     "react-native"
   ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "public"
+  },
   "license": "MIT",
   "devDependencies": {
     "tsup": "^8.0.0",
