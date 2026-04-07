@@ -1,0 +1,42 @@
+{
+  "light": {
+    "surface": {
+      "0": "0 0% 95%",
+      "1": "0 0% 100%",
+      "2": "0 0% 96.1%",
+      "2-hover": "0 0% 96%",
+      "3": "0 0% 100%",
+      "4": "0 0% 100%"
+    },
+    "border": {
+      "subtle": "0 0% 88%",
+      "default": "0 0% 80%"
+    },
+    "accent": {
+      "default": "0 0% 96.1%",
+      "foreground": "0 0% 9%",
+      "hover": "0 0% 90%"
+    },
+    "sidebar": {
+      "accent": "0 0% 96.1%",
+      "accent-foreground": "0 0% 9%",
+      "hover": "0 0% 95%"
+    },
+    "tab": {
+      "bg": "0 0% 93%",
+      "bg-hover": "0 0% 90%",
+      "outline": "0 0% 82%"
+    },
+    "input": {
+      "bg": "0 0% 100%",
+      "border": "0 0% 88%",
+      "border-hover": "0 0% 80%",
+      "border-focus": "0 0% 80%",
+      "bg-disabled": "0 0% 96%",
+      "placeholder": "0 0% 56%"
+    },
+    "background": "0 0% 95%",
+    "panelBackground": "0 0% 100%",
+    "mainPanelBackground": "0 0% 100%"
+  }
+}

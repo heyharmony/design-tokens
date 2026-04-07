@@ -1,0 +1,42 @@
+{
+  "light": {
+    "surface": {
+      "0": "142 76% 97%",
+      "1": "142 40% 99%"
+    },
+    "accent": {
+      "default": "142 50% 92%",
+      "foreground": "142 70% 20%",
+      "hover": "142 50% 85%"
+    },
+    "sidebar": {
+      "accent": "142 70% 40%",
+      "accent-foreground": "0 0% 100%",
+      "hover": "142 50% 90%"
+    },
+    "background": "142 76% 97%",
+    "panelBackground": "142 40% 99%",
+    "mainPanelBackground": "142 40% 99%",
+    "ring": "142 70% 40%"
+  },
+  "dark": {
+    "surface": {
+      "0": "142 50% 4%",
+      "1": "142 40% 7%"
+    },
+    "accent": {
+      "default": "142 40% 10%",
+      "foreground": "142 60% 85%",
+      "hover": "142 40% 16%"
+    },
+    "sidebar": {
+      "accent": "142 60% 35%",
+      "accent-foreground": "0 0% 100%",
+      "hover": "142 40% 8%"
+    },
+    "background": "142 50% 4%",
+    "panelBackground": "142 40% 7%",
+    "mainPanelBackground": "142 40% 7%",
+    "ring": "142 60% 35%"
+  }
+}

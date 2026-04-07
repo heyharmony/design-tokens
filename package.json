@@ -1,0 +1,57 @@
+{
+  "name": "@harmony/design-tokens",
+  "version": "1.0.0",
+  "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
+  "type": "module",
+  "main": "./dist/js/index.cjs",
+  "module": "./dist/js/index.js",
+  "types": "./dist/js/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/js/index.d.ts",
+      "import": "./dist/js/index.js",
+      "require": "./dist/js/index.cjs"
+    },
+    "./react-native": {
+      "types": "./dist/js/react-native.d.ts",
+      "import": "./dist/js/react-native.js",
+      "require": "./dist/js/react-native.cjs"
+    },
+    "./css-apply": {
+      "types": "./dist/js/css.d.ts",
+      "import": "./dist/js/css.js",
+      "require": "./dist/js/css.cjs"
+    },
+    "./css/light": "./dist/css/variables-light.css",
+    "./css/dark": "./dist/css/variables-dark.css",
+    "./css/presets/*": "./dist/css/presets/*"
+  },
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "generate": "tsx scripts/generate.ts",
+    "build:css": "tsx scripts/build-css.ts",
+    "build:js": "tsup",
+    "build": "npm run generate && npm run build:css && npm run build:js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "design-tokens",
+    "theme",
+    "harmony",
+    "w3c-dtcg",
+    "css-variables",
+    "react-native"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

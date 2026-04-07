@@ -1,0 +1,51 @@
+{
+  "harmony": {
+    "surface": {
+      "0": { "$value": "0 0% 12%", "$type": "color" },
+      "1": { "$value": "0 0% 14.5%", "$type": "color" },
+      "2": { "$value": "0 0% 18%", "$type": "color" },
+      "2-hover": { "$value": "0 0% 22%", "$type": "color" },
+      "3": { "$value": "0 0% 16.5%", "$type": "color" },
+      "4": { "$value": "0 0% 20%", "$type": "color" }
+    },
+    "fg": {
+      "default": { "$value": "0 0% 90%", "$type": "color" },
+      "secondary": { "$value": "0 0% 63.9%", "$type": "color" },
+      "tertiary": { "$value": "0 0% 48%", "$type": "color" },
+      "disabled": { "$value": "0 0% 35%", "$type": "color" },
+      "inverse": { "$value": "0 0% 9%", "$type": "color" },
+      "link": { "$value": "0 0% 98%", "$type": "color" },
+      "success": { "$value": "142 71% 45%", "$type": "color" },
+      "warning": { "$value": "38 92% 50%", "$type": "color" },
+      "error": { "$value": "0 62.8% 50%", "$type": "color" }
+    },
+    "border": {
+      "subtle": { "$value": "0 0% 20%", "$type": "color" },
+      "default": { "$value": "0 0% 25%", "$type": "color" }
+    },
+    "accent": {
+      "default": { "$value": "0 0% 10%", "$type": "color" },
+      "foreground": { "$value": "0 0% 90%", "$type": "color" },
+      "hover": { "$value": "0 0% 15%", "$type": "color" }
+    },
+    "sidebar": {
+      "accent": { "$value": "0 0% 10%", "$type": "color" },
+      "accent-foreground": { "$value": "0 0% 90%", "$type": "color" },
+      "hover": { "$value": "0 0% 9%", "$type": "color" }
+    },
+    "tab": {
+      "bg": { "$value": "0 0% 18%", "$type": "color" },
+      "bg-hover": { "$value": "0 0% 22%", "$type": "color" },
+      "outline": { "$value": "0 0% 30%", "$type": "color" }
+    },
+    "input": {
+      "bg": { "$value": "0 0% 15%", "$type": "color" },
+      "border": { "$value": "0 0% 22%", "$type": "color" },
+      "border-hover": { "$value": "0 0% 28%", "$type": "color" },
+      "border-focus": { "$value": "0 0% 28%", "$type": "color" },
+      "border-error": { "$value": "0 62.8% 50%", "$type": "color" },
+      "bg-disabled": { "$value": "0 0% 13%", "$type": "color" },
+      "placeholder": { "$value": "0 0% 48%", "$type": "color" }
+    }
+  }
+}
