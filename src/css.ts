@@ -3,12 +3,12 @@
  * Provides applyThemePreset() which sets CSS custom properties on document.documentElement.
  */
 
-import type { ThemeColors, ThemePresetId, ThemePresetColors } from './types.js';
-import { resolveThemeExtended } from './resolve.js';
+import type { ThemeColors, ThemePresetId, ThemePresetColors, SurfaceLevel, SurfaceContextualToken } from './types.js';
+import { resolveThemeExtended, resolveSurfaceScopes } from './resolve.js';
 
-export { resolveTheme, resolveThemeExtended, isPresetAllowedForMode } from './resolve.js';
+export { resolveTheme, resolveThemeExtended, resolveSurfaceScopes, isPresetAllowedForMode } from './resolve.js';
 export { THEME_PRESETS, THEME_PRESET_IDS, BASE_LIGHT, BASE_DARK } from './tokens.js';
-export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, ThemePresetColors, PresetPreview } from './types.js';
+export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, ThemePresetColors, PresetPreview, SurfaceLevel, SurfaceContextualToken, SurfaceScopes } from './types.js';
 
 /**
  * Maps ThemeColors keys to CSS custom property names.
@@ -100,4 +100,45 @@ export function applyThemePreset(presetId: ThemePresetId, isDark: boolean): void
 /** Get the CSS variable name for a given token key. */
 export function getTokenCssVar(key: keyof ThemeColors): string {
   return TOKEN_TO_CSS[key];
+}
+
+/** All surface-contextual CSS variable names (for cleanup). */
+const SURFACE_CONTEXTUAL_VARS: string[] = ([
+  'inputBg', 'inputBorder', 'inputBorderHover', 'inputBorderFocus',
+  'inputBorderError', 'inputBgDisabled', 'inputPlaceholder',
+  'tabBg', 'tabBgHover', 'tabOutline',
+  'borderSubtle', 'borderDefault',
+] as SurfaceContextualToken[]).map((key) => TOKEN_TO_CSS[key]);
+
+/**
+ * Apply surface-scoped CSS variable overrides to an element.
+ * Resolves the surface scopes for the given preset/mode, then sets the
+ * contextual token CSS variables on the element for the requested level.
+ */
+export function applySurfaceScopeToElement(
+  element: HTMLElement,
+  presetId: ThemePresetId,
+  isDark: boolean,
+  surfaceLevel: SurfaceLevel,
+): void {
+  const mode = isDark ? 'dark' : 'light';
+  const scopes = resolveSurfaceScopes(presetId, mode);
+  const overrides = scopes[surfaceLevel];
+
+  // Clear all surface-contextual CSS vars on the element
+  for (const cssVar of SURFACE_CONTEXTUAL_VARS) {
+    element.style.removeProperty(cssVar);
+  }
+
+  // Set overrides for the requested surface level
+  if (overrides) {
+    for (const [key, value] of Object.entries(overrides)) {
+      const cssVar = TOKEN_TO_CSS[key as keyof ThemeColors];
+      if (cssVar && value) {
+        element.style.setProperty(cssVar, value);
+      }
+    }
+  }
+
+  element.setAttribute('data-surface', surfaceLevel);
 }

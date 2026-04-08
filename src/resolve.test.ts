@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { resolveTheme, resolveThemeExtended, isPresetAllowedForMode } from './resolve.js';
-import { THEME_PRESET_IDS, BASE_LIGHT, BASE_DARK } from './tokens.js';
+import { resolveTheme, resolveThemeExtended, resolveSurfaceScopes, isPresetAllowedForMode } from './resolve.js';
+import { THEME_PRESET_IDS, BASE_LIGHT, BASE_DARK, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK } from './tokens.js';
 import type { ThemeColors, ThemePresetId } from './types.js';
 
 const ALL_KEYS = Object.keys(BASE_LIGHT) as (keyof ThemeColors)[];
@@ -79,6 +79,51 @@ describe('resolveThemeExtended', () => {
     const colors = resolveThemeExtended('default', 'light');
     expect(colors.background).toBeUndefined();
     expect(colors.panelBackground).toBeUndefined();
+  });
+});
+
+describe('resolveSurfaceScopes', () => {
+  it('returns base scopes for default preset', () => {
+    expect(resolveSurfaceScopes('default', 'light')).toEqual(SURFACE_SCOPES_LIGHT);
+    expect(resolveSurfaceScopes('default', 'dark')).toEqual(SURFACE_SCOPES_DARK);
+  });
+
+  it('returns base scopes for presets without surface scope overrides', () => {
+    expect(resolveSurfaceScopes('ocean', 'light')).toEqual(SURFACE_SCOPES_LIGHT);
+    expect(resolveSurfaceScopes('ocean', 'dark')).toEqual(SURFACE_SCOPES_DARK);
+  });
+
+  it('merges black preset surface scopes over base dark scopes', () => {
+    const scopes = resolveSurfaceScopes('black', 'dark');
+    // Black preset has custom surface scopes for dark mode
+    expect(scopes['2']).toBeDefined();
+    expect(scopes['2']!.inputBg).toBe('0 0% 13%'); // black override, not base '0 0% 22%'
+    expect(scopes['4']).toBeDefined();
+    expect(scopes['4']!.inputBg).toBe('0 0% 16%'); // black override, not base '0 0% 24%'
+  });
+
+  it('returns base scopes for black preset in light mode (no light overrides)', () => {
+    expect(resolveSurfaceScopes('black', 'light')).toEqual(SURFACE_SCOPES_LIGHT);
+  });
+
+  it('merges white preset surface scopes over base light scopes', () => {
+    const scopes = resolveSurfaceScopes('white', 'light');
+    // White preset adds surface 1 which base doesn't have
+    expect(scopes['1']).toBeDefined();
+    expect(scopes['1']!.inputBg).toBe('0 0% 96%');
+    // Also has surface 3 and 4
+    expect(scopes['3']).toBeDefined();
+    expect(scopes['4']).toBeDefined();
+  });
+
+  it('surface scoped values differ from flat defaults for overridden surfaces', () => {
+    const darkScopes = resolveSurfaceScopes('default', 'dark');
+    // surface2 dark: inputBg should be lifted above 18% L surface
+    expect(darkScopes['2']!.inputBg).not.toBe(BASE_DARK.inputBg);
+
+    const lightScopes = resolveSurfaceScopes('default', 'light');
+    // surface3 light: inputBg should differ from flat 100% L
+    expect(lightScopes['3']!.inputBg).not.toBe(BASE_LIGHT.inputBg);
   });
 });
 

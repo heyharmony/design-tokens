@@ -1,6 +1,6 @@
 {
   "name": "@heyharmony/design-tokens",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
   "type": "module",
   "main": "./dist/js/index.cjs",
@@ -24,6 +24,8 @@
     },
     "./css/light": "./dist/css/variables-light.css",
     "./css/dark": "./dist/css/variables-dark.css",
+    "./css/surface-scopes/light": "./dist/css/surface-scopes-light.css",
+    "./css/surface-scopes/dark": "./dist/css/surface-scopes-dark.css",
     "./css/presets/*": "./dist/css/presets/*"
   },
   "files": [

@@ -8,8 +8,8 @@
 
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS } from '../src/tokens.js';
-import type { ThemeColors, ThemePresetId } from '../src/types.js';
+import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK } from '../src/tokens.js';
+import type { ThemeColors, ThemePresetId, SurfaceScopes, SurfaceLevel } from '../src/types.js';
 
 const DIST = join(import.meta.dirname, '..', 'dist', 'css');
 const PRESETS_DIR = join(DIST, 'presets');
@@ -121,6 +121,74 @@ for (const id of THEME_PRESET_IDS) {
     const selector = `.dark[data-theme-preset='${id}']`;
     const css = `/* @heyharmony/design-tokens — ${id} preset, dark mode */\n${selector} {\n${formatVars(vars)}\n}\n`;
     writeFileSync(join(PRESETS_DIR, `${id}-dark.css`), css);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Generate surface scope CSS files
+// ---------------------------------------------------------------------------
+
+function scopeToVars(scope: Partial<Pick<ThemeColors, string>>): Record<string, string> {
+  const vars: Record<string, string> = {};
+  for (const [key, value] of Object.entries(scope)) {
+    const cssVar = TOKEN_TO_CSS[key as keyof ThemeColors];
+    if (cssVar) vars[cssVar] = value;
+  }
+  return vars;
+}
+
+function generateSurfaceScopeCss(
+  scopes: SurfaceScopes,
+  selectorPrefix: string,
+  comment: string,
+): string {
+  const blocks: string[] = [`/* @heyharmony/design-tokens — ${comment} */`];
+  for (const [level, scope] of Object.entries(scopes) as [SurfaceLevel, Partial<Pick<ThemeColors, string>>][]) {
+    if (!scope || Object.keys(scope).length === 0) continue;
+    const vars = scopeToVars(scope);
+    const selector = selectorPrefix
+      ? `${selectorPrefix} [data-surface="${level}"]`
+      : `[data-surface="${level}"]`;
+    blocks.push(`${selector} {\n${formatVars(vars)}\n}`);
+  }
+  return blocks.join('\n') + '\n';
+}
+
+// Base surface scopes
+const surfaceLightCss = generateSurfaceScopeCss(
+  SURFACE_SCOPES_LIGHT,
+  '',
+  'surface scopes, light mode',
+);
+writeFileSync(join(DIST, 'surface-scopes-light.css'), surfaceLightCss);
+
+const surfaceDarkCss = generateSurfaceScopeCss(
+  SURFACE_SCOPES_DARK,
+  '.dark',
+  'surface scopes, dark mode',
+);
+writeFileSync(join(DIST, 'surface-scopes-dark.css'), surfaceDarkCss);
+
+// Preset-specific surface scopes
+for (const id of THEME_PRESET_IDS) {
+  const preset = PRESET_OVERRIDES[id];
+
+  if (preset.surfaceScopesLight && Object.keys(preset.surfaceScopesLight).length > 0) {
+    const css = generateSurfaceScopeCss(
+      preset.surfaceScopesLight,
+      `[data-theme-preset='${id}']`,
+      `${id} preset surface scopes, light mode`,
+    );
+    writeFileSync(join(PRESETS_DIR, `${id}-surface-scopes-light.css`), css);
+  }
+
+  if (preset.surfaceScopesDark && Object.keys(preset.surfaceScopesDark).length > 0) {
+    const css = generateSurfaceScopeCss(
+      preset.surfaceScopesDark,
+      `.dark[data-theme-preset='${id}']`,
+      `${id} preset surface scopes, dark mode`,
+    );
+    writeFileSync(join(PRESETS_DIR, `${id}-surface-scopes-dark.css`), css);
   }
 }
 

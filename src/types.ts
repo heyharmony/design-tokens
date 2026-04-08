@@ -1,5 +1,18 @@
 export type ThemePresetId = 'default' | 'ocean' | 'forest' | 'berry' | 'doodles' | 'black' | 'white';
 
+// Surface scoping
+export type SurfaceLevel = '0' | '1' | '2' | '3' | '4';
+
+export type SurfaceContextualToken =
+  | 'inputBg' | 'inputBorder' | 'inputBorderHover' | 'inputBorderFocus'
+  | 'inputBorderError' | 'inputBgDisabled' | 'inputPlaceholder'
+  | 'tabBg' | 'tabBgHover' | 'tabOutline'
+  | 'borderSubtle' | 'borderDefault';
+
+export type SurfaceScopes = Partial<
+  Record<SurfaceLevel, Partial<Pick<ThemeColors, SurfaceContextualToken>>>
+>;
+
 export type ThemeMode = 'light' | 'dark' | 'system';
 
 export interface ThemeColors {

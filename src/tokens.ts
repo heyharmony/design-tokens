@@ -4,7 +4,7 @@
  * Values match mobile/constants/themes.ts BASE_LIGHT/BASE_DARK/PRESET_OVERRIDES.
  */
 
-import type { ThemeColors, ThemePresetId, ThemePreset } from './types.js';
+import type { ThemeColors, ThemePresetId, ThemePreset, SurfaceScopes } from './types.js';
 
 // ---------------------------------------------------------------------------
 // Base token sets
@@ -83,6 +83,94 @@ export const BASE_DARK: ThemeColors = {
 };
 
 // ---------------------------------------------------------------------------
+// Surface-contextual scopes
+// ---------------------------------------------------------------------------
+// Only surfaces where flat defaults produce poor contrast need overrides.
+// Light: surface3/4 are 100% L — same as inputBg, so controls are invisible.
+// Dark: surface2/3/4 are 18-20% L — inputBg at 15% sits below them.
+
+export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
+  // surfaces 0, 1, 2: flat defaults work fine
+  '3': {
+    inputBg: '0 0% 96%',
+    inputBorder: '0 0% 82%',
+    inputBorderHover: '0 0% 75%',
+    inputBorderFocus: '0 0% 75%',
+    inputBorderError: '0 84% 60%',
+    inputBgDisabled: '0 0% 93%',
+    inputPlaceholder: '0 0% 56%',
+    tabBg: '0 0% 94%',
+    tabBgHover: '0 0% 91%',
+    tabOutline: '0 0% 78%',
+    borderSubtle: '0 0% 85%',
+    borderDefault: '0 0% 78%',
+  },
+  '4': {
+    inputBg: '0 0% 96%',
+    inputBorder: '0 0% 82%',
+    inputBorderHover: '0 0% 75%',
+    inputBorderFocus: '0 0% 75%',
+    inputBorderError: '0 84% 60%',
+    inputBgDisabled: '0 0% 93%',
+    inputPlaceholder: '0 0% 56%',
+    tabBg: '0 0% 94%',
+    tabBgHover: '0 0% 91%',
+    tabOutline: '0 0% 78%',
+    borderSubtle: '0 0% 85%',
+    borderDefault: '0 0% 78%',
+  },
+};
+
+export const SURFACE_SCOPES_DARK: SurfaceScopes = {
+  // surface 0, 1: flat defaults work fine
+  '2': {
+    // surface2 is 18% L — lift controls above it
+    inputBg: '0 0% 22%',
+    inputBorder: '0 0% 28%',
+    inputBorderHover: '0 0% 34%',
+    inputBorderFocus: '0 0% 34%',
+    inputBorderError: '0 62.8% 50%',
+    inputBgDisabled: '0 0% 16%',
+    inputPlaceholder: '0 0% 48%',
+    tabBg: '0 0% 24%',
+    tabBgHover: '0 0% 28%',
+    tabOutline: '0 0% 30%',
+    borderSubtle: '0 0% 26%',
+    borderDefault: '0 0% 30%',
+  },
+  '3': {
+    // surface3 is 16.5% L
+    inputBg: '0 0% 20%',
+    inputBorder: '0 0% 26%',
+    inputBorderHover: '0 0% 32%',
+    inputBorderFocus: '0 0% 32%',
+    inputBorderError: '0 62.8% 50%',
+    inputBgDisabled: '0 0% 14%',
+    inputPlaceholder: '0 0% 48%',
+    tabBg: '0 0% 22%',
+    tabBgHover: '0 0% 26%',
+    tabOutline: '0 0% 28%',
+    borderSubtle: '0 0% 24%',
+    borderDefault: '0 0% 28%',
+  },
+  '4': {
+    // surface4 is 20% L — highest elevation
+    inputBg: '0 0% 24%',
+    inputBorder: '0 0% 30%',
+    inputBorderHover: '0 0% 36%',
+    inputBorderFocus: '0 0% 36%',
+    inputBorderError: '0 62.8% 50%',
+    inputBgDisabled: '0 0% 18%',
+    inputPlaceholder: '0 0% 48%',
+    tabBg: '0 0% 26%',
+    tabBgHover: '0 0% 30%',
+    tabOutline: '0 0% 32%',
+    borderSubtle: '0 0% 28%',
+    borderDefault: '0 0% 32%',
+  },
+};
+
+// ---------------------------------------------------------------------------
 // Per-preset overrides (only tokens that differ from the base)
 // ---------------------------------------------------------------------------
 
@@ -93,7 +181,12 @@ type PartialColors = Partial<ThemeColors> & {
   ring?: string;
 };
 
-export const PRESET_OVERRIDES: Record<ThemePresetId, { light?: PartialColors; dark?: PartialColors }> = {
+export const PRESET_OVERRIDES: Record<ThemePresetId, {
+  light?: PartialColors;
+  dark?: PartialColors;
+  surfaceScopesLight?: SurfaceScopes;
+  surfaceScopesDark?: SurfaceScopes;
+}> = {
   default: {},
 
   ocean: {
@@ -229,6 +322,51 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, { light?: PartialColors; da
       panelBackground: '240 6% 4.5%',
       mainPanelBackground: '240 6% 6.3%',
     },
+    surfaceScopesDark: {
+      // black preset: surface2=9%, surface3=8%, surface4=12%
+      '2': {
+        inputBg: '0 0% 13%',
+        inputBorder: '0 0% 18%',
+        inputBorderHover: '0 0% 24%',
+        inputBorderFocus: '0 0% 24%',
+        inputBorderError: '0 62.8% 50%',
+        inputBgDisabled: '0 0% 7%',
+        inputPlaceholder: '0 0% 42%',
+        tabBg: '0 0% 14%',
+        tabBgHover: '0 0% 18%',
+        tabOutline: '0 0% 22%',
+        borderSubtle: '0 0% 16%',
+        borderDefault: '0 0% 20%',
+      },
+      '3': {
+        inputBg: '0 0% 12%',
+        inputBorder: '0 0% 16%',
+        inputBorderHover: '0 0% 22%',
+        inputBorderFocus: '0 0% 22%',
+        inputBorderError: '0 62.8% 50%',
+        inputBgDisabled: '0 0% 6%',
+        inputPlaceholder: '0 0% 42%',
+        tabBg: '0 0% 13%',
+        tabBgHover: '0 0% 17%',
+        tabOutline: '0 0% 20%',
+        borderSubtle: '0 0% 15%',
+        borderDefault: '0 0% 18%',
+      },
+      '4': {
+        inputBg: '0 0% 16%',
+        inputBorder: '0 0% 22%',
+        inputBorderHover: '0 0% 28%',
+        inputBorderFocus: '0 0% 28%',
+        inputBorderError: '0 62.8% 50%',
+        inputBgDisabled: '0 0% 10%',
+        inputPlaceholder: '0 0% 42%',
+        tabBg: '0 0% 18%',
+        tabBgHover: '0 0% 22%',
+        tabOutline: '0 0% 26%',
+        borderSubtle: '0 0% 20%',
+        borderDefault: '0 0% 24%',
+      },
+    },
   },
 
   white: {
@@ -259,6 +397,52 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, { light?: PartialColors; da
       background: '0 0% 95%',
       panelBackground: '0 0% 100%',
       mainPanelBackground: '0 0% 100%',
+    },
+    surfaceScopesLight: {
+      // white preset: surface1=100%, surface3=100%, surface4=100%
+      // On white surfaces, controls need visible contrast
+      '1': {
+        inputBg: '0 0% 96%',
+        inputBorder: '0 0% 85%',
+        inputBorderHover: '0 0% 78%',
+        inputBorderFocus: '0 0% 78%',
+        inputBorderError: '0 84% 60%',
+        inputBgDisabled: '0 0% 93%',
+        inputPlaceholder: '0 0% 56%',
+        tabBg: '0 0% 94%',
+        tabBgHover: '0 0% 91%',
+        tabOutline: '0 0% 80%',
+        borderSubtle: '0 0% 86%',
+        borderDefault: '0 0% 78%',
+      },
+      '3': {
+        inputBg: '0 0% 96%',
+        inputBorder: '0 0% 85%',
+        inputBorderHover: '0 0% 78%',
+        inputBorderFocus: '0 0% 78%',
+        inputBorderError: '0 84% 60%',
+        inputBgDisabled: '0 0% 93%',
+        inputPlaceholder: '0 0% 56%',
+        tabBg: '0 0% 94%',
+        tabBgHover: '0 0% 91%',
+        tabOutline: '0 0% 80%',
+        borderSubtle: '0 0% 86%',
+        borderDefault: '0 0% 78%',
+      },
+      '4': {
+        inputBg: '0 0% 96%',
+        inputBorder: '0 0% 85%',
+        inputBorderHover: '0 0% 78%',
+        inputBorderFocus: '0 0% 78%',
+        inputBorderError: '0 84% 60%',
+        inputBgDisabled: '0 0% 93%',
+        inputPlaceholder: '0 0% 56%',
+        tabBg: '0 0% 94%',
+        tabBgHover: '0 0% 91%',
+        tabOutline: '0 0% 80%',
+        borderSubtle: '0 0% 86%',
+        borderDefault: '0 0% 78%',
+      },
     },
   },
 };

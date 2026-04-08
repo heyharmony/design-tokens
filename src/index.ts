@@ -8,13 +8,15 @@
  * For React Native (hsl() strings), import from '@heyharmony/design-tokens/react-native'.
  */
 
-export { resolveTheme, resolveThemeExtended, isPresetAllowedForMode } from './resolve.js';
+export { resolveTheme, resolveThemeExtended, resolveSurfaceScopes, isPresetAllowedForMode } from './resolve.js';
 export {
   BASE_LIGHT,
   BASE_DARK,
   PRESET_OVERRIDES,
   THEME_PRESETS,
   THEME_PRESET_IDS,
+  SURFACE_SCOPES_LIGHT,
+  SURFACE_SCOPES_DARK,
 } from './tokens.js';
 export type {
   ThemeColors,
@@ -23,4 +25,7 @@ export type {
   ThemePreset,
   ThemePresetColors,
   PresetPreview,
+  SurfaceLevel,
+  SurfaceContextualToken,
+  SurfaceScopes,
 } from './types.js';
