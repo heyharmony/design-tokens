@@ -32,7 +32,9 @@ describe('resolveTheme', () => {
     expect(colors.sidebarAccent).toBe('210 100% 50%');
     // Non-overridden tokens should fall back to base
     expect(colors.fg).toBe(BASE_LIGHT.fg);
-    expect(colors.inputBg).toBe(BASE_LIGHT.inputBg);
+    // Themed tokens carry the ocean hue
+    expect(colors.inputBg).toBe('210 10% 100%');
+    expect(colors.borderSubtle).toBe('210 10% 87%');
   });
 
   it('applies ocean dark overrides correctly', () => {
@@ -89,8 +91,27 @@ describe('resolveSurfaceScopes', () => {
   });
 
   it('returns base scopes for presets without surface scope overrides', () => {
-    expect(resolveSurfaceScopes('ocean', 'light')).toEqual(SURFACE_SCOPES_LIGHT);
-    expect(resolveSurfaceScopes('ocean', 'dark')).toEqual(SURFACE_SCOPES_DARK);
+    expect(resolveSurfaceScopes('doodles', 'light')).toEqual(SURFACE_SCOPES_LIGHT);
+    expect(resolveSurfaceScopes('doodles', 'dark')).toEqual(SURFACE_SCOPES_DARK);
+  });
+
+  it('returns hue-tinted surface scopes for themed presets', () => {
+    for (const preset of ['ocean', 'forest', 'berry'] as ThemePresetId[]) {
+      const lightScopes = resolveSurfaceScopes(preset, 'light');
+      const darkScopes = resolveSurfaceScopes(preset, 'dark');
+      // Themed presets should have surface scopes for both modes
+      expect(lightScopes['3'], `${preset} light surface 3`).toBeDefined();
+      expect(lightScopes['4'], `${preset} light surface 4`).toBeDefined();
+      expect(darkScopes['2'], `${preset} dark surface 2`).toBeDefined();
+      expect(darkScopes['3'], `${preset} dark surface 3`).toBeDefined();
+      expect(darkScopes['4'], `${preset} dark surface 4`).toBeDefined();
+      // Themed scopes should differ from base neutral scopes
+      expect(lightScopes['3']!.inputBg).not.toBe(SURFACE_SCOPES_LIGHT['3']!.inputBg);
+      expect(darkScopes['2']!.inputBg).not.toBe(SURFACE_SCOPES_DARK['2']!.inputBg);
+      // Error borders should stay red
+      expect(lightScopes['3']!.inputBorderError).toBe('0 84% 60%');
+      expect(darkScopes['2']!.inputBorderError).toBe('0 62.8% 50%');
+    }
   });
 
   it('merges black preset surface scopes over base dark scopes', () => {
