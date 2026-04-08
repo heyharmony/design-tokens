@@ -1,6 +1,6 @@
 {
   "name": "@heyharmony/design-tokens",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
   "type": "module",
   "main": "./dist/js/index.cjs",
@@ -49,6 +49,10 @@
     "css-variables",
     "react-native"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heyharmony/design-tokens"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
