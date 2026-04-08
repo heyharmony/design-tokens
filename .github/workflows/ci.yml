@@ -54,6 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      packages: write
       id-token: write
     steps:
       - uses: actions/checkout@v4
@@ -62,7 +63,7 @@ jobs:
           node-version: 20
           cache: npm
           registry-url: https://npm.pkg.github.com
-          scope: "@harmony"
+          scope: "@heyharmony"
       - run: npm ci
       - run: npm run build
       - run: npm publish --provenance
