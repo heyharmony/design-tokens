@@ -37,6 +37,15 @@
       }
     },
     {
+      "id": "sand",
+      "name": "Sand",
+      "description": "Warm neutral warmth",
+      "preview": {
+        "light": { "bg": "#F5EDDF", "accent": "#B37A3A", "text": "#4D3519" },
+        "dark": { "bg": "#120E08", "accent": "#A36B2D", "text": "#E8D5B8" }
+      }
+    },
+    {
       "id": "doodles",
       "name": "Doodles",
       "description": "Playful sketched background",
