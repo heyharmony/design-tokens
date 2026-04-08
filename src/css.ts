@@ -16,11 +16,15 @@ export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, ThemePresetCol
  */
 const TOKEN_TO_CSS: Record<keyof ThemeColors, string> = {
   surface0: '--harmony-surface-0',
+  surface0Hover: '--harmony-surface-0-hover',
   surface1: '--harmony-surface-1',
+  surface1Hover: '--harmony-surface-1-hover',
   surface2: '--harmony-surface-2',
   surface2Hover: '--harmony-surface-2-hover',
   surface3: '--harmony-surface-3',
+  surface3Hover: '--harmony-surface-3-hover',
   surface4: '--harmony-surface-4',
+  surface4Hover: '--harmony-surface-4-hover',
   fg: '--harmony-fg',
   fgSecondary: '--harmony-fg-secondary',
   fgTertiary: '--harmony-fg-tertiary',

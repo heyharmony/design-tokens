@@ -2,11 +2,15 @@
   "harmony": {
     "surface": {
       "0": { "$value": "0 0% 12%", "$type": "color" },
+      "0-hover": { "$value": "0 0% 15%", "$type": "color" },
       "1": { "$value": "0 0% 14.5%", "$type": "color" },
+      "1-hover": { "$value": "0 0% 18%", "$type": "color" },
       "2": { "$value": "0 0% 18%", "$type": "color" },
       "2-hover": { "$value": "0 0% 22%", "$type": "color" },
       "3": { "$value": "0 0% 16.5%", "$type": "color" },
-      "4": { "$value": "0 0% 20%", "$type": "color" }
+      "3-hover": { "$value": "0 0% 20%", "$type": "color" },
+      "4": { "$value": "0 0% 20%", "$type": "color" },
+      "4-hover": { "$value": "0 0% 24%", "$type": "color" }
     },
     "fg": {
       "default": { "$value": "0 0% 90%", "$type": "color" },

@@ -18,11 +18,15 @@ export type ThemeMode = 'light' | 'dark' | 'system';
 export interface ThemeColors {
   // Surfaces
   surface0: string;
+  surface0Hover: string;
   surface1: string;
+  surface1Hover: string;
   surface2: string;
   surface2Hover: string;
   surface3: string;
+  surface3Hover: string;
   surface4: string;
+  surface4Hover: string;
   // Foreground
   fg: string;
   fgSecondary: string;

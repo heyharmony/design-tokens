@@ -6,7 +6,7 @@ import type { ThemeColors, ThemePresetId } from './types.js';
 const ALL_KEYS = Object.keys(BASE_LIGHT) as (keyof ThemeColors)[];
 
 describe('resolveTheme', () => {
-  it('returns all 34 token keys for every preset/mode combination', () => {
+  it('returns all 38 token keys for every preset/mode combination', () => {
     for (const preset of THEME_PRESET_IDS) {
       for (const mode of ['light', 'dark'] as const) {
         const colors = resolveTheme(preset, mode);

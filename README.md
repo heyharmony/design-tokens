@@ -4,7 +4,7 @@ Unified design token system for Harmony apps — web, desktop (Electron), and mo
 
 ## Features
 
-- **44 semantic design tokens** covering surfaces, foreground, borders, accent, tabs, and inputs
+- **48 semantic design tokens** covering surfaces, foreground, borders, accent, tabs, and inputs
 - **7 theme presets**: Default, Ocean, Forest, Berry, Doodles, Black (OLED), White
 - **Light/dark/system modes** with preset-mode restrictions
 - **W3C DTCG format** token source files for Figma/Tokens Studio compatibility
@@ -58,7 +58,7 @@ const colors = resolveTheme('forest', 'light');
 
 | Category | Tokens | Example |
 |----------|--------|---------|
-| Surfaces | `surface0`–`surface4`, `surface2Hover` | Background layers by elevation |
+| Surfaces | `surface0`–`surface4`, `surface0Hover`–`surface4Hover` | Background layers by elevation |
 | Foreground | `fg`, `fgSecondary`, `fgTertiary`, `fgDisabled`, `fgInverse`, `fgLink`, `fgSuccess`, `fgWarning`, `fgError` | Text and icon colors |
 | Borders | `borderSubtle`, `borderDefault` | Dividers and borders |
 | Accent | `accent`, `accentForeground`, `accentHover` | Primary interactive color |

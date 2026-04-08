@@ -12,11 +12,15 @@ import type { ThemeColors, ThemePresetId, ThemePreset, SurfaceScopes } from './t
 
 export const BASE_LIGHT: ThemeColors = {
   surface0: '40 10% 94.1%',
+  surface0Hover: '40 10% 91%',
   surface1: '40 10% 94.1%',
+  surface1Hover: '40 10% 91%',
   surface2: '0 0% 91%',
   surface2Hover: '0 0% 93%',
   surface3: '0 0% 100%',
+  surface3Hover: '0 0% 97%',
   surface4: '0 0% 100%',
+  surface4Hover: '0 0% 97%',
   fg: '0 0% 3.9%',
   fgSecondary: '0 0% 45.1%',
   fgTertiary: '0 0% 56%',
@@ -48,11 +52,15 @@ export const BASE_LIGHT: ThemeColors = {
 
 export const BASE_DARK: ThemeColors = {
   surface0: '0 0% 12%',
+  surface0Hover: '0 0% 15%',
   surface1: '0 0% 14.5%',
+  surface1Hover: '0 0% 18%',
   surface2: '0 0% 18%',
   surface2Hover: '0 0% 22%',
   surface3: '0 0% 16.5%',
+  surface3Hover: '0 0% 20%',
   surface4: '0 0% 20%',
+  surface4Hover: '0 0% 24%',
   fg: '0 0% 90%',
   fgSecondary: '0 0% 63.9%',
   fgTertiary: '0 0% 48%',
@@ -192,7 +200,9 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
   ocean: {
     light: {
       surface0: '210 100% 97%',
+      surface0Hover: '210 100% 94%',
       surface1: '210 50% 99%',
+      surface1Hover: '210 50% 96%',
       accent: '210 100% 94%',
       accentForeground: '210 100% 25%',
       accentHover: '210 100% 88%',
@@ -217,7 +227,9 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     },
     dark: {
       surface0: '210 60% 5%',
+      surface0Hover: '210 60% 8%',
       surface1: '210 50% 8%',
+      surface1Hover: '210 50% 11%',
       accent: '210 80% 12%',
       accentForeground: '210 100% 90%',
       accentHover: '210 80% 18%',
@@ -319,7 +331,9 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
   forest: {
     light: {
       surface0: '142 76% 97%',
+      surface0Hover: '142 76% 94%',
       surface1: '142 40% 99%',
+      surface1Hover: '142 40% 96%',
       accent: '142 50% 92%',
       accentForeground: '142 70% 20%',
       accentHover: '142 50% 85%',
@@ -344,7 +358,9 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     },
     dark: {
       surface0: '142 50% 4%',
+      surface0Hover: '142 50% 7%',
       surface1: '142 40% 7%',
+      surface1Hover: '142 40% 10%',
       accent: '142 40% 10%',
       accentForeground: '142 60% 85%',
       accentHover: '142 40% 16%',
@@ -446,7 +462,9 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
   berry: {
     light: {
       surface0: '280 100% 98%',
+      surface0Hover: '280 100% 95%',
       surface1: '280 50% 99%',
+      surface1Hover: '280 50% 96%',
       accent: '280 80% 94%',
       accentForeground: '280 80% 30%',
       accentHover: '280 80% 88%',
@@ -471,7 +489,9 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     },
     dark: {
       surface0: '270 60% 5%',
+      surface0Hover: '270 60% 8%',
       surface1: '270 50% 8%',
+      surface1Hover: '270 50% 11%',
       accent: '280 50% 12%',
       accentForeground: '280 70% 90%',
       accentHover: '280 50% 18%',
@@ -573,18 +593,24 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
   doodles: {
     dark: {
       surface0: '0 0% 10%',
+      surface0Hover: '0 0% 13%',
       surface1: '0 0% 10%',
+      surface1Hover: '0 0% 13%',
     },
   },
 
   black: {
     dark: {
       surface0: '0 0% 2.7%',
+      surface0Hover: '0 0% 5%',
       surface1: '240 6% 6.3%',
+      surface1Hover: '240 6% 9%',
       surface2: '0 0% 9%',
       surface2Hover: '0 0% 13%',
       surface3: '240 4% 8%',
+      surface3Hover: '240 4% 11%',
       surface4: '0 0% 12%',
+      surface4Hover: '0 0% 15%',
       fg: '0 0% 85%',
       fgSecondary: '0 0% 55%',
       fgTertiary: '0 0% 42%',
@@ -660,11 +686,15 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
   white: {
     light: {
       surface0: '0 0% 95%',
+      surface0Hover: '0 0% 92%',
       surface1: '0 0% 100%',
+      surface1Hover: '0 0% 97%',
       surface2: '0 0% 96.1%',
       surface2Hover: '0 0% 96%',
       surface3: '0 0% 100%',
+      surface3Hover: '0 0% 97%',
       surface4: '0 0% 100%',
+      surface4Hover: '0 0% 97%',
       borderSubtle: '0 0% 88%',
       borderDefault: '0 0% 80%',
       accent: '0 0% 96.1%',
