@@ -1,5 +1,5 @@
 {
-  "name": "@heyharmony/design-tokens",
+  "name": "@harmony/design-tokens",
   "version": "1.0.0",
   "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
   "type": "module",
@@ -48,7 +48,6 @@
     "react-native"
   ],
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
     "access": "public"
   },
   "license": "MIT",
