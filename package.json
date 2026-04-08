@@ -1,5 +1,5 @@
 {
-  "name": "@harmony/design-tokens",
+  "name": "@heyharmony/design-tokens",
   "version": "1.0.0",
   "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
   "type": "module",

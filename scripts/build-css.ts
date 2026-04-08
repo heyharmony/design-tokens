@@ -96,10 +96,10 @@ function overridesToVars(overrides: Record<string, string>): Record<string, stri
 // Generate base CSS files
 // ---------------------------------------------------------------------------
 
-const lightCss = `/* @harmony/design-tokens — light mode base tokens */\n:root {\n${formatVars(baseToVars(BASE_LIGHT))}\n}\n`;
+const lightCss = `/* @heyharmony/design-tokens — light mode base tokens */\n:root {\n${formatVars(baseToVars(BASE_LIGHT))}\n}\n`;
 writeFileSync(join(DIST, 'variables-light.css'), lightCss);
 
-const darkCss = `/* @harmony/design-tokens — dark mode base tokens */\n.dark {\n${formatVars(baseToVars(BASE_DARK))}\n}\n`;
+const darkCss = `/* @heyharmony/design-tokens — dark mode base tokens */\n.dark {\n${formatVars(baseToVars(BASE_DARK))}\n}\n`;
 writeFileSync(join(DIST, 'variables-dark.css'), darkCss);
 
 // ---------------------------------------------------------------------------
@@ -112,14 +112,14 @@ for (const id of THEME_PRESET_IDS) {
   if (preset.light && Object.keys(preset.light).length > 0) {
     const vars = overridesToVars(preset.light as Record<string, string>);
     const selector = `[data-theme-preset='${id}']`;
-    const css = `/* @harmony/design-tokens — ${id} preset, light mode */\n${selector} {\n${formatVars(vars)}\n}\n`;
+    const css = `/* @heyharmony/design-tokens — ${id} preset, light mode */\n${selector} {\n${formatVars(vars)}\n}\n`;
     writeFileSync(join(PRESETS_DIR, `${id}-light.css`), css);
   }
 
   if (preset.dark && Object.keys(preset.dark).length > 0) {
     const vars = overridesToVars(preset.dark as Record<string, string>);
     const selector = `.dark[data-theme-preset='${id}']`;
-    const css = `/* @harmony/design-tokens — ${id} preset, dark mode */\n${selector} {\n${formatVars(vars)}\n}\n`;
+    const css = `/* @heyharmony/design-tokens — ${id} preset, dark mode */\n${selector} {\n${formatVars(vars)}\n}\n`;
     writeFileSync(join(PRESETS_DIR, `${id}-dark.css`), css);
   }
 }

@@ -62,6 +62,7 @@ jobs:
           node-version: 20
           cache: npm
           registry-url: https://registry.npmjs.org
+          scope: "@heyharmony"
       - run: npm ci
       - run: npm run build
       - run: npm publish --provenance

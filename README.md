@@ -1,4 +1,4 @@
-# @harmony/design-tokens
+# @heyharmony/design-tokens
 
 Unified design token system for Harmony apps — web, desktop (Electron), and mobile (React Native).
 
@@ -13,7 +13,7 @@ Unified design token system for Harmony apps — web, desktop (Electron), and mo
 ## Installation
 
 ```bash
-npm install @harmony/design-tokens
+npm install @heyharmony/design-tokens
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install @harmony/design-tokens
 ### Web / Desktop (CSS variables)
 
 ```typescript
-import { applyThemePreset, THEME_PRESETS, isPresetAllowedForMode } from '@harmony/design-tokens/css-apply';
+import { applyThemePreset, THEME_PRESETS, isPresetAllowedForMode } from '@heyharmony/design-tokens/css-apply';
 
 // Apply preset colors as CSS custom properties
 applyThemePreset('ocean', true /* isDark */);
@@ -30,15 +30,15 @@ applyThemePreset('ocean', true /* isDark */);
 Import base CSS variables:
 
 ```css
-@import '@harmony/design-tokens/css/light';
-@import '@harmony/design-tokens/css/dark';
+@import '@heyharmony/design-tokens/css/light';
+@import '@heyharmony/design-tokens/css/dark';
 ```
 
 ### React Native
 
 ```typescript
-import { resolveTheme, isPresetAllowedForMode } from '@harmony/design-tokens/react-native';
-import type { ThemeColors } from '@harmony/design-tokens/react-native';
+import { resolveTheme, isPresetAllowedForMode } from '@heyharmony/design-tokens/react-native';
+import type { ThemeColors } from '@heyharmony/design-tokens/react-native';
 
 const colors: ThemeColors = resolveTheme('ocean', 'dark');
 // colors.surface0 === 'hsl(210, 60%, 5%)'
@@ -47,7 +47,7 @@ const colors: ThemeColors = resolveTheme('ocean', 'dark');
 ### Core (platform-agnostic)
 
 ```typescript
-import { resolveTheme, BASE_LIGHT, BASE_DARK, THEME_PRESET_IDS } from '@harmony/design-tokens';
+import { resolveTheme, BASE_LIGHT, BASE_DARK, THEME_PRESET_IDS } from '@heyharmony/design-tokens';
 
 // Returns raw HSL triplets ("H S% L%")
 const colors = resolveTheme('forest', 'light');
