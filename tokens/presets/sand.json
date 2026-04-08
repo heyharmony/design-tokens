@@ -2,7 +2,7 @@
   "$description": "Sand preset — Warm neutral warmth",
   "light": {
     "surface": {
-      "0": { "$value": "35 40% 95%", "$type": "color" },
+      "0": { "$value": "40 15% 92%", "$type": "color" },
       "0-hover": { "$value": "35 40% 91%", "$type": "color" },
       "1": { "$value": "35 30% 98%", "$type": "color" },
       "1-hover": { "$value": "35 30% 95%", "$type": "color" }
@@ -34,7 +34,7 @@
       "bg-hover": { "$value": "35 12% 84%", "$type": "color" },
       "outline": { "$value": "35 10% 76%", "$type": "color" }
     },
-    "background": { "$value": "35 40% 95%", "$type": "color" },
+    "background": { "$value": "40 15% 92%", "$type": "color" },
     "panel-background": { "$value": "35 30% 98%", "$type": "color" },
     "main-panel-background": { "$value": "35 30% 98%", "$type": "color" },
     "ring": { "$value": "30 55% 45%", "$type": "color" }
