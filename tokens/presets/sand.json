@@ -5,7 +5,13 @@
       "0": { "$value": "40 15% 92%", "$type": "color" },
       "0-hover": { "$value": "35 40% 91%", "$type": "color" },
       "1": { "$value": "35 30% 98%", "$type": "color" },
-      "1-hover": { "$value": "35 30% 95%", "$type": "color" }
+      "1-hover": { "$value": "35 30% 95%", "$type": "color" },
+      "2": { "$value": "35 12% 91%", "$type": "color" },
+      "2-hover": { "$value": "35 12% 93%", "$type": "color" },
+      "3": { "$value": "35 15% 100%", "$type": "color" },
+      "3-hover": { "$value": "35 15% 97%", "$type": "color" },
+      "4": { "$value": "35 15% 100%", "$type": "color" },
+      "4-hover": { "$value": "35 15% 97%", "$type": "color" }
     },
     "accent": {
       "default": { "$value": "35 50% 92%", "$type": "color" },
@@ -44,7 +50,13 @@
       "0": { "$value": "30 40% 6%", "$type": "color" },
       "0-hover": { "$value": "30 40% 9%", "$type": "color" },
       "1": { "$value": "30 30% 9%", "$type": "color" },
-      "1-hover": { "$value": "30 30% 12%", "$type": "color" }
+      "1-hover": { "$value": "30 30% 12%", "$type": "color" },
+      "2": { "$value": "30 14% 18%", "$type": "color" },
+      "2-hover": { "$value": "30 14% 22%", "$type": "color" },
+      "3": { "$value": "30 14% 16.5%", "$type": "color" },
+      "3-hover": { "$value": "30 14% 20%", "$type": "color" },
+      "4": { "$value": "30 14% 20%", "$type": "color" },
+      "4-hover": { "$value": "30 14% 24%", "$type": "color" }
     },
     "accent": {
       "default": { "$value": "30 50% 14%", "$type": "color" },
