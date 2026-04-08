@@ -1,8 +1,11 @@
 {
+  "$description": "Doodles preset — Playful sketched background",
   "dark": {
     "surface": {
-      "0": "0 0% 10%",
-      "1": "0 0% 10%"
+      "0": { "$value": "0 0% 10%", "$type": "color" },
+      "0-hover": { "$value": "0 0% 13%", "$type": "color" },
+      "1": { "$value": "0 0% 10%", "$type": "color" },
+      "1-hover": { "$value": "0 0% 13%", "$type": "color" }
     }
   }
 }

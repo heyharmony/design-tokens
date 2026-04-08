@@ -1,0 +1,17 @@
+{
+  "$description": "CSS variable name overrides. Tokens not listed here use the --harmony-{path} convention.",
+  "overrides": {
+    "accent": "--accent",
+    "accentForeground": "--accent-foreground",
+    "accentHover": "--accent-hover",
+    "sidebarAccent": "--sidebar-accent",
+    "sidebarAccentForeground": "--sidebar-accent-foreground",
+    "sidebarHover": "--sidebar-hover"
+  },
+  "extended": {
+    "background": "--background",
+    "panelBackground": "--panel-bg",
+    "mainPanelBackground": "--main-panel-bg",
+    "ring": "--ring"
+  }
+}

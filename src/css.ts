@@ -5,62 +5,11 @@
 
 import type { ThemeColors, ThemePresetId, ThemePresetColors, SurfaceLevel, SurfaceContextualToken } from './types.js';
 import { resolveThemeExtended, resolveSurfaceScopes } from './resolve.js';
+import { TOKEN_TO_CSS, EXTENDED_CSS } from './tokens.js';
 
 export { resolveTheme, resolveThemeExtended, resolveSurfaceScopes, isPresetAllowedForMode } from './resolve.js';
 export { THEME_PRESETS, THEME_PRESET_IDS, BASE_LIGHT, BASE_DARK } from './tokens.js';
 export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, ThemePresetColors, PresetPreview, SurfaceLevel, SurfaceContextualToken, SurfaceScopes } from './types.js';
-
-/**
- * Maps ThemeColors keys to CSS custom property names.
- * Accent/sidebar tokens omit the harmony- prefix for Shadcn/UI compatibility.
- */
-const TOKEN_TO_CSS: Record<keyof ThemeColors, string> = {
-  surface0: '--harmony-surface-0',
-  surface0Hover: '--harmony-surface-0-hover',
-  surface1: '--harmony-surface-1',
-  surface1Hover: '--harmony-surface-1-hover',
-  surface2: '--harmony-surface-2',
-  surface2Hover: '--harmony-surface-2-hover',
-  surface3: '--harmony-surface-3',
-  surface3Hover: '--harmony-surface-3-hover',
-  surface4: '--harmony-surface-4',
-  surface4Hover: '--harmony-surface-4-hover',
-  fg: '--harmony-fg',
-  fgSecondary: '--harmony-fg-secondary',
-  fgTertiary: '--harmony-fg-tertiary',
-  fgDisabled: '--harmony-fg-disabled',
-  fgInverse: '--harmony-fg-inverse',
-  fgLink: '--harmony-fg-link',
-  fgSuccess: '--harmony-fg-success',
-  fgWarning: '--harmony-fg-warning',
-  fgError: '--harmony-fg-error',
-  borderSubtle: '--harmony-border-subtle',
-  borderDefault: '--harmony-border-default',
-  accent: '--accent',
-  accentForeground: '--accent-foreground',
-  accentHover: '--accent-hover',
-  sidebarAccent: '--sidebar-accent',
-  sidebarAccentForeground: '--sidebar-accent-foreground',
-  sidebarHover: '--sidebar-hover',
-  tabBg: '--harmony-tab-bg',
-  tabBgHover: '--harmony-tab-bg-hover',
-  tabOutline: '--harmony-tab-outline',
-  inputBg: '--harmony-input-bg',
-  inputBorder: '--harmony-input-border',
-  inputBorderHover: '--harmony-input-border-hover',
-  inputBorderFocus: '--harmony-input-border-focus',
-  inputBorderError: '--harmony-input-border-error',
-  inputBgDisabled: '--harmony-input-bg-disabled',
-  inputPlaceholder: '--harmony-input-placeholder',
-};
-
-/** Extended token CSS variable names */
-const EXTENDED_CSS: Record<string, string> = {
-  background: '--background',
-  panelBackground: '--panel-bg',
-  mainPanelBackground: '--main-panel-bg',
-  ring: '--ring',
-};
 
 /** All CSS variables managed by this function (for cleanup on preset switch) */
 const ALL_MANAGED_VARS = [

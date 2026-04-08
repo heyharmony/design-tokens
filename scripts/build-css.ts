@@ -8,64 +8,13 @@
 
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK } from '../src/tokens.js';
+import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK, TOKEN_TO_CSS, EXTENDED_CSS } from '../src/tokens.js';
 import type { ThemeColors, ThemePresetId, SurfaceScopes, SurfaceLevel } from '../src/types.js';
 
 const DIST = join(import.meta.dirname, '..', 'dist', 'css');
 const PRESETS_DIR = join(DIST, 'presets');
 
 mkdirSync(PRESETS_DIR, { recursive: true });
-
-// ---------------------------------------------------------------------------
-// Token key → CSS variable name mapping
-// ---------------------------------------------------------------------------
-
-const TOKEN_TO_CSS: Record<keyof ThemeColors, string> = {
-  surface0: '--harmony-surface-0',
-  surface0Hover: '--harmony-surface-0-hover',
-  surface1: '--harmony-surface-1',
-  surface1Hover: '--harmony-surface-1-hover',
-  surface2: '--harmony-surface-2',
-  surface2Hover: '--harmony-surface-2-hover',
-  surface3: '--harmony-surface-3',
-  surface3Hover: '--harmony-surface-3-hover',
-  surface4: '--harmony-surface-4',
-  surface4Hover: '--harmony-surface-4-hover',
-  fg: '--harmony-fg',
-  fgSecondary: '--harmony-fg-secondary',
-  fgTertiary: '--harmony-fg-tertiary',
-  fgDisabled: '--harmony-fg-disabled',
-  fgInverse: '--harmony-fg-inverse',
-  fgLink: '--harmony-fg-link',
-  fgSuccess: '--harmony-fg-success',
-  fgWarning: '--harmony-fg-warning',
-  fgError: '--harmony-fg-error',
-  borderSubtle: '--harmony-border-subtle',
-  borderDefault: '--harmony-border-default',
-  accent: '--accent',
-  accentForeground: '--accent-foreground',
-  accentHover: '--accent-hover',
-  sidebarAccent: '--sidebar-accent',
-  sidebarAccentForeground: '--sidebar-accent-foreground',
-  sidebarHover: '--sidebar-hover',
-  tabBg: '--harmony-tab-bg',
-  tabBgHover: '--harmony-tab-bg-hover',
-  tabOutline: '--harmony-tab-outline',
-  inputBg: '--harmony-input-bg',
-  inputBorder: '--harmony-input-border',
-  inputBorderHover: '--harmony-input-border-hover',
-  inputBorderFocus: '--harmony-input-border-focus',
-  inputBorderError: '--harmony-input-border-error',
-  inputBgDisabled: '--harmony-input-bg-disabled',
-  inputPlaceholder: '--harmony-input-placeholder',
-};
-
-const EXTENDED_CSS: Record<string, string> = {
-  background: '--background',
-  panelBackground: '--panel-bg',
-  mainPanelBackground: '--main-panel-bg',
-  ring: '--ring',
-};
 
 // ---------------------------------------------------------------------------
 // Helpers

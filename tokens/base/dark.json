@@ -50,6 +50,10 @@
       "border-error": { "$value": "0 62.8% 50%", "$type": "color" },
       "bg-disabled": { "$value": "0 0% 13%", "$type": "color" },
       "placeholder": { "$value": "0 0% 48%", "$type": "color" }
-    }
+    },
+    "background": { "$value": "0 0% 12%", "$type": "color" },
+    "panel-background": { "$value": "0 0% 14.5%", "$type": "color" },
+    "main-panel-background": { "$value": "0 0% 14.5%", "$type": "color" },
+    "ring": { "$value": "0 0% 90%", "$type": "color" }
   }
 }

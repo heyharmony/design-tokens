@@ -1,13 +1,23 @@
+// @generated — do not edit manually. Run `npm run generate` to regenerate.
+
 export type ThemePresetId = 'default' | 'ocean' | 'forest' | 'berry' | 'doodles' | 'black' | 'white';
 
 // Surface scoping
 export type SurfaceLevel = '0' | '1' | '2' | '3' | '4';
 
 export type SurfaceContextualToken =
-  | 'inputBg' | 'inputBorder' | 'inputBorderHover' | 'inputBorderFocus'
-  | 'inputBorderError' | 'inputBgDisabled' | 'inputPlaceholder'
-  | 'tabBg' | 'tabBgHover' | 'tabOutline'
-  | 'borderSubtle' | 'borderDefault';
+  | 'borderDefault'
+  | 'borderSubtle'
+  | 'inputBg'
+  | 'inputBgDisabled'
+  | 'inputBorder'
+  | 'inputBorderError'
+  | 'inputBorderFocus'
+  | 'inputBorderHover'
+  | 'inputPlaceholder'
+  | 'tabBg'
+  | 'tabBgHover'
+  | 'tabOutline';
 
 export type SurfaceScopes = Partial<
   Record<SurfaceLevel, Partial<Pick<ThemeColors, SurfaceContextualToken>>>

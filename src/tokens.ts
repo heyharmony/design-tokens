@@ -1,8 +1,4 @@
-/**
- * AGENT-NOTE: This file contains all token values as raw HSL triplets ("H S% L%").
- * It is the single source of truth, transcribed from the W3C DTCG JSON files.
- * Values match mobile/constants/themes.ts BASE_LIGHT/BASE_DARK/PRESET_OVERRIDES.
- */
+// @generated — do not edit manually. Run `npm run generate` to regenerate.
 
 import type { ThemeColors, ThemePresetId, ThemePreset, SurfaceScopes } from './types.js';
 
@@ -93,12 +89,8 @@ export const BASE_DARK: ThemeColors = {
 // ---------------------------------------------------------------------------
 // Surface-contextual scopes
 // ---------------------------------------------------------------------------
-// Only surfaces where flat defaults produce poor contrast need overrides.
-// Light: surface3/4 are 100% L — same as inputBg, so controls are invisible.
-// Dark: surface2/3/4 are 18-20% L — inputBg at 15% sits below them.
 
 export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
-  // surfaces 0, 1, 2: flat defaults work fine
   '3': {
     inputBg: '0 0% 96%',
     inputBorder: '0 0% 82%',
@@ -130,9 +122,7 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
 };
 
 export const SURFACE_SCOPES_DARK: SurfaceScopes = {
-  // surface 0, 1: flat defaults work fine
   '2': {
-    // surface2 is 18% L — lift controls above it
     inputBg: '0 0% 22%',
     inputBorder: '0 0% 28%',
     inputBorderHover: '0 0% 34%',
@@ -147,7 +137,6 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     borderDefault: '0 0% 30%',
   },
   '3': {
-    // surface3 is 16.5% L
     inputBg: '0 0% 20%',
     inputBorder: '0 0% 26%',
     inputBorderHover: '0 0% 32%',
@@ -162,7 +151,6 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     borderDefault: '0 0% 28%',
   },
   '4': {
-    // surface4 is 20% L — highest elevation
     inputBg: '0 0% 24%',
     inputBorder: '0 0% 30%',
     inputBorderHover: '0 0% 36%',
@@ -637,7 +625,6 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       mainPanelBackground: '240 6% 6.3%',
     },
     surfaceScopesDark: {
-      // black preset: surface2=9%, surface3=8%, surface4=12%
       '2': {
         inputBg: '0 0% 13%',
         inputBorder: '0 0% 18%',
@@ -717,8 +704,6 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       mainPanelBackground: '0 0% 100%',
     },
     surfaceScopesLight: {
-      // white preset: surface1=100%, surface3=100%, surface4=100%
-      // On white surfaces, controls need visible contrast
       '1': {
         inputBg: '0 0% 96%',
         inputBorder: '0 0% 85%',
@@ -763,10 +748,11 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       },
     },
   },
+
 };
 
 // ---------------------------------------------------------------------------
-// Preset metadata (inlined from tokens/meta/presets.json for bundler compat)
+// Preset metadata
 // ---------------------------------------------------------------------------
 
 export const THEME_PRESETS: Record<ThemePresetId, ThemePreset> = {
@@ -840,3 +826,54 @@ export const THEME_PRESETS: Record<ThemePresetId, ThemePreset> = {
 export const THEME_PRESET_IDS: ThemePresetId[] = [
   'default', 'ocean', 'forest', 'berry', 'doodles', 'black', 'white',
 ];
+
+// ---------------------------------------------------------------------------
+// CSS variable name mappings
+// ---------------------------------------------------------------------------
+
+export const TOKEN_TO_CSS: Record<keyof ThemeColors, string> = {
+  surface0: '--harmony-surface-0',
+  surface0Hover: '--harmony-surface-0-hover',
+  surface1: '--harmony-surface-1',
+  surface1Hover: '--harmony-surface-1-hover',
+  surface2: '--harmony-surface-2',
+  surface2Hover: '--harmony-surface-2-hover',
+  surface3: '--harmony-surface-3',
+  surface3Hover: '--harmony-surface-3-hover',
+  surface4: '--harmony-surface-4',
+  surface4Hover: '--harmony-surface-4-hover',
+  fg: '--harmony-fg',
+  fgSecondary: '--harmony-fg-secondary',
+  fgTertiary: '--harmony-fg-tertiary',
+  fgDisabled: '--harmony-fg-disabled',
+  fgInverse: '--harmony-fg-inverse',
+  fgLink: '--harmony-fg-link',
+  fgSuccess: '--harmony-fg-success',
+  fgWarning: '--harmony-fg-warning',
+  fgError: '--harmony-fg-error',
+  borderSubtle: '--harmony-border-subtle',
+  borderDefault: '--harmony-border-default',
+  accent: '--accent',
+  accentForeground: '--accent-foreground',
+  accentHover: '--accent-hover',
+  sidebarAccent: '--sidebar-accent',
+  sidebarAccentForeground: '--sidebar-accent-foreground',
+  sidebarHover: '--sidebar-hover',
+  tabBg: '--harmony-tab-bg',
+  tabBgHover: '--harmony-tab-bg-hover',
+  tabOutline: '--harmony-tab-outline',
+  inputBg: '--harmony-input-bg',
+  inputBorder: '--harmony-input-border',
+  inputBorderHover: '--harmony-input-border-hover',
+  inputBorderFocus: '--harmony-input-border-focus',
+  inputBorderError: '--harmony-input-border-error',
+  inputBgDisabled: '--harmony-input-bg-disabled',
+  inputPlaceholder: '--harmony-input-placeholder',
+};
+
+export const EXTENDED_CSS: Record<string, string> = {
+  background: '--background',
+  panelBackground: '--panel-bg',
+  mainPanelBackground: '--main-panel-bg',
+  ring: '--ring',
+};

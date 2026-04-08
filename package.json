@@ -33,6 +33,7 @@
   ],
   "scripts": {
     "generate": "tsx scripts/generate.ts",
+    "generate:check": "tsx scripts/generate.ts --check",
     "build:css": "tsx scripts/build-css.ts",
     "build:js": "tsup",
     "build": "npm run generate && npm run build:css && npm run build:js",

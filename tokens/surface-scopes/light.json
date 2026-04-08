@@ -1,0 +1,42 @@
+{
+  "3": {
+    "input": {
+      "bg": { "$value": "0 0% 96%", "$type": "color" },
+      "border": { "$value": "0 0% 82%", "$type": "color" },
+      "border-hover": { "$value": "0 0% 75%", "$type": "color" },
+      "border-focus": { "$value": "0 0% 75%", "$type": "color" },
+      "border-error": { "$value": "0 84% 60%", "$type": "color" },
+      "bg-disabled": { "$value": "0 0% 93%", "$type": "color" },
+      "placeholder": { "$value": "0 0% 56%", "$type": "color" }
+    },
+    "tab": {
+      "bg": { "$value": "0 0% 94%", "$type": "color" },
+      "bg-hover": { "$value": "0 0% 91%", "$type": "color" },
+      "outline": { "$value": "0 0% 78%", "$type": "color" }
+    },
+    "border": {
+      "subtle": { "$value": "0 0% 85%", "$type": "color" },
+      "default": { "$value": "0 0% 78%", "$type": "color" }
+    }
+  },
+  "4": {
+    "input": {
+      "bg": { "$value": "0 0% 96%", "$type": "color" },
+      "border": { "$value": "0 0% 82%", "$type": "color" },
+      "border-hover": { "$value": "0 0% 75%", "$type": "color" },
+      "border-focus": { "$value": "0 0% 75%", "$type": "color" },
+      "border-error": { "$value": "0 84% 60%", "$type": "color" },
+      "bg-disabled": { "$value": "0 0% 93%", "$type": "color" },
+      "placeholder": { "$value": "0 0% 56%", "$type": "color" }
+    },
+    "tab": {
+      "bg": { "$value": "0 0% 94%", "$type": "color" },
+      "bg-hover": { "$value": "0 0% 91%", "$type": "color" },
+      "outline": { "$value": "0 0% 78%", "$type": "color" }
+    },
+    "border": {
+      "subtle": { "$value": "0 0% 85%", "$type": "color" },
+      "default": { "$value": "0 0% 78%", "$type": "color" }
+    }
+  }
+}
