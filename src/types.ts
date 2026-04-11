@@ -1,6 +1,6 @@
 // @generated — do not edit manually. Run `npm run generate` to regenerate.
 
-export type ThemePresetId = 'default' | 'ocean' | 'forest' | 'berry' | 'sand' | 'doodles' | 'black' | 'white';
+export type ThemePresetId = 'default' | 'ocean' | 'forest' | 'berry' | 'sand' | 'ayu' | 'doodles' | 'black' | 'white';
 
 // Surface scoping
 export type SurfaceLevel = '0' | '1' | '2' | '3' | '4';

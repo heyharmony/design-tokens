@@ -46,6 +46,15 @@
       }
     },
     {
+      "id": "ayu",
+      "name": "Ayu",
+      "description": "Bright accent on deep navy",
+      "preview": {
+        "light": { "bg": "#FCFCFC", "accent": "#FF9940", "text": "#5C6166" },
+        "dark": { "bg": "#0B0E14", "accent": "#E6B450", "text": "#BFBDB6" }
+      }
+    },
+    {
       "id": "doodles",
       "name": "Doodles",
       "description": "Playful sketched background",
