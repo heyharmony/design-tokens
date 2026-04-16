@@ -1,6 +1,6 @@
 {
   "name": "@heyharmony/design-tokens",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
   "type": "module",
   "main": "./dist/js/index.cjs",
@@ -39,6 +39,7 @@
     "build": "npm run generate && npm run build:css && npm run build:js",
     "test": "vitest run",
     "test:watch": "vitest",
+    "audit:contrast": "tsx scripts/audit-contrast.ts",
     "lint": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
@@ -60,6 +61,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "culori": "^4.0.2",
     "tsup": "^8.0.0",
     "tsx": "^4.0.0",
     "typescript": "^5.4.0",

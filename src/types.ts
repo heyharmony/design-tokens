@@ -9,10 +9,14 @@ export type SurfaceContextualToken =
   | 'borderDefault'
   | 'borderSubtle'
   | 'inputBg'
+  | 'inputBgActive'
   | 'inputBgDisabled'
+  | 'inputBgHighlight'
   | 'inputBorder'
+  | 'inputBorderActive'
   | 'inputBorderError'
   | 'inputBorderFocus'
+  | 'inputBorderHighlight'
   | 'inputBorderHover'
   | 'inputPlaceholder'
   | 'tabBg'
@@ -29,14 +33,24 @@ export interface ThemeColors {
   // Surfaces
   surface0: string;
   surface0Hover: string;
+  surface0Active: string;
+  surface0Highlight: string;
   surface1: string;
   surface1Hover: string;
+  surface1Active: string;
+  surface1Highlight: string;
   surface2: string;
   surface2Hover: string;
+  surface2Active: string;
+  surface2Highlight: string;
   surface3: string;
   surface3Hover: string;
+  surface3Active: string;
+  surface3Highlight: string;
   surface4: string;
   surface4Hover: string;
+  surface4Active: string;
+  surface4Highlight: string;
   // Foreground
   fg: string;
   fgSecondary: string;
@@ -50,10 +64,17 @@ export interface ThemeColors {
   // Borders
   borderSubtle: string;
   borderDefault: string;
+  borderSuccess: string;
+  borderWarning: string;
+  borderError: string;
   // Accent
   accent: string;
   accentForeground: string;
   accentHover: string;
+  accentActive: string;
+  accentSubtle: string;
+  accentMuted: string;
+  accentBorder: string;
   // Sidebar
   sidebarAccent: string;
   sidebarAccentForeground: string;
@@ -68,8 +89,16 @@ export interface ThemeColors {
   inputBorderHover: string;
   inputBorderFocus: string;
   inputBorderError: string;
+  inputBorderActive: string;
+  inputBorderHighlight: string;
+  inputBgActive: string;
+  inputBgHighlight: string;
   inputBgDisabled: string;
   inputPlaceholder: string;
+  // Semantic backgrounds
+  bgSuccess: string;
+  bgWarning: string;
+  bgError: string;
 }
 
 export interface ThemePresetColors extends ThemeColors {
@@ -78,6 +107,9 @@ export interface ThemePresetColors extends ThemeColors {
   panelBackground?: string;
   mainPanelBackground?: string;
   ring?: string;
+  overlay?: string;
+  surfaceGlass?: string;
+  skeleton?: string;
 }
 
 export interface PresetPreview {
@@ -95,4 +127,12 @@ export interface ThemePreset {
     light: PresetPreview;
     dark: PresetPreview;
   };
+}
+
+export interface ThemeShadows {
+  shadow0: string;
+  shadow1: string;
+  shadow2: string;
+  shadow3: string;
+  shadow4: string;
 }

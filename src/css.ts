@@ -9,7 +9,7 @@ import { TOKEN_TO_CSS, EXTENDED_CSS } from './tokens.js';
 
 export { resolveTheme, resolveThemeExtended, resolveSurfaceScopes, isPresetAllowedForMode } from './resolve.js';
 export { THEME_PRESETS, THEME_PRESET_IDS, BASE_LIGHT, BASE_DARK } from './tokens.js';
-export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, ThemePresetColors, PresetPreview, SurfaceLevel, SurfaceContextualToken, SurfaceScopes } from './types.js';
+export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, ThemePresetColors, ThemeShadows, PresetPreview, SurfaceLevel, SurfaceContextualToken, SurfaceScopes } from './types.js';
 
 /** All CSS variables managed by this function (for cleanup on preset switch) */
 const ALL_MANAGED_VARS = [
@@ -31,11 +31,11 @@ export function applyThemePreset(presetId: ThemePresetId, isDark: boolean): void
     root.style.removeProperty(v);
   }
 
-  // Set core token variables
+  // Set core token variables (wrap OKLCH triplets in oklch() for CSS)
   for (const [key, cssVar] of Object.entries(TOKEN_TO_CSS)) {
     const value = colors[key as keyof ThemeColors];
     if (value) {
-      root.style.setProperty(cssVar, value);
+      root.style.setProperty(cssVar, `oklch(${value})`);
     }
   }
 
@@ -43,7 +43,7 @@ export function applyThemePreset(presetId: ThemePresetId, isDark: boolean): void
   for (const [key, cssVar] of Object.entries(EXTENDED_CSS)) {
     const value = (colors as unknown as Record<string, string | undefined>)[key];
     if (value) {
-      root.style.setProperty(cssVar, value);
+      root.style.setProperty(cssVar, `oklch(${value})`);
     }
   }
 
@@ -88,7 +88,7 @@ export function applySurfaceScopeToElement(
     for (const [key, value] of Object.entries(overrides)) {
       const cssVar = TOKEN_TO_CSS[key as keyof ThemeColors];
       if (cssVar && value) {
-        element.style.setProperty(cssVar, value);
+        element.style.setProperty(cssVar, `oklch(${value})`);
       }
     }
   }

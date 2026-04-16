@@ -8,8 +8,8 @@
 
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK, TOKEN_TO_CSS, EXTENDED_CSS } from '../src/tokens.js';
-import type { ThemeColors, ThemePresetId, SurfaceScopes, SurfaceLevel } from '../src/types.js';
+import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK, TOKEN_TO_CSS, EXTENDED_CSS, SHADOWS_LIGHT, SHADOWS_DARK, SHADOW_TO_CSS } from '../src/tokens.js';
+import type { ThemeColors, ThemeShadows, ThemePresetId, SurfaceScopes, SurfaceLevel } from '../src/types.js';
 
 const DIST = join(import.meta.dirname, '..', 'dist', 'css');
 const PRESETS_DIR = join(DIST, 'presets');
@@ -20,9 +20,15 @@ mkdirSync(PRESETS_DIR, { recursive: true });
 // Helpers
 // ---------------------------------------------------------------------------
 
+/** Wrap a raw OKLCH triplet as a CSS oklch() function value. */
+function formatCssValue(raw: string): string {
+  // Handle alpha: "L C H / A" → oklch(L C H / A)
+  return `oklch(${raw})`;
+}
+
 function formatVars(tokens: Record<string, string>, indent = '  '): string {
   return Object.entries(tokens)
-    .map(([prop, value]) => `${indent}${prop}: ${value};`)
+    .map(([prop, value]) => `${indent}${prop}: ${formatCssValue(value)};`)
     .join('\n');
 }
 
@@ -45,14 +51,33 @@ function overridesToVars(overrides: Record<string, string>): Record<string, stri
   return vars;
 }
 
+function shadowToVars(shadows: ThemeShadows): Record<string, string> {
+  const vars: Record<string, string> = {};
+  for (const [key, cssVar] of Object.entries(SHADOW_TO_CSS)) {
+    vars[cssVar] = shadows[key as keyof ThemeShadows];
+  }
+  return vars;
+}
+
+/** Format shadow vars WITHOUT oklch() wrapping (shadow values already contain oklch). */
+function formatRawVars(tokens: Record<string, string>, indent = '  '): string {
+  return Object.entries(tokens)
+    .map(([prop, value]) => `${indent}${prop}: ${value};`)
+    .join('\n');
+}
+
 // ---------------------------------------------------------------------------
 // Generate base CSS files
 // ---------------------------------------------------------------------------
 
-const lightCss = `/* @heyharmony/design-tokens — light mode base tokens */\n:root {\n${formatVars(baseToVars(BASE_LIGHT))}\n}\n`;
+const lightColorVars = formatVars(baseToVars(BASE_LIGHT));
+const lightShadowVars = formatRawVars(shadowToVars(SHADOWS_LIGHT));
+const lightCss = `/* @heyharmony/design-tokens — light mode base tokens */\n:root {\n${lightColorVars}\n${lightShadowVars}\n}\n`;
 writeFileSync(join(DIST, 'variables-light.css'), lightCss);
 
-const darkCss = `/* @heyharmony/design-tokens — dark mode base tokens */\n.dark {\n${formatVars(baseToVars(BASE_DARK))}\n}\n`;
+const darkColorVars = formatVars(baseToVars(BASE_DARK));
+const darkShadowVars = formatRawVars(shadowToVars(SHADOWS_DARK));
+const darkCss = `/* @heyharmony/design-tokens — dark mode base tokens */\n.dark {\n${darkColorVars}\n${darkShadowVars}\n}\n`;
 writeFileSync(join(DIST, 'variables-dark.css'), darkCss);
 
 // ---------------------------------------------------------------------------

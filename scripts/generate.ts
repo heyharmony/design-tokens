@@ -9,6 +9,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { join, basename } from 'path';
+import { oklchStringToHex } from './color-utils.js';
 
 const ROOT = join(import.meta.dirname, '..');
 const TOKENS_DIR = join(ROOT, 'tokens');
@@ -53,22 +54,25 @@ function orderedKeys(obj: Record<string, unknown>): string[] {
 }
 
 /**
- * Flatten a nested DTCG object into a flat Record<camelCaseKey, hslValue>.
+ * Flatten a nested DTCG object into a flat Record<camelCaseKey, value>.
  * Walks the tree, collecting path segments, then converts to camelCase key.
+ * @param typeFilter - if provided, only include leaves with this $type
  */
 function flattenDtcg(
   obj: Record<string, unknown>,
   parentPath: string[] = [],
+  typeFilter?: string,
 ): Record<string, string> {
   const result: Record<string, string> = {};
   for (const key of orderedKeys(obj)) {
     const value = obj[key];
     if (key.startsWith('$')) continue; // skip $description, $type at group level, etc.
     if (isDtcgLeaf(value)) {
+      if (typeFilter && value.$type !== typeFilter) continue;
       const camelKey = pathToCamelCase([...parentPath, key]);
       result[camelKey] = value.$value;
     } else if (typeof value === 'object' && value !== null) {
-      Object.assign(result, flattenDtcg(value as Record<string, unknown>, [...parentPath, key]));
+      Object.assign(result, flattenDtcg(value as Record<string, unknown>, [...parentPath, key], typeFilter));
     }
   }
   return result;
@@ -156,8 +160,13 @@ function camelToCssVar(
 const baseLightRaw = readJson(join(TOKENS_DIR, 'base', 'light.json')) as Record<string, unknown>;
 const baseDarkRaw = readJson(join(TOKENS_DIR, 'base', 'dark.json')) as Record<string, unknown>;
 
-const baseLight = flattenDtcg((baseLightRaw as { harmony: Record<string, unknown> }).harmony);
-const baseDark = flattenDtcg((baseDarkRaw as { harmony: Record<string, unknown> }).harmony);
+const baseLight = flattenDtcg((baseLightRaw as { harmony: Record<string, unknown> }).harmony, [], 'color');
+const baseDark = flattenDtcg((baseDarkRaw as { harmony: Record<string, unknown> }).harmony, [], 'color');
+
+// Shadow tokens (separate type)
+const baseLightShadows = flattenDtcg((baseLightRaw as { harmony: Record<string, unknown> }).harmony, [], 'shadow');
+const baseDarkShadows = flattenDtcg((baseDarkRaw as { harmony: Record<string, unknown> }).harmony, [], 'shadow');
+const shadowTokenKeys = Object.keys(baseLightShadows);
 
 // Validate both bases have the same keys
 // Use JSON key order (from light.json) as canonical order, sorted only for comparison
@@ -177,7 +186,7 @@ const allTokenKeys = baseLightKeysOrdered;
 
 // Separate core vs extended tokens
 // Extended tokens are the ones at the top level (not inside a group like surface, fg, etc.)
-const EXTENDED_TOKEN_KEYS = ['background', 'panelBackground', 'mainPanelBackground', 'ring'];
+const EXTENDED_TOKEN_KEYS = ['background', 'panelBackground', 'mainPanelBackground', 'ring', 'overlay', 'surfaceGlass', 'skeleton'];
 const coreTokenKeys = allTokenKeys.filter((k) => !EXTENDED_TOKEN_KEYS.includes(k));
 const extendedTokenKeys = allTokenKeys.filter((k) => EXTENDED_TOKEN_KEYS.includes(k));
 
@@ -322,6 +331,7 @@ function generateTypes(): string {
     { label: 'Sidebar', prefix: 'sidebar' },
     { label: 'Tabs', prefix: 'tab' },
     { label: 'Inputs', prefix: 'input' },
+    { label: 'Semantic backgrounds', prefix: 'bg' },
   ];
 
   for (const group of groups) {
@@ -366,6 +376,16 @@ function generateTypes(): string {
     '',
   );
 
+  // ThemeShadows interface
+  if (shadowTokenKeys.length > 0) {
+    lines.push('export interface ThemeShadows {');
+    for (const key of shadowTokenKeys) {
+      lines.push(`  ${key}: string;`);
+    }
+    lines.push('}');
+    lines.push('');
+  }
+
   return lines.join('\n');
 }
 
@@ -394,7 +414,7 @@ function generateTokens(): string {
   const lines: string[] = [
     '// @generated — do not edit manually. Run `npm run generate` to regenerate.',
     '',
-    "import type { ThemeColors, ThemePresetId, ThemePreset, SurfaceScopes } from './types.js';",
+    "import type { ThemeColors, ThemePresetId, ThemePreset, ThemeShadows, SurfaceScopes } from './types.js';",
     '',
     '// ---------------------------------------------------------------------------',
     '// Base token sets',
@@ -512,6 +532,28 @@ function generateTokens(): string {
   lines.push('];');
   lines.push('');
 
+  // Shadow tokens
+  if (shadowTokenKeys.length > 0) {
+    lines.push(
+      '// ---------------------------------------------------------------------------',
+      '// Shadow tokens',
+      '// ---------------------------------------------------------------------------',
+      '',
+    );
+    lines.push(`export const SHADOWS_LIGHT: ThemeShadows = ${formatObj(baseLightShadows, '')};`);
+    lines.push('');
+    lines.push(`export const SHADOWS_DARK: ThemeShadows = ${formatObj(baseDarkShadows, '')};`);
+    lines.push('');
+
+    lines.push('export const SHADOW_TO_CSS: Record<keyof ThemeShadows, string> = {');
+    for (const key of shadowTokenKeys) {
+      const cssVar = camelToCssVar(key, cssVarsConfig.overrides, {});
+      lines.push(`  ${key}: '${cssVar}',`);
+    }
+    lines.push('};');
+    lines.push('');
+  }
+
   // TOKEN_TO_CSS mapping
   lines.push(
     '// ---------------------------------------------------------------------------',
@@ -542,11 +584,111 @@ function generateTokens(): string {
 // Write or check
 // ---------------------------------------------------------------------------
 
+// ---------------------------------------------------------------------------
+// Generate src/tokens-rn.ts — pre-computed hex values for React Native
+// ---------------------------------------------------------------------------
+
+function convertObjToHex(obj: Record<string, string>): Record<string, string> {
+  const result: Record<string, string> = {};
+  for (const [key, value] of Object.entries(obj)) {
+    result[key] = oklchStringToHex(value);
+  }
+  return result;
+}
+
+function formatHexObj(obj: Record<string, string>, indent: string): string {
+  const entries = Object.entries(obj);
+  if (entries.length === 0) return '{}';
+  return '{\n' +
+    entries.map(([k, v]) => `${indent}  ${k}: '${v}',`).join('\n') +
+    `\n${indent}}`;
+}
+
+function formatHexScopeObj(scopes: Record<string, Record<string, string>>, indent: string): string {
+  const entries = Object.entries(scopes);
+  if (entries.length === 0) return '{}';
+  const blocks = entries.map(([level, tokens]) => {
+    return `${indent}  '${level}': ${formatHexObj(convertObjToHex(tokens), indent + '  ')},`;
+  });
+  return '{\n' + blocks.join('\n') + `\n${indent}}`;
+}
+
+function generateTokensRn(): string {
+  const lines: string[] = [
+    '// @generated — do not edit manually. Run `npm run generate` to regenerate.',
+    '// Pre-computed hex values for React Native (OKLCH → sRGB gamut-mapped → hex).',
+    '',
+    "import type { ThemeColors, ThemePresetColors, ThemePresetId, SurfaceScopes } from './types.js';",
+    '',
+  ];
+
+  // BASE_LIGHT_HEX
+  const baseLightHex = convertObjToHex(
+    Object.fromEntries(coreTokenKeys.map((k) => [k, baseLight[k]])),
+  );
+  lines.push(`export const BASE_LIGHT_HEX: ThemeColors = ${formatHexObj(baseLightHex, '')};`);
+  lines.push('');
+
+  // BASE_DARK_HEX
+  const baseDarkHex = convertObjToHex(
+    Object.fromEntries(coreTokenKeys.map((k) => [k, baseDark[k]])),
+  );
+  lines.push(`export const BASE_DARK_HEX: ThemeColors = ${formatHexObj(baseDarkHex, '')};`);
+  lines.push('');
+
+  // SURFACE_SCOPES_LIGHT_HEX
+  lines.push(`export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = ${formatHexScopeObj(surfaceScopesLight, '')};`);
+  lines.push('');
+  lines.push(`export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = ${formatHexScopeObj(surfaceScopesDark, '')};`);
+  lines.push('');
+
+  // PRESET_OVERRIDES_HEX
+  lines.push('export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {');
+  lines.push('  light?: Partial<ThemePresetColors>;');
+  lines.push('  dark?: Partial<ThemePresetColors>;');
+  lines.push('  surfaceScopesLight?: SurfaceScopes;');
+  lines.push('  surfaceScopesDark?: SurfaceScopes;');
+  lines.push('}> = {');
+
+  for (const id of presetIds) {
+    const data = presetOverrides[id];
+    const hasAny = data.light || data.dark || data.surfaceScopesLight || data.surfaceScopesDark;
+    if (!hasAny) {
+      lines.push(`  ${id}: {},`);
+      lines.push('');
+      continue;
+    }
+
+    lines.push(`  ${id}: {`);
+    if (data.light && Object.keys(data.light).length > 0) {
+      lines.push(`    light: ${formatHexObj(convertObjToHex(data.light), '    ')},`);
+    }
+    if (data.dark && Object.keys(data.dark).length > 0) {
+      lines.push(`    dark: ${formatHexObj(convertObjToHex(data.dark), '    ')},`);
+    }
+    if (data.surfaceScopesLight && Object.keys(data.surfaceScopesLight).length > 0) {
+      lines.push(`    surfaceScopesLight: ${formatHexScopeObj(data.surfaceScopesLight, '    ')},`);
+    }
+    if (data.surfaceScopesDark && Object.keys(data.surfaceScopesDark).length > 0) {
+      lines.push(`    surfaceScopesDark: ${formatHexScopeObj(data.surfaceScopesDark, '    ')},`);
+    }
+    lines.push('  },');
+    lines.push('');
+  }
+
+  lines.push('};');
+  lines.push('');
+
+  return lines.join('\n');
+}
+
 const typesContent = generateTypes();
 const tokensContent = generateTokens();
+const tokensRnContent = generateTokensRn();
 
 const typesPath = join(SRC_DIR, 'types.ts');
 const tokensPath = join(SRC_DIR, 'tokens.ts');
+const tokensRnPath = join(SRC_DIR, 'tokens-rn.ts');
 
 if (CHECK_MODE) {
   let stale = false;
@@ -561,6 +703,11 @@ if (CHECK_MODE) {
     stale = true;
   }
 
+  if (!existsSync(tokensRnPath) || readFileSync(tokensRnPath, 'utf-8') !== tokensRnContent) {
+    console.error('src/tokens-rn.ts is stale — run `npm run generate` to update.');
+    stale = true;
+  }
+
   if (stale) {
     process.exit(1);
   }
@@ -569,5 +716,6 @@ if (CHECK_MODE) {
 } else {
   writeFileSync(typesPath, typesContent);
   writeFileSync(tokensPath, tokensContent);
-  console.log('Generated src/types.ts and src/tokens.ts from token JSON files.');
+  writeFileSync(tokensRnPath, tokensRnContent);
+  console.log('Generated src/types.ts, src/tokens.ts, and src/tokens-rn.ts from token JSON files.');
 }

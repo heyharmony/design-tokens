@@ -1,31 +1,32 @@
 /**
  * React Native entry point.
- * Re-exports everything from the main module, but resolveTheme returns
- * hsl() wrapped strings instead of raw HSL triplets.
+ * Returns pre-computed hex color strings (gamut-mapped from OKLCH to sRGB).
+ * Zero runtime color conversion overhead.
  */
 
 import type { ThemeColors, ThemePresetId, SurfaceLevel } from './types.js';
-import { resolveTheme as resolveThemeRaw, resolveSurfaceScopes } from './resolve.js';
+import {
+  BASE_LIGHT_HEX, BASE_DARK_HEX,
+  PRESET_OVERRIDES_HEX,
+  SURFACE_SCOPES_LIGHT_HEX, SURFACE_SCOPES_DARK_HEX,
+} from './tokens-rn.js';
 
 export { isPresetAllowedForMode } from './resolve.js';
 export { THEME_PRESETS, THEME_PRESET_IDS } from './tokens.js';
 export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, PresetPreview, SurfaceLevel } from './types.js';
 
-/** Convert HSL triplet "H S% L%" to "hsl(H, S%, L%)" for React Native StyleSheet use. */
-function toHslFunction(triplet: string): string {
-  const [h, s, l] = triplet.trim().split(/\s+/);
-  return `hsl(${h}, ${s}, ${l})`;
-}
-
 /**
  * Resolve theme colors for React Native.
- * Returns ThemeColors with values wrapped as hsl() function strings.
+ * Returns ThemeColors with hex string values (#RRGGBB or #RRGGBBAA).
  */
 export function resolveTheme(preset: ThemePresetId, mode: 'light' | 'dark'): ThemeColors {
-  const raw = resolveThemeRaw(preset, mode);
-  const result = {} as ThemeColors;
-  for (const key of Object.keys(raw) as (keyof ThemeColors)[]) {
-    result[key] = toHslFunction(raw[key]);
+  const base = mode === 'light' ? BASE_LIGHT_HEX : BASE_DARK_HEX;
+  const overrides = PRESET_OVERRIDES_HEX[preset]?.[mode] ?? {};
+  const result = { ...base };
+  for (const key of Object.keys(base) as (keyof ThemeColors)[]) {
+    if (key in overrides) {
+      result[key] = (overrides as Record<string, string>)[key];
+    }
   }
   return result;
 }
@@ -40,13 +41,22 @@ export function resolveThemeForSurface(
   surfaceLevel: SurfaceLevel,
 ): ThemeColors {
   const base = resolveTheme(preset, mode);
-  const scopes = resolveSurfaceScopes(preset, mode);
-  const overrides = scopes[surfaceLevel];
-  if (!overrides) return base;
+
+  const baseScopes = mode === 'light' ? SURFACE_SCOPES_LIGHT_HEX : SURFACE_SCOPES_DARK_HEX;
+  const presetKey = mode === 'light' ? 'surfaceScopesLight' : 'surfaceScopesDark';
+  const presetScopes = PRESET_OVERRIDES_HEX[preset]?.[presetKey];
+
+  // Merge base + preset scopes for this level
+  const scopeOverrides = {
+    ...baseScopes[surfaceLevel],
+    ...presetScopes?.[surfaceLevel],
+  };
+
+  if (!scopeOverrides || Object.keys(scopeOverrides).length === 0) return base;
 
   const result = { ...base };
-  for (const [key, value] of Object.entries(overrides)) {
-    result[key as keyof ThemeColors] = toHslFunction(value);
+  for (const [key, value] of Object.entries(scopeOverrides)) {
+    result[key as keyof ThemeColors] = value;
   }
   return result;
 }
