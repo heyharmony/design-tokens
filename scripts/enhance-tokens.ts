@@ -35,6 +35,8 @@ function s(value: string): { $value: string; $type: string } {
 // 1. Fix focus borders — derive from ring/accent color
 // ---------------------------------------------------------------------------
 
+const RING_ACHROMATIC_EPS = 0.02;
+
 function fixFocusBordersInFile(filePath: string): void {
   const json = readJson(filePath);
 
@@ -74,11 +76,13 @@ function fixFocusInObject(obj: Record<string, unknown>, parentRing: string | nul
       if (ring && borderFocus.$value) {
         // Derive focus color from ring
         const ringColor = parseOklchString(ring);
-        // For focus border: use ring hue/chroma but at medium lightness for visibility
+        // For focus border: use ring hue/chroma but at medium lightness for visibility.
+        // Do not force chroma when the ring is achromatic — OKLCH hue 0 + low C reads brown/red.
+        const achromatic = ringColor.C < RING_ACHROMATIC_EPS;
         const focusColor: OklchColor = {
           L: Math.max(0.35, Math.min(0.65, ringColor.L)),
-          C: Math.max(0.08, ringColor.C),
-          H: ringColor.H,
+          C: achromatic ? 0 : Math.max(0.08, ringColor.C),
+          H: achromatic ? 0 : ringColor.H,
         };
         borderFocus.$value = formatOklchString(focusColor);
       }
