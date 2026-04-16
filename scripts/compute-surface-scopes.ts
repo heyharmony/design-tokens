@@ -68,6 +68,9 @@ const DARK_CONFIG: ScopeDerivationConfig = {
 
 type FlatScope = Record<string, string>;
 
+/** Accents at or below this chroma are treated as achromatic for focus derivation. */
+const ACHROMATIC_EPS = 0.02;
+
 function clamp(v: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, v));
 }
@@ -76,6 +79,7 @@ function deriveScopeForLevel(
   surfaceValue: string,
   accentValue: string,
   config: ScopeDerivationConfig,
+  mode: 'light' | 'dark',
 ): FlatScope {
   const surface = parseOklchString(surfaceValue);
   const accent = parseOklchString(accentValue);
@@ -89,17 +93,33 @@ function deriveScopeForLevel(
     return formatOklchString(color);
   }
 
-  // Focus border uses accent color at medium lightness
-  const focusColor: OklchColor = {
-    L: clamp(accent.L, 0.35, 0.65),
-    C: Math.max(0.08, accent.C),
-    H: accent.H,
-  };
+  const inputBorderHoverStr = offset(config.inputBorderHover);
+  const hoverParsed = parseOklchString(inputBorderHoverStr);
+
+  let focusColor: OklchColor;
+  if (mode === 'dark' && accent.C < ACHROMATIC_EPS) {
+    // Avoid OKLCH "gray + forced chroma" (reads brown/red at hue 0): neutral, brighter than hover.
+    let L = clamp(hoverParsed.L + 0.055, 0.38, 0.75);
+    focusColor = { L, C: 0, H: 0 };
+    let focusStr = formatOklchString(focusColor);
+    while (focusStr === inputBorderHoverStr && L < 0.92) {
+      L = clamp(L + 0.01, 0.38, 0.92);
+      focusColor.L = L;
+      focusStr = formatOklchString(focusColor);
+    }
+  } else {
+    // Focus border uses accent color at medium lightness
+    focusColor = {
+      L: clamp(accent.L, 0.35, 0.65),
+      C: Math.max(0.08, accent.C),
+      H: accent.H,
+    };
+  }
 
   return {
     inputBg: offset(config.inputBg),
     inputBorder: offset(config.inputBorder),
-    inputBorderHover: offset(config.inputBorderHover),
+    inputBorderHover: inputBorderHoverStr,
     inputBorderFocus: formatOklchString(focusColor),
     inputBorderError: config.inputBorderError.value,
     inputBorderActive: offset(config.inputBorderActive),
@@ -131,7 +151,7 @@ export function computeSurfaceScopes(
   const result: Record<string, FlatScope> = {};
 
   for (const [level, surfaceValue] of Object.entries(surfaces)) {
-    result[level] = deriveScopeForLevel(surfaceValue, accent, config);
+    result[level] = deriveScopeForLevel(surfaceValue, accent, config, mode);
   }
 
   return result;
