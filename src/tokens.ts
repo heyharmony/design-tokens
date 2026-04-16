@@ -189,7 +189,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     light: {
       surface0: '210 100% 97%',
       surface0Hover: '210 100% 94%',
-      surface1: '210 50% 99%',
+      surface1: '0 0% 100%',
       surface1Hover: '210 50% 96%',
       surface2: '210 10% 91%',
       surface2Hover: '210 10% 93%',
@@ -215,8 +215,8 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBgHover: '210 10% 86%',
       tabOutline: '210 8% 78%',
       background: '210 100% 97%',
-      panelBackground: '210 50% 99%',
-      mainPanelBackground: '210 50% 99%',
+      panelBackground: '0 0% 100%',
+      mainPanelBackground: '0 0% 100%',
       ring: '210 100% 50%',
     },
     dark: {
@@ -332,7 +332,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     light: {
       surface0: '142 76% 97%',
       surface0Hover: '142 76% 94%',
-      surface1: '142 40% 99%',
+      surface1: '0 0% 100%',
       surface1Hover: '142 40% 96%',
       surface2: '142 10% 91%',
       surface2Hover: '142 10% 93%',
@@ -358,8 +358,8 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBgHover: '142 10% 86%',
       tabOutline: '142 8% 78%',
       background: '142 76% 97%',
-      panelBackground: '142 40% 99%',
-      mainPanelBackground: '142 40% 99%',
+      panelBackground: '0 0% 100%',
+      mainPanelBackground: '0 0% 100%',
       ring: '142 70% 40%',
     },
     dark: {
@@ -475,7 +475,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     light: {
       surface0: '280 100% 98%',
       surface0Hover: '280 100% 95%',
-      surface1: '280 50% 99%',
+      surface1: '0 0% 100%',
       surface1Hover: '280 50% 96%',
       surface2: '280 10% 91%',
       surface2Hover: '280 10% 93%',
@@ -501,8 +501,8 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBgHover: '280 10% 86%',
       tabOutline: '280 8% 78%',
       background: '280 100% 98%',
-      panelBackground: '280 50% 99%',
-      mainPanelBackground: '280 50% 99%',
+      panelBackground: '0 0% 100%',
+      mainPanelBackground: '0 0% 100%',
       ring: '280 70% 55%',
     },
     dark: {
@@ -618,7 +618,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     light: {
       surface0: '40 15% 92%',
       surface0Hover: '35 40% 91%',
-      surface1: '35 30% 98%',
+      surface1: '0 0% 100%',
       surface1Hover: '35 30% 95%',
       surface2: '35 12% 91%',
       surface2Hover: '35 12% 93%',
@@ -644,8 +644,8 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBgHover: '35 12% 84%',
       tabOutline: '35 10% 76%',
       background: '40 15% 92%',
-      panelBackground: '35 30% 98%',
-      mainPanelBackground: '35 30% 98%',
+      panelBackground: '0 0% 100%',
+      mainPanelBackground: '0 0% 100%',
       ring: '30 55% 45%',
     },
     dark: {
@@ -761,7 +761,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     light: {
       surface0: '210 20% 99%',
       surface0Hover: '210 20% 96%',
-      surface1: '210 17% 98%',
+      surface1: '0 0% 100%',
       surface1Hover: '210 17% 95%',
       surface2: '210 14% 92%',
       surface2Hover: '210 14% 94%',
@@ -787,8 +787,8 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBgHover: '210 14% 86%',
       tabOutline: '210 12% 78%',
       background: '210 20% 99%',
-      panelBackground: '210 17% 98%',
-      mainPanelBackground: '210 17% 98%',
+      panelBackground: '0 0% 100%',
+      mainPanelBackground: '0 0% 100%',
       ring: '27 100% 55%',
     },
     dark: {
