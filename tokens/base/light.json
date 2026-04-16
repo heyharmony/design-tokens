@@ -214,7 +214,7 @@
         "$type": "color"
       },
       "border-focus": {
-        "$value": "0.65 0.08 0",
+        "$value": "0.65 0 0",
         "$type": "color"
       },
       "border-error": {
