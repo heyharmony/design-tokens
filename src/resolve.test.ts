@@ -27,7 +27,7 @@ describe('resolveTheme', () => {
   it('applies ocean light overrides correctly', () => {
     const colors = resolveTheme('ocean', 'light');
     expect(colors.surface0).toBe('210 100% 97%');
-    expect(colors.surface1).toBe('210 50% 99%');
+    expect(colors.surface1).toBe('0 0% 100%');
     expect(colors.accent).toBe('210 100% 94%');
     expect(colors.sidebarAccent).toBe('210 100% 50%');
     // Non-overridden tokens should fall back to base
@@ -73,7 +73,7 @@ describe('resolveThemeExtended', () => {
   it('includes extended tokens for ocean preset', () => {
     const colors = resolveThemeExtended('ocean', 'light');
     expect(colors.background).toBe('210 100% 97%');
-    expect(colors.panelBackground).toBe('210 50% 99%');
+    expect(colors.panelBackground).toBe('0 0% 100%');
     expect(colors.ring).toBe('210 100% 50%');
   });
 

@@ -4,7 +4,7 @@
     "surface": {
       "0": { "$value": "142 76% 97%", "$type": "color" },
       "0-hover": { "$value": "142 76% 94%", "$type": "color" },
-      "1": { "$value": "142 40% 99%", "$type": "color" },
+      "1": { "$value": "0 0% 100%", "$type": "color" },
       "1-hover": { "$value": "142 40% 96%", "$type": "color" },
       "2": { "$value": "142 10% 91%", "$type": "color" },
       "2-hover": { "$value": "142 10% 93%", "$type": "color" },
@@ -41,8 +41,8 @@
       "outline": { "$value": "142 8% 78%", "$type": "color" }
     },
     "background": { "$value": "142 76% 97%", "$type": "color" },
-    "panel-background": { "$value": "142 40% 99%", "$type": "color" },
-    "main-panel-background": { "$value": "142 40% 99%", "$type": "color" },
+    "panel-background": { "$value": "0 0% 100%", "$type": "color" },
+    "main-panel-background": { "$value": "0 0% 100%", "$type": "color" },
     "ring": { "$value": "142 70% 40%", "$type": "color" }
   },
   "dark": {
