@@ -1,42 +1,362 @@
 {
-  "3": {
+  "0": {
     "input": {
-      "bg": { "$value": "0 0% 96%", "$type": "color" },
-      "border": { "$value": "0 0% 82%", "$type": "color" },
-      "border-hover": { "$value": "0 0% 75%", "$type": "color" },
-      "border-focus": { "$value": "0 0% 75%", "$type": "color" },
-      "border-error": { "$value": "0 84% 60%", "$type": "color" },
-      "bg-disabled": { "$value": "0 0% 93%", "$type": "color" },
-      "placeholder": { "$value": "0 0% 56%", "$type": "color" }
+      "bg": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.885 0 0",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      },
+      "border-error": {
+        "$value": "0.636 0.2082 25.4",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.789 0 0",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.836 0.0111 84.6",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.977 0 0",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.978 0.0022 84.6",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.962 0 0",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.649 0 0",
+        "$type": "color"
+      }
     },
     "tab": {
-      "bg": { "$value": "0 0% 94%", "$type": "color" },
-      "bg-hover": { "$value": "0 0% 91%", "$type": "color" },
-      "outline": { "$value": "0 0% 78%", "$type": "color" }
+      "bg": {
+        "$value": "0.918 0.0043 84.6",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.896 0.0056 84.6",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
     },
     "border": {
-      "subtle": { "$value": "0 0% 85%", "$type": "color" },
-      "default": { "$value": "0 0% 78%", "$type": "color" }
+      "subtle": {
+        "$value": "0.9 0 0",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.845 0 0",
+        "$type": "color"
+      }
+    }
+  },
+  "1": {
+    "input": {
+      "bg": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.885 0 0",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      },
+      "border-error": {
+        "$value": "0.636 0.2082 25.4",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.789 0 0",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.836 0.0111 84.6",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.977 0 0",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.978 0.0022 84.6",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.962 0 0",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.649 0 0",
+        "$type": "color"
+      }
+    },
+    "tab": {
+      "bg": {
+        "$value": "0.918 0.0043 84.6",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.896 0.0056 84.6",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$value": "0.9 0 0",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.845 0 0",
+        "$type": "color"
+      }
+    }
+  },
+  "2": {
+    "input": {
+      "bg": {
+        "$value": "0.992 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.877 0 0",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.821 0 0",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.821 0 0",
+        "$type": "color"
+      },
+      "border-error": {
+        "$value": "0.636 0.2082 25.4",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.781 0 0",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.828 0.0116 84.6",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.97 0 0",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.971 0.0029 84.6",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.954 0 0",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.649 0 0",
+        "$type": "color"
+      }
+    },
+    "tab": {
+      "bg": {
+        "$value": "0.9 0 0",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.877 0 0",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$value": "0.892 0 0",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.837 0 0",
+        "$type": "color"
+      }
+    }
+  },
+  "3": {
+    "input": {
+      "bg": {
+        "$value": "0.97 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.861 0 0",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.805 0 0",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.805 0 0",
+        "$type": "color"
+      },
+      "border-error": {
+        "$value": "0.636 0.2082 25.4",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.765 0 0",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.813 0.0127 84.6",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.947 0 0",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.957 0.0044 84.6",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.947 0 0",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.649 0 0",
+        "$type": "color"
+      }
+    },
+    "tab": {
+      "bg": {
+        "$value": "0.954 0 0",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.931 0 0",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$value": "0.885 0 0",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
     }
   },
   "4": {
     "input": {
-      "bg": { "$value": "0 0% 96%", "$type": "color" },
-      "border": { "$value": "0 0% 82%", "$type": "color" },
-      "border-hover": { "$value": "0 0% 75%", "$type": "color" },
-      "border-focus": { "$value": "0 0% 75%", "$type": "color" },
-      "border-error": { "$value": "0 84% 60%", "$type": "color" },
-      "bg-disabled": { "$value": "0 0% 93%", "$type": "color" },
-      "placeholder": { "$value": "0 0% 56%", "$type": "color" }
+      "bg": {
+        "$value": "0.97 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.861 0 0",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.805 0 0",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.805 0 0",
+        "$type": "color"
+      },
+      "border-error": {
+        "$value": "0.636 0.2082 25.4",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.765 0 0",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.813 0.0127 84.6",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.947 0 0",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.957 0.0044 84.6",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.947 0 0",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.649 0 0",
+        "$type": "color"
+      }
     },
     "tab": {
-      "bg": { "$value": "0 0% 94%", "$type": "color" },
-      "bg-hover": { "$value": "0 0% 91%", "$type": "color" },
-      "outline": { "$value": "0 0% 78%", "$type": "color" }
+      "bg": {
+        "$value": "0.954 0 0",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.931 0 0",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
     },
     "border": {
-      "subtle": { "$value": "0 0% 85%", "$type": "color" },
-      "default": { "$value": "0 0% 78%", "$type": "color" }
+      "subtle": {
+        "$value": "0.885 0 0",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.829 0 0",
+        "$type": "color"
+      }
     }
   }
 }

@@ -2,196 +2,1114 @@
   "$description": "Forest preset — Natural green tones",
   "light": {
     "surface": {
-      "0": { "$value": "142 76% 97%", "$type": "color" },
-      "0-hover": { "$value": "142 76% 94%", "$type": "color" },
-      "1": { "$value": "0 0% 100%", "$type": "color" },
-      "1-hover": { "$value": "142 40% 96%", "$type": "color" },
-      "2": { "$value": "142 10% 91%", "$type": "color" },
-      "2-hover": { "$value": "142 10% 93%", "$type": "color" },
-      "3": { "$value": "142 10% 100%", "$type": "color" },
-      "3-hover": { "$value": "142 10% 97%", "$type": "color" },
-      "4": { "$value": "142 10% 100%", "$type": "color" },
-      "4-hover": { "$value": "142 10% 97%", "$type": "color" }
+      "0": {
+        "$value": "0.984 0.0156 158.4",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "0.934 0.0062 158.6",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "0.985 0.003 155",
+        "$type": "color"
+      },
+      "0-hover": {
+        "$value": "0.968 0.0311 158",
+        "$type": "color"
+      },
+      "0-active": {
+        "$value": "0.953 0.0467 157.6",
+        "$type": "color"
+      },
+      "0-highlight": {
+        "$value": "0.963 0.0363 157.9",
+        "$type": "color"
+      },
+      "1-hover": {
+        "$value": "0.974 0.011 158.5",
+        "$type": "color"
+      },
+      "1-active": {
+        "$value": "0.955 0.0193 158.3",
+        "$type": "color"
+      },
+      "1-highlight": {
+        "$value": "0.968 0.0137 158.4",
+        "$type": "color"
+      },
+      "2-hover": {
+        "$value": "0.949 0.0048 158.6",
+        "$type": "color"
+      },
+      "2-active": {
+        "$value": "0.919 0.0077 158.5",
+        "$type": "color"
+      },
+      "2-highlight": {
+        "$value": "0.935 0.0094 158.5",
+        "$type": "color"
+      },
+      "3-hover": {
+        "$value": "0.978 0.0021 158.7",
+        "$type": "color"
+      },
+      "3-active": {
+        "$value": "0.956 0.0041 158.6",
+        "$type": "color"
+      },
+      "3-highlight": {
+        "$value": "0.971 0.0041 158.6",
+        "$type": "color"
+      },
+      "4-hover": {
+        "$value": "0.965 0.004 155",
+        "$type": "color"
+      },
+      "4-active": {
+        "$value": "0.945 0.005 155",
+        "$type": "color"
+      },
+      "4-highlight": {
+        "$value": "0.96 0.006 155",
+        "$type": "color"
+      }
     },
     "accent": {
-      "default": { "$value": "142 50% 92%", "$type": "color" },
-      "foreground": { "$value": "142 70% 20%", "$type": "color" },
-      "hover": { "$value": "142 50% 85%", "$type": "color" }
+      "default": {
+        "$value": "0.951 0.0275 158.1",
+        "$type": "color"
+      },
+      "foreground": {
+        "$value": "0.402 0.1005 150.5",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "0.909 0.0516 157.4",
+        "$type": "color"
+      }
     },
     "sidebar": {
-      "accent": { "$value": "142 70% 40%", "$type": "color" },
-      "accent-foreground": { "$value": "0 0% 100%", "$type": "color" },
-      "hover": { "$value": "142 50% 90%", "$type": "color" }
+      "accent": {
+        "$value": "0.48 0.2 155",
+        "$type": "color"
+      },
+      "accent-foreground": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "0.939 0.0344 157.9",
+        "$type": "color"
+      }
     },
     "border": {
-      "subtle": { "$value": "142 10% 87%", "$type": "color" },
-      "default": { "$value": "142 10% 80%", "$type": "color" }
+      "subtle": {
+        "$value": "0.904 0.0091 158.5",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.851 0.0142 158.4",
+        "$type": "color"
+      }
     },
     "input": {
-      "bg": { "$value": "142 10% 100%", "$type": "color" },
-      "border": { "$value": "142 10% 87%", "$type": "color" },
-      "border-hover": { "$value": "142 12% 80%", "$type": "color" },
-      "border-focus": { "$value": "142 12% 80%", "$type": "color" },
-      "bg-disabled": { "$value": "142 8% 96%", "$type": "color" },
-      "placeholder": { "$value": "142 5% 56%", "$type": "color" }
+      "bg": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.904 0.0091 158.5",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.853 0.017 158.3",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.65 0.1733 149.7",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.815 0.0214 158.1",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.854 0.0212 158.2",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.978 0.0016 158.7",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.978 0.0031 158.7",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.97 0.0022 158.7",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.657 0.0166 158.2",
+        "$type": "color"
+      }
     },
     "tab": {
-      "bg": { "$value": "142 10% 89%", "$type": "color" },
-      "bg-hover": { "$value": "142 10% 86%", "$type": "color" },
-      "outline": { "$value": "142 8% 78%", "$type": "color" }
+      "bg": {
+        "$value": "0.919 0.0077 158.5",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.897 0.0098 158.5",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.835 0.0125 158.4",
+        "$type": "color"
+      }
     },
-    "background": { "$value": "142 76% 97%", "$type": "color" },
-    "panel-background": { "$value": "0 0% 100%", "$type": "color" },
-    "main-panel-background": { "$value": "0 0% 100%", "$type": "color" },
-    "ring": { "$value": "142 70% 40%", "$type": "color" }
+    "background": {
+      "$value": "0.984 0.0156 158.4",
+      "$type": "color"
+    },
+    "panel-background": {
+      "$value": "1 0 0",
+      "$type": "color"
+    },
+    "main-panel-background": {
+      "$value": "1 0 0",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "0.658 0.2 155",
+      "$type": "color"
+    }
   },
   "dark": {
     "surface": {
-      "0": { "$value": "142 50% 4%", "$type": "color" },
-      "0-hover": { "$value": "142 50% 7%", "$type": "color" },
-      "1": { "$value": "142 40% 7%", "$type": "color" },
-      "1-hover": { "$value": "142 40% 10%", "$type": "color" },
-      "2": { "$value": "142 10% 18%", "$type": "color" },
-      "2-hover": { "$value": "142 10% 22%", "$type": "color" },
-      "3": { "$value": "142 10% 16.5%", "$type": "color" },
-      "3-hover": { "$value": "142 10% 20%", "$type": "color" },
-      "4": { "$value": "142 10% 20%", "$type": "color" },
-      "4-hover": { "$value": "142 10% 24%", "$type": "color" }
+      "0": {
+        "$value": "0.156 0.0216 157.2",
+        "$type": "color"
+      },
+      "1": {
+        "$value": "0.197 0.0271 155.2",
+        "$type": "color"
+      },
+      "2": {
+        "$value": "0.308 0.0224 155",
+        "$type": "color"
+      },
+      "3": {
+        "$value": "0.292 0.0136 155",
+        "$type": "color"
+      },
+      "4": {
+        "$value": "0.329 0.005 155",
+        "$type": "color"
+      },
+      "0-hover": {
+        "$value": "0.202 0.0331 154.4",
+        "$type": "color"
+      },
+      "0-active": {
+        "$value": "0.244 0.0444 153.7",
+        "$type": "color"
+      },
+      "0-highlight": {
+        "$value": "0.216 0.0369 154.1",
+        "$type": "color"
+      },
+      "1-hover": {
+        "$value": "0.237 0.0366 154.7",
+        "$type": "color"
+      },
+      "1-active": {
+        "$value": "0.276 0.0454 154.3",
+        "$type": "color"
+      },
+      "1-highlight": {
+        "$value": "0.25 0.0396 154.6",
+        "$type": "color"
+      },
+      "2-hover": {
+        "$value": "0.35 0.0224 155",
+        "$type": "color"
+      },
+      "2-active": {
+        "$value": "0.381 0.0224 155",
+        "$type": "color"
+      },
+      "2-highlight": {
+        "$value": "0.36 0.0224 155",
+        "$type": "color"
+      },
+      "3-hover": {
+        "$value": "0.329 0.0136 155",
+        "$type": "color"
+      },
+      "3-active": {
+        "$value": "0.36 0.0136 155",
+        "$type": "color"
+      },
+      "3-highlight": {
+        "$value": "0.34 0.0136 155",
+        "$type": "color"
+      },
+      "4-hover": {
+        "$value": "0.37 0.005 155",
+        "$type": "color"
+      },
+      "4-active": {
+        "$value": "0.401 0.005 155",
+        "$type": "color"
+      },
+      "4-highlight": {
+        "$value": "0.381 0.005 155",
+        "$type": "color"
+      }
     },
     "accent": {
-      "default": { "$value": "142 40% 10%", "$type": "color" },
-      "foreground": { "$value": "142 60% 85%", "$type": "color" },
-      "hover": { "$value": "142 40% 16%", "$type": "color" }
+      "default": {
+        "$value": "0.237 0.0366 154.7",
+        "$type": "color"
+      },
+      "foreground": {
+        "$value": "0.914 0.0616 157.2",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "0.314 0.0538 154.1",
+        "$type": "color"
+      }
     },
     "sidebar": {
-      "accent": { "$value": "142 60% 35%", "$type": "color" },
-      "accent-foreground": { "$value": "0 0% 100%", "$type": "color" },
-      "hover": { "$value": "142 40% 8%", "$type": "color" }
+      "accent": {
+        "$value": "0.48 0.2 155",
+        "$type": "color"
+      },
+      "accent-foreground": {
+        "$value": "1 0 0",
+        "$type": "color"
+      },
+      "hover": {
+        "$value": "0.211 0.0304 155",
+        "$type": "color"
+      }
     },
     "border": {
-      "subtle": { "$value": "142 12% 20%", "$type": "color" },
-      "default": { "$value": "142 12% 25%", "$type": "color" }
+      "subtle": {
+        "$value": "0.331 0.0212 157.2",
+        "$type": "color"
+      },
+      "default": {
+        "$value": "0.383 0.0255 157.2",
+        "$type": "color"
+      }
     },
     "input": {
-      "bg": { "$value": "142 12% 15%", "$type": "color" },
-      "border": { "$value": "142 12% 22%", "$type": "color" },
-      "border-hover": { "$value": "142 15% 28%", "$type": "color" },
-      "border-focus": { "$value": "142 15% 28%", "$type": "color" },
-      "bg-disabled": { "$value": "142 10% 13%", "$type": "color" },
-      "placeholder": { "$value": "142 6% 48%", "$type": "color" }
+      "bg": {
+        "$value": "0.278 0.0166 157.3",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.352 0.023 157.2",
+        "$type": "color"
+      },
+      "border-hover": {
+        "$value": "0.417 0.0348 156.8",
+        "$type": "color"
+      },
+      "border-focus": {
+        "$value": "0.574 0.1396 150.9",
+        "$type": "color"
+      },
+      "border-active": {
+        "$value": "0.457 0.0388 156.7",
+        "$type": "color"
+      },
+      "border-highlight": {
+        "$value": "0.437 0.0368 156.7",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.31 0.0194 157.3",
+        "$type": "color"
+      },
+      "bg-highlight": {
+        "$value": "0.299 0.0185 157.3",
+        "$type": "color"
+      },
+      "bg-disabled": {
+        "$value": "0.254 0.0123 157.6",
+        "$type": "color"
+      },
+      "placeholder": {
+        "$value": "0.591 0.0222 157.9",
+        "$type": "color"
+      }
     },
     "tab": {
-      "bg": { "$value": "142 10% 18%", "$type": "color" },
-      "bg-hover": { "$value": "142 10% 22%", "$type": "color" },
-      "outline": { "$value": "142 10% 30%", "$type": "color" }
+      "bg": {
+        "$value": "0.308 0.0163 157.5",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.35 0.0192 157.5",
+        "$type": "color"
+      },
+      "outline": {
+        "$value": "0.43 0.0249 157.4",
+        "$type": "color"
+      }
     },
-    "background": { "$value": "142 50% 4%", "$type": "color" },
-    "panel-background": { "$value": "142 40% 7%", "$type": "color" },
-    "main-panel-background": { "$value": "142 40% 7%", "$type": "color" },
-    "ring": { "$value": "142 60% 35%", "$type": "color" }
+    "background": {
+      "$value": "0.156 0.0216 157.2",
+      "$type": "color"
+    },
+    "panel-background": {
+      "$value": "0.197 0.0271 155.2",
+      "$type": "color"
+    },
+    "main-panel-background": {
+      "$value": "0.197 0.0271 155.2",
+      "$type": "color"
+    },
+    "ring": {
+      "$value": "0.574 0.2 155",
+      "$type": "color"
+    }
   },
   "surfaceScopes": {
     "light": {
-      "3": {
+      "0": {
         "input": {
-          "bg": { "$value": "142 10% 96%", "$type": "color" },
-          "border": { "$value": "142 10% 82%", "$type": "color" },
-          "border-hover": { "$value": "142 12% 75%", "$type": "color" },
-          "border-focus": { "$value": "142 12% 75%", "$type": "color" },
-          "border-error": { "$value": "0 84% 60%", "$type": "color" },
-          "bg-disabled": { "$value": "142 8% 93%", "$type": "color" },
-          "placeholder": { "$value": "142 5% 56%", "$type": "color" }
+          "bg": {
+            "$value": "1 0 0",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.889 0.0105 158.5",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.838 0.0187 158.2",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.838 0.0187 158.2",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.636 0.2082 25.4",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.8 0.0232 158.1",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.84 0.0234 158.1",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.978 0.0016 158.7",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.978 0.0031 158.7",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.963 0.0028 158.7",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.657 0.0166 158.2",
+            "$type": "color"
+          }
         },
         "tab": {
-          "bg": { "$value": "142 8% 94%", "$type": "color" },
-          "bg-hover": { "$value": "142 8% 91%", "$type": "color" },
-          "outline": { "$value": "142 8% 78%", "$type": "color" }
+          "bg": {
+            "$value": "0.919 0.0077 158.5",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.897 0.0098 158.5",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.835 0.0125 158.4",
+            "$type": "color"
+          }
         },
         "border": {
-          "subtle": { "$value": "142 10% 85%", "$type": "color" },
-          "default": { "$value": "142 10% 78%", "$type": "color" }
+          "subtle": {
+            "$value": "0.904 0.0091 158.5",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.851 0.0142 158.4",
+            "$type": "color"
+          }
+        }
+      },
+      "1": {
+        "input": {
+          "bg": {
+            "$value": "1 0 0",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.889 0.0105 158.5",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.838 0.0187 158.2",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.838 0.0187 158.2",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.636 0.2082 25.4",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.8 0.0232 158.1",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.84 0.0234 158.1",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.978 0.0016 158.7",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.978 0.0031 158.7",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.963 0.0028 158.7",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.657 0.0166 158.2",
+            "$type": "color"
+          }
+        },
+        "tab": {
+          "bg": {
+            "$value": "0.919 0.0077 158.5",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.897 0.0098 158.5",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.835 0.0125 158.4",
+            "$type": "color"
+          }
+        },
+        "border": {
+          "subtle": {
+            "$value": "0.904 0.0091 158.5",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.851 0.0142 158.4",
+            "$type": "color"
+          }
+        }
+      },
+      "2": {
+        "input": {
+          "bg": {
+            "$value": "0.993 0.0007 158.7",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.881 0.0112 158.4",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.83 0.0196 158.2",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.83 0.0196 158.2",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.636 0.2082 25.4",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.792 0.0241 158",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.832 0.0245 158.1",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.97 0.0022 158.7",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.971 0.0041 158.6",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.956 0.0033 158.6",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.657 0.0166 158.2",
+            "$type": "color"
+          }
+        },
+        "tab": {
+          "bg": {
+            "$value": "0.903 0.0073 158.5",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.881 0.009 158.5",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.835 0.0125 158.4",
+            "$type": "color"
+          }
+        },
+        "border": {
+          "subtle": {
+            "$value": "0.897 0.0098 158.5",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.844 0.0149 158.3",
+            "$type": "color"
+          }
+        }
+      },
+      "3": {
+        "input": {
+          "bg": {
+            "$value": "0.971 0.0028 158.7",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.866 0.0127 158.4",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.815 0.0214 158.1",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.815 0.0214 158.1",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.636 0.2082 25.4",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.777 0.026 158",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.817 0.0267 158",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.948 0.0039 158.6",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.957 0.0062 158.6",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.948 0.0039 158.6",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.657 0.0166 158.2",
+            "$type": "color"
+          }
+        },
+        "tab": {
+          "bg": {
+            "$value": "0.956 0.0033 158.6",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.933 0.005 158.6",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.835 0.0125 158.4",
+            "$type": "color"
+          }
+        },
+        "border": {
+          "subtle": {
+            "$value": "0.889 0.0105 158.5",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.836 0.0156 158.3",
+            "$type": "color"
+          }
         }
       },
       "4": {
         "input": {
-          "bg": { "$value": "142 10% 96%", "$type": "color" },
-          "border": { "$value": "142 10% 82%", "$type": "color" },
-          "border-hover": { "$value": "142 12% 75%", "$type": "color" },
-          "border-focus": { "$value": "142 12% 75%", "$type": "color" },
-          "border-error": { "$value": "0 84% 60%", "$type": "color" },
-          "bg-disabled": { "$value": "142 8% 93%", "$type": "color" },
-          "placeholder": { "$value": "142 5% 56%", "$type": "color" }
+          "bg": {
+            "$value": "0.971 0.0028 158.7",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.866 0.0127 158.4",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.815 0.0214 158.1",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.815 0.0214 158.1",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.636 0.2082 25.4",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.777 0.026 158",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.817 0.0267 158",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.948 0.0039 158.6",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.957 0.0062 158.6",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.948 0.0039 158.6",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.657 0.0166 158.2",
+            "$type": "color"
+          }
         },
         "tab": {
-          "bg": { "$value": "142 8% 94%", "$type": "color" },
-          "bg-hover": { "$value": "142 8% 91%", "$type": "color" },
-          "outline": { "$value": "142 8% 78%", "$type": "color" }
+          "bg": {
+            "$value": "0.956 0.0033 158.6",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.933 0.005 158.6",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.835 0.0125 158.4",
+            "$type": "color"
+          }
         },
         "border": {
-          "subtle": { "$value": "142 10% 85%", "$type": "color" },
-          "default": { "$value": "142 10% 78%", "$type": "color" }
+          "subtle": {
+            "$value": "0.889 0.0105 158.5",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.836 0.0156 158.3",
+            "$type": "color"
+          }
         }
       }
     },
     "dark": {
-      "2": {
+      "0": {
         "input": {
-          "bg": { "$value": "142 12% 22%", "$type": "color" },
-          "border": { "$value": "142 12% 28%", "$type": "color" },
-          "border-hover": { "$value": "142 15% 34%", "$type": "color" },
-          "border-focus": { "$value": "142 15% 34%", "$type": "color" },
-          "border-error": { "$value": "0 62.8% 50%", "$type": "color" },
-          "bg-disabled": { "$value": "142 10% 16%", "$type": "color" },
-          "placeholder": { "$value": "142 6% 48%", "$type": "color" }
+          "bg": {
+            "$value": "0.198 0.0097 157.6",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.266 0.0157 157.4",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.334 0.0263 156.9",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.334 0.0263 156.9",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.562 0.1966 26.3",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.376 0.0306 156.8",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.355 0.0285 156.8",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.233 0.0128 157.5",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.221 0.0118 157.5",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.173 0.0063 157.9",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.591 0.0222 157.9",
+            "$type": "color"
+          }
         },
         "tab": {
-          "bg": { "$value": "142 10% 24%", "$type": "color" },
-          "bg-hover": { "$value": "142 10% 28%", "$type": "color" },
-          "outline": { "$value": "142 10% 30%", "$type": "color" }
+          "bg": {
+            "$value": "0.22 0.0099 157.7",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.265 0.0131 157.6",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.329 0.0178 157.5",
+            "$type": "color"
+          }
         },
         "border": {
-          "subtle": { "$value": "142 12% 26%", "$type": "color" },
-          "default": { "$value": "142 12% 30%", "$type": "color" }
+          "subtle": {
+            "$value": "0.244 0.0138 157.4",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.299 0.0185 157.3",
+            "$type": "color"
+          }
+        }
+      },
+      "1": {
+        "input": {
+          "bg": {
+            "$value": "0.233 0.0128 157.5",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.299 0.0185 157.3",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.366 0.0295 156.8",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.366 0.0295 156.8",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.562 0.1966 26.3",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.407 0.0337 156.8",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.386 0.0317 156.8",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.266 0.0157 157.4",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.255 0.0147 157.4",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.208 0.009 157.8",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.591 0.0222 157.9",
+            "$type": "color"
+          }
+        },
+        "tab": {
+          "bg": {
+            "$value": "0.254 0.0123 157.6",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.298 0.0155 157.5",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.36 0.02 157.5",
+            "$type": "color"
+          }
+        },
+        "border": {
+          "subtle": {
+            "$value": "0.278 0.0166 157.3",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.331 0.0212 157.2",
+            "$type": "color"
+          }
+        }
+      },
+      "2": {
+        "input": {
+          "bg": {
+            "$value": "0.352 0.023 157.2",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.413 0.0281 157.2",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.476 0.0408 156.7",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.476 0.0408 156.7",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.562 0.1966 26.3",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.515 0.0447 156.7",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.496 0.0427 156.7",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.383 0.0255 157.2",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.373 0.0247 157.2",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.287 0.0147 157.6",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.591 0.0222 157.9",
+            "$type": "color"
+          }
+        },
+        "tab": {
+          "bg": {
+            "$value": "0.37 0.0207 157.4",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.41 0.0235 157.4",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.43 0.0249 157.4",
+            "$type": "color"
+          }
+        },
+        "border": {
+          "subtle": {
+            "$value": "0.393 0.0264 157.2",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.433 0.0297 157.1",
+            "$type": "color"
+          }
         }
       },
       "3": {
         "input": {
-          "bg": { "$value": "142 12% 20%", "$type": "color" },
-          "border": { "$value": "142 12% 26%", "$type": "color" },
-          "border-hover": { "$value": "142 15% 32%", "$type": "color" },
-          "border-focus": { "$value": "142 15% 32%", "$type": "color" },
-          "border-error": { "$value": "0 62.8% 50%", "$type": "color" },
-          "bg-disabled": { "$value": "142 10% 14%", "$type": "color" },
-          "placeholder": { "$value": "142 6% 48%", "$type": "color" }
+          "bg": {
+            "$value": "0.331 0.0212 157.2",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.393 0.0264 157.2",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.457 0.0388 156.7",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.457 0.0388 156.7",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.562 0.1966 26.3",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.496 0.0427 156.7",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.476 0.0408 156.7",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.362 0.0238 157.2",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.352 0.023 157.2",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.265 0.0131 157.6",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.591 0.0222 157.9",
+            "$type": "color"
+          }
         },
         "tab": {
-          "bg": { "$value": "142 10% 22%", "$type": "color" },
-          "bg-hover": { "$value": "142 10% 26%", "$type": "color" },
-          "outline": { "$value": "142 10% 28%", "$type": "color" }
+          "bg": {
+            "$value": "0.35 0.0192 157.5",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.391 0.0221 157.4",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.41 0.0235 157.4",
+            "$type": "color"
+          }
         },
         "border": {
-          "subtle": { "$value": "142 12% 24%", "$type": "color" },
-          "default": { "$value": "142 12% 28%", "$type": "color" }
+          "subtle": {
+            "$value": "0.373 0.0247 157.2",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.413 0.0281 157.2",
+            "$type": "color"
+          }
         }
       },
       "4": {
         "input": {
-          "bg": { "$value": "142 12% 24%", "$type": "color" },
-          "border": { "$value": "142 12% 30%", "$type": "color" },
-          "border-hover": { "$value": "142 15% 36%", "$type": "color" },
-          "border-focus": { "$value": "142 15% 36%", "$type": "color" },
-          "border-error": { "$value": "0 62.8% 50%", "$type": "color" },
-          "bg-disabled": { "$value": "142 10% 18%", "$type": "color" },
-          "placeholder": { "$value": "142 6% 48%", "$type": "color" }
+          "bg": {
+            "$value": "0.373 0.0247 157.2",
+            "$type": "color"
+          },
+          "border": {
+            "$value": "0.433 0.0297 157.1",
+            "$type": "color"
+          },
+          "border-hover": {
+            "$value": "0.496 0.0427 156.7",
+            "$type": "color"
+          },
+          "border-focus": {
+            "$value": "0.496 0.0427 156.7",
+            "$type": "color"
+          },
+          "border-error": {
+            "$value": "0.562 0.1966 26.3",
+            "$type": "color"
+          },
+          "border-active": {
+            "$value": "0.534 0.0466 156.7",
+            "$type": "color"
+          },
+          "border-highlight": {
+            "$value": "0.515 0.0447 156.7",
+            "$type": "color"
+          },
+          "bg-active": {
+            "$value": "0.403 0.0272 157.2",
+            "$type": "color"
+          },
+          "bg-highlight": {
+            "$value": "0.393 0.0264 157.2",
+            "$type": "color"
+          },
+          "bg-disabled": {
+            "$value": "0.308 0.0163 157.5",
+            "$type": "color"
+          },
+          "placeholder": {
+            "$value": "0.591 0.0222 157.9",
+            "$type": "color"
+          }
         },
         "tab": {
-          "bg": { "$value": "142 10% 26%", "$type": "color" },
-          "bg-hover": { "$value": "142 10% 30%", "$type": "color" },
-          "outline": { "$value": "142 10% 32%", "$type": "color" }
+          "bg": {
+            "$value": "0.391 0.0221 157.4",
+            "$type": "color"
+          },
+          "bg-hover": {
+            "$value": "0.43 0.0249 157.4",
+            "$type": "color"
+          },
+          "outline": {
+            "$value": "0.45 0.0263 157.4",
+            "$type": "color"
+          }
         },
         "border": {
-          "subtle": { "$value": "142 12% 28%", "$type": "color" },
-          "default": { "$value": "142 12% 32%", "$type": "color" }
+          "subtle": {
+            "$value": "0.413 0.0281 157.2",
+            "$type": "color"
+          },
+          "default": {
+            "$value": "0.452 0.0313 157.1",
+            "$type": "color"
+          }
         }
       }
     }

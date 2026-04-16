@@ -4,8 +4,10 @@
  * Unified design token system for Harmony apps.
  * Main entry point — exports types, token data, and resolve functions.
  *
+ * Color values are OKLCH triplets ("L C H") or ("L C H / A" for alpha).
+ *
  * For CSS/DOM operations (applyThemePreset), import from '@heyharmony/design-tokens/css-apply'.
- * For React Native (hsl() strings), import from '@heyharmony/design-tokens/react-native'.
+ * For React Native (hex strings), import from '@heyharmony/design-tokens/react-native'.
  */
 
 export { resolveTheme, resolveThemeExtended, resolveSurfaceScopes, isPresetAllowedForMode } from './resolve.js';
@@ -17,6 +19,9 @@ export {
   THEME_PRESET_IDS,
   SURFACE_SCOPES_LIGHT,
   SURFACE_SCOPES_DARK,
+  SHADOWS_LIGHT,
+  SHADOWS_DARK,
+  SHADOW_TO_CSS,
 } from './tokens.js';
 export type {
   ThemeColors,
@@ -24,6 +29,7 @@ export type {
   ThemeMode,
   ThemePreset,
   ThemePresetColors,
+  ThemeShadows,
   PresetPreview,
   SurfaceLevel,
   SurfaceContextualToken,
