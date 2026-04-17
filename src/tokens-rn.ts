@@ -12,10 +12,10 @@ export const BASE_LIGHT_HEX: ThemeColors = {
   surface1Hover: '#eae9e6',
   surface1Active: '#e3e1dd',
   surface1Highlight: '#eeebe7',
-  surface2: '#e8e8e8',
-  surface2Hover: '#ededed',
-  surface2Active: '#e3e3e3',
-  surface2Highlight: '#eae9e6',
+  surface2: '#ffffff',
+  surface2Hover: '#f7f7f7',
+  surface2Active: '#f0f0f0',
+  surface2Highlight: '#f6f5f4',
   surface3: '#ffffff',
   surface3Hover: '#f7f7f7',
   surface3Active: '#f0f0f0',
@@ -133,6 +133,10 @@ export const BASE_DARK_HEX: ThemeColors = {
 
 export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
   '0': {
+    fg: '#0a0a0a',
+    fgSecondary: '#5d5d5d',
+    fgTertiary: '#717171',
+    fgDisabled: '#989898',
     inputBg: '#ffffff',
     inputBorder: '#d9d9d9',
     inputBorderHover: '#c7c7c7',
@@ -151,6 +155,10 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     borderDefault: '#cccccc',
   },
   '1': {
+    fg: '#0a0a0a',
+    fgSecondary: '#5d5d5d',
+    fgTertiary: '#717171',
+    fgDisabled: '#989898',
     inputBg: '#ffffff',
     inputBorder: '#d9d9d9',
     inputBorderHover: '#c7c7c7',
@@ -169,6 +177,10 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     borderDefault: '#cccccc',
   },
   '2': {
+    fg: '#0a0a0a',
+    fgSecondary: '#5d5d5d',
+    fgTertiary: '#717171',
+    fgDisabled: '#989898',
     inputBg: '#fcfcfc',
     inputBorder: '#d6d6d6',
     inputBorderHover: '#c4c4c4',
@@ -187,6 +199,10 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     borderDefault: '#c9c9c9',
   },
   '3': {
+    fg: '#0a0a0a',
+    fgSecondary: '#5d5d5d',
+    fgTertiary: '#717171',
+    fgDisabled: '#989898',
     inputBg: '#f5f5f5',
     inputBorder: '#d1d1d1',
     inputBorderHover: '#bfbfbf',
@@ -205,6 +221,10 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     borderDefault: '#c7c7c7',
   },
   '4': {
+    fg: '#0a0a0a',
+    fgSecondary: '#5d5d5d',
+    fgTertiary: '#717171',
+    fgDisabled: '#989898',
     inputBg: '#f5f5f5',
     inputBorder: '#d1d1d1',
     inputBorderHover: '#bfbfbf',
@@ -226,6 +246,10 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
 
 export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
   '0': {
+    fg: '#e5e5e5',
+    fgSecondary: '#a3a3a3',
+    fgTertiary: '#808080',
+    fgDisabled: '#5d5d5d',
     inputBg: '#292929',
     inputBorder: '#383838',
     inputBorderHover: '#474747',
@@ -244,6 +268,10 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     borderDefault: '#404040',
   },
   '1': {
+    fg: '#e5e5e5',
+    fgSecondary: '#a3a3a3',
+    fgTertiary: '#808080',
+    fgDisabled: '#5d5d5d',
     inputBg: '#2e2e2e',
     inputBorder: '#3d3d3d',
     inputBorderHover: '#4c4c4c',
@@ -262,6 +290,10 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     borderDefault: '#454545',
   },
   '2': {
+    fg: '#e5e5e5',
+    fgSecondary: '#a3a3a3',
+    fgTertiary: '#808080',
+    fgDisabled: '#5d5d5d',
     inputBg: '#383838',
     inputBorder: '#474747',
     inputBorderHover: '#575757',
@@ -280,6 +312,10 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     borderDefault: '#4c4c4c',
   },
   '3': {
+    fg: '#e5e5e5',
+    fgSecondary: '#a3a3a3',
+    fgTertiary: '#808080',
+    fgDisabled: '#5d5d5d',
     inputBg: '#333333',
     inputBorder: '#424242',
     inputBorderHover: '#525252',
@@ -298,6 +334,10 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     borderDefault: '#474747',
   },
   '4': {
+    fg: '#e5e5e5',
+    fgSecondary: '#a3a3a3',
+    fgTertiary: '#808080',
+    fgDisabled: '#5d5d5d',
     inputBg: '#3d3d3d',
     inputBorder: '#4c4c4c',
     inputBorderHover: '#5c5c5c',
@@ -327,10 +367,10 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
 
   ocean: {
     light: {
-      surface0: '#f0f7ff',
-      surface0Hover: '#e0f0ff',
-      surface0Active: '#d1e8ff',
-      surface0Highlight: '#dbedff',
+      surface0: '#071c2e',
+      surface0Hover: '#0e263b',
+      surface0Active: '#153048',
+      surface0Highlight: '#122b41',
       surface1: '#ffffff',
       surface1Hover: '#f0f5fa',
       surface1Active: '#e4edf6',
@@ -352,7 +392,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accentHover: '#c2e1ff',
       sidebarAccent: '#006ce8',
       sidebarAccentForeground: '#ffffff',
-      sidebarHover: '#d6ebff',
+      sidebarHover: '#102b43',
       borderSubtle: '#dbdee1',
       borderDefault: '#c7ccd1',
       inputBg: '#ffffff',
@@ -368,7 +408,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       tabBg: '#e0e3e6',
       tabBgHover: '#d8dbdf',
       tabOutline: '#c2c7cb',
-      background: '#d6ebff',
+      background: '#071c2e',
       panelBackground: '#ffffff',
       mainPanelBackground: '#ffffff',
       ring: '#0080fe',
@@ -422,6 +462,10 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
     },
     surfaceScopesLight: {
       '0': {
+        fg: '#e5e5e5',
+        fgSecondary: '#a3a3a3',
+        fgTertiary: '#808080',
+        fgDisabled: '#5d5d5d',
         inputBg: '#ffffff',
         inputBorder: '#d5d9dd',
         inputBorderHover: '#c0c7ce',
@@ -608,10 +652,10 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
 
   forest: {
     light: {
-      surface0: '#f2fdf6',
-      surface0Hover: '#e4fbed',
-      surface0Active: '#d7fae3',
-      surface0Highlight: '#e0fbea',
+      surface0: '#042112',
+      surface0Hover: '#0a2b1a',
+      surface0Active: '#113623',
+      surface0Highlight: '#0e301f',
       surface1: '#ffffff',
       surface1Hover: '#f1f9f4',
       surface1Active: '#e6f4eb',
@@ -633,7 +677,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accentHover: '#c6ecd4',
       sidebarAccent: '#007435',
       sidebarAccentForeground: '#ffffff',
-      sidebarHover: '#d9f2e2',
+      sidebarHover: '#0b311e',
       borderSubtle: '#dbe1dd',
       borderDefault: '#c7d1cb',
       inputBg: '#ffffff',
@@ -649,7 +693,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       tabBg: '#e0e6e2',
       tabBgHover: '#d8dfdb',
       tabOutline: '#c3cbc6',
-      background: '#d3f1de',
+      background: '#042112',
       panelBackground: '#ffffff',
       mainPanelBackground: '#ffffff',
       ring: '#00b15a',
@@ -703,6 +747,10 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
     },
     surfaceScopesLight: {
       '0': {
+        fg: '#e5e5e5',
+        fgSecondary: '#a3a3a3',
+        fgTertiary: '#808080',
+        fgDisabled: '#5d5d5d',
         inputBg: '#ffffff',
         inputBorder: '#d5ddd8',
         inputBorderHover: '#c0cec5',
@@ -889,10 +937,10 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
 
   berry: {
     light: {
-      surface0: '#fcf5ff',
-      surface0Hover: '#f6e5ff',
-      surface0Active: '#f2d6ff',
-      surface0Highlight: '#f5e0ff',
+      surface0: '#23132a',
+      surface0Hover: '#2e1b36',
+      surface0Active: '#392442',
+      surface0Highlight: '#33203c',
       surface1: '#ffffff',
       surface1Hover: '#f6f0fa',
       surface1Active: '#f0e4f6',
@@ -914,7 +962,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accentHover: '#e9c8f9',
       sidebarAccent: '#8534dc',
       sidebarAccentForeground: '#ffffff',
-      sidebarHover: '#f0dafb',
+      sidebarHover: '#341f3d',
       borderSubtle: '#dfdae1',
       borderDefault: '#cec7d1',
       inputBg: '#ffffff',
@@ -930,7 +978,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       tabBg: '#e4e0e6',
       tabBgHover: '#dcd8df',
       tabOutline: '#c8c2cb',
-      background: '#f2e0fb',
+      background: '#23132a',
       panelBackground: '#ffffff',
       mainPanelBackground: '#ffffff',
       ring: '#9347ed',
@@ -984,6 +1032,10 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
     },
     surfaceScopesLight: {
       '0': {
+        fg: '#e5e5e5',
+        fgSecondary: '#a3a3a3',
+        fgTertiary: '#808080',
+        fgDisabled: '#5d5d5d',
         inputBg: '#ffffff',
         inputBorder: '#dad5dd',
         inputBorderHover: '#c9c0ce',

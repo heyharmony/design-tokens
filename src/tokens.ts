@@ -15,10 +15,10 @@ export const BASE_LIGHT: ThemeColors = {
   surface1Hover: '0.934 0.0044 84.6',
   surface1Active: '0.911 0.0059 84.6',
   surface1Highlight: '0.942 0.0059 84.6',
-  surface2: '0.931 0 0',
-  surface2Hover: '0.947 0 0',
-  surface2Active: '0.916 0 0',
-  surface2Highlight: '0.934 0.0044 84.6',
+  surface2: '1 0 0',
+  surface2Hover: '0.977 0 0',
+  surface2Active: '0.954 0 0',
+  surface2Highlight: '0.971 0.0019 84.6',
   surface3: '1 0 0',
   surface3Hover: '0.977 0 0',
   surface3Active: '0.954 0 0',
@@ -140,6 +140,10 @@ export const BASE_DARK: ThemeColors = {
 
 export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
   '0': {
+    fg: '0.145 0 0',
+    fgSecondary: '0.48 0 0',
+    fgTertiary: '0.55 0 0',
+    fgDisabled: '0.68 0 0',
     inputBg: '1 0 0',
     inputBorder: '0.885 0 0',
     inputBorderHover: '0.829 0 0',
@@ -158,6 +162,10 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     borderDefault: '0.845 0 0',
   },
   '1': {
+    fg: '0.145 0 0',
+    fgSecondary: '0.48 0 0',
+    fgTertiary: '0.55 0 0',
+    fgDisabled: '0.68 0 0',
     inputBg: '1 0 0',
     inputBorder: '0.885 0 0',
     inputBorderHover: '0.829 0 0',
@@ -176,6 +184,10 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     borderDefault: '0.845 0 0',
   },
   '2': {
+    fg: '0.145 0 0',
+    fgSecondary: '0.48 0 0',
+    fgTertiary: '0.55 0 0',
+    fgDisabled: '0.68 0 0',
     inputBg: '0.992 0 0',
     inputBorder: '0.877 0 0',
     inputBorderHover: '0.821 0 0',
@@ -194,6 +206,10 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     borderDefault: '0.837 0 0',
   },
   '3': {
+    fg: '0.145 0 0',
+    fgSecondary: '0.48 0 0',
+    fgTertiary: '0.55 0 0',
+    fgDisabled: '0.68 0 0',
     inputBg: '0.97 0 0',
     inputBorder: '0.861 0 0',
     inputBorderHover: '0.805 0 0',
@@ -212,6 +228,10 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     borderDefault: '0.829 0 0',
   },
   '4': {
+    fg: '0.145 0 0',
+    fgSecondary: '0.48 0 0',
+    fgTertiary: '0.55 0 0',
+    fgDisabled: '0.68 0 0',
     inputBg: '0.97 0 0',
     inputBorder: '0.861 0 0',
     inputBorderHover: '0.805 0 0',
@@ -233,6 +253,10 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
 
 export const SURFACE_SCOPES_DARK: SurfaceScopes = {
   '0': {
+    fg: '0.923 0 0',
+    fgSecondary: '0.715 0 0',
+    fgTertiary: '0.6 0 0',
+    fgDisabled: '0.48 0 0',
     inputBg: '0.28 0 0',
     inputBorder: '0.341 0 0',
     inputBorderHover: '0.399 0 0',
@@ -251,6 +275,10 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     borderDefault: '0.371 0 0',
   },
   '1': {
+    fg: '0.923 0 0',
+    fgSecondary: '0.715 0 0',
+    fgTertiary: '0.6 0 0',
+    fgDisabled: '0.48 0 0',
     inputBg: '0.301 0 0',
     inputBorder: '0.361 0 0',
     inputBorderHover: '0.418 0 0',
@@ -269,6 +297,10 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     borderDefault: '0.39 0 0',
   },
   '2': {
+    fg: '0.923 0 0',
+    fgSecondary: '0.715 0 0',
+    fgTertiary: '0.6 0 0',
+    fgDisabled: '0.48 0 0',
     inputBg: '0.341 0 0',
     inputBorder: '0.399 0 0',
     inputBorderHover: '0.456 0 0',
@@ -287,6 +319,10 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     borderDefault: '0.418 0 0',
   },
   '3': {
+    fg: '0.923 0 0',
+    fgSecondary: '0.715 0 0',
+    fgTertiary: '0.6 0 0',
+    fgDisabled: '0.48 0 0',
     inputBg: '0.321 0 0',
     inputBorder: '0.38 0 0',
     inputBorderHover: '0.437 0 0',
@@ -305,6 +341,10 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     borderDefault: '0.399 0 0',
   },
   '4': {
+    fg: '0.923 0 0',
+    fgSecondary: '0.715 0 0',
+    fgTertiary: '0.6 0 0',
+    fgDisabled: '0.48 0 0',
     inputBg: '0.361 0 0',
     inputBorder: '0.418 0 0',
     inputBorderHover: '0.474 0 0',
@@ -348,10 +388,10 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
 
   ocean: {
     light: {
-      surface0: '0.974 0.0131 248',
-      surface0Hover: '0.947 0.0263 248.1',
-      surface0Active: '0.921 0.0398 248.3',
-      surface0Highlight: '0.939 0.0308 248.2',
+      surface0: '0.22 0.045 248',
+      surface0Hover: '0.26 0.05 248',
+      surface0Active: '0.3 0.055 248',
+      surface0Highlight: '0.28 0.052 248',
       surface1: '1 0 0',
       surface1Hover: '0.967 0.0087 247.9',
       surface1Active: '0.942 0.0154 248',
@@ -373,7 +413,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accentHover: '0.896 0.0533 248.4',
       sidebarAccent: '0.55 0.2114 255',
       sidebarAccentForeground: '1 0 0',
-      sidebarHover: '0.93 0.0353 248.2',
+      sidebarHover: '0.28 0.055 248',
       borderSubtle: '0.899 0.0058 247.9',
       borderDefault: '0.843 0.009 247.9',
       inputBg: '1 0 0',
@@ -389,7 +429,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBg: '0.914 0.0049 247.9',
       tabBgHover: '0.891 0.0062 247.9',
       tabOutline: '0.827 0.008 247.9',
-      background: '0.93 0.035 248',
+      background: '0.22 0.045 248',
       panelBackground: '1 0 0',
       mainPanelBackground: '1 0 0',
       ring: '0.614 0.2114 255',
@@ -443,6 +483,10 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     },
     surfaceScopesLight: {
       '0': {
+        fg: '0.923 0 0',
+        fgSecondary: '0.715 0 0',
+        fgTertiary: '0.6 0 0',
+        fgDisabled: '0.48 0 0',
         inputBg: '1 0 0',
         inputBorder: '0.883 0.0067 247.9',
         inputBorderHover: '0.826 0.012 248',
@@ -629,10 +673,10 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
 
   forest: {
     light: {
-      surface0: '0.984 0.0156 158.4',
-      surface0Hover: '0.968 0.0311 158',
-      surface0Active: '0.953 0.0467 157.6',
-      surface0Highlight: '0.963 0.0363 157.9',
+      surface0: '0.22 0.045 158.4',
+      surface0Hover: '0.26 0.05 158',
+      surface0Active: '0.3 0.055 158',
+      surface0Highlight: '0.28 0.052 158',
       surface1: '1 0 0',
       surface1Hover: '0.974 0.011 158.5',
       surface1Active: '0.955 0.0193 158.3',
@@ -654,7 +698,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accentHover: '0.909 0.0516 157.4',
       sidebarAccent: '0.48 0.2 155',
       sidebarAccentForeground: '1 0 0',
-      sidebarHover: '0.939 0.0344 157.9',
+      sidebarHover: '0.28 0.055 158',
       borderSubtle: '0.904 0.0091 158.5',
       borderDefault: '0.851 0.0142 158.4',
       inputBg: '1 0 0',
@@ -670,7 +714,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBg: '0.919 0.0077 158.5',
       tabBgHover: '0.897 0.0098 158.5',
       tabOutline: '0.835 0.0125 158.4',
-      background: '0.93 0.04 158',
+      background: '0.22 0.045 158',
       panelBackground: '1 0 0',
       mainPanelBackground: '1 0 0',
       ring: '0.658 0.2 155',
@@ -724,6 +768,10 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     },
     surfaceScopesLight: {
       '0': {
+        fg: '0.923 0 0',
+        fgSecondary: '0.715 0 0',
+        fgTertiary: '0.6 0 0',
+        fgDisabled: '0.48 0 0',
         inputBg: '1 0 0',
         inputBorder: '0.889 0.0105 158.5',
         inputBorderHover: '0.838 0.0187 158.2',
@@ -910,10 +958,10 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
 
   berry: {
     light: {
-      surface0: '0.978 0.0152 314.8',
-      surface0Hover: '0.944 0.0384 314.6',
-      surface0Active: '0.912 0.0618 314.5',
-      surface0Highlight: '0.933 0.0462 314.6',
+      surface0: '0.22 0.05 314.8',
+      surface0Hover: '0.26 0.055 315',
+      surface0Active: '0.3 0.06 315',
+      surface0Highlight: '0.28 0.057 315',
       surface1: '1 0 0',
       surface1Hover: '0.962 0.0153 314.7',
       surface1Active: '0.934 0.0269 314.7',
@@ -935,7 +983,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accentHover: '0.876 0.0748 314.4',
       sidebarAccent: '0.53 0.2361 300',
       sidebarAccentForeground: '1 0 0',
-      sidebarHover: '0.917 0.0495 314.6',
+      sidebarHover: '0.28 0.06 315',
       borderSubtle: '0.895 0.0101 314.8',
       borderDefault: '0.838 0.0158 314.7',
       inputBg: '1 0 0',
@@ -951,7 +999,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       tabBg: '0.912 0.0085 314.8',
       tabBgHover: '0.887 0.0109 314.8',
       tabOutline: '0.823 0.014 314.7',
-      background: '0.93 0.04 315',
+      background: '0.22 0.05 315',
       panelBackground: '1 0 0',
       mainPanelBackground: '1 0 0',
       ring: '0.58 0.2361 300',
@@ -1005,6 +1053,10 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
     },
     surfaceScopesLight: {
       '0': {
+        fg: '0.923 0 0',
+        fgSecondary: '0.715 0 0',
+        fgTertiary: '0.6 0 0',
+        fgDisabled: '0.48 0 0',
         inputBg: '1 0 0',
         inputBorder: '0.879 0.0117 314.8',
         inputBorderHover: '0.82 0.021 314.7',

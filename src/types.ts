@@ -8,6 +8,10 @@ export type SurfaceLevel = '0' | '1' | '2' | '3' | '4';
 export type SurfaceContextualToken =
   | 'borderDefault'
   | 'borderSubtle'
+  | 'fg'
+  | 'fgDisabled'
+  | 'fgSecondary'
+  | 'fgTertiary'
   | 'inputBg'
   | 'inputBgActive'
   | 'inputBgDisabled'

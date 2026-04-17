@@ -10,7 +10,7 @@
         "$type": "color"
       },
       "2": {
-        "$value": "0.931 0 0",
+        "$value": "1 0 0",
         "$type": "color"
       },
       "3": {
@@ -46,15 +46,15 @@
         "$type": "color"
       },
       "2-hover": {
-        "$value": "0.947 0 0",
+        "$value": "0.977 0 0",
         "$type": "color"
       },
       "2-active": {
-        "$value": "0.916 0 0",
+        "$value": "0.954 0 0",
         "$type": "color"
       },
       "2-highlight": {
-        "$value": "0.934 0.0044 84.6",
+        "$value": "0.971 0.0019 84.6",
         "$type": "color"
       },
       "3-hover": {

@@ -57,6 +57,7 @@ export function getTokenCssVar(key: keyof ThemeColors): string {
 
 /** All surface-contextual CSS variable names (for cleanup). */
 const SURFACE_CONTEXTUAL_VARS: string[] = ([
+  'fg', 'fgSecondary', 'fgTertiary', 'fgDisabled',
   'inputBg', 'inputBorder', 'inputBorderHover', 'inputBorderFocus',
   'inputBorderError', 'inputBgDisabled', 'inputPlaceholder',
   'tabBg', 'tabBgHover', 'tabOutline',
