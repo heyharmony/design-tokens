@@ -178,7 +178,7 @@
       }
     },
     "background": {
-      "$value": "0.984 0.0156 158.4",
+      "$value": "0.93 0.04 158",
       "$type": "color"
     },
     "panel-background": {
