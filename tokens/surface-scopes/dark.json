@@ -1,5 +1,23 @@
 {
   "0": {
+    "fg": {
+      "default": {
+        "$value": "0.923 0 0",
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "0.715 0 0",
+        "$type": "color"
+      },
+      "tertiary": {
+        "$value": "0.6 0 0",
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "0.48 0 0",
+        "$type": "color"
+      }
+    },
     "input": {
       "bg": {
         "$value": "0.28 0 0",
@@ -72,6 +90,24 @@
     }
   },
   "1": {
+    "fg": {
+      "default": {
+        "$value": "0.923 0 0",
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "0.715 0 0",
+        "$type": "color"
+      },
+      "tertiary": {
+        "$value": "0.6 0 0",
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "0.48 0 0",
+        "$type": "color"
+      }
+    },
     "input": {
       "bg": {
         "$value": "0.301 0 0",
@@ -144,6 +180,24 @@
     }
   },
   "2": {
+    "fg": {
+      "default": {
+        "$value": "0.923 0 0",
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "0.715 0 0",
+        "$type": "color"
+      },
+      "tertiary": {
+        "$value": "0.6 0 0",
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "0.48 0 0",
+        "$type": "color"
+      }
+    },
     "input": {
       "bg": {
         "$value": "0.341 0 0",
@@ -216,6 +270,24 @@
     }
   },
   "3": {
+    "fg": {
+      "default": {
+        "$value": "0.923 0 0",
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "0.715 0 0",
+        "$type": "color"
+      },
+      "tertiary": {
+        "$value": "0.6 0 0",
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "0.48 0 0",
+        "$type": "color"
+      }
+    },
     "input": {
       "bg": {
         "$value": "0.321 0 0",
@@ -288,6 +360,24 @@
     }
   },
   "4": {
+    "fg": {
+      "default": {
+        "$value": "0.923 0 0",
+        "$type": "color"
+      },
+      "secondary": {
+        "$value": "0.715 0 0",
+        "$type": "color"
+      },
+      "tertiary": {
+        "$value": "0.6 0 0",
+        "$type": "color"
+      },
+      "disabled": {
+        "$value": "0.48 0 0",
+        "$type": "color"
+      }
+    },
     "input": {
       "bg": {
         "$value": "0.361 0 0",

@@ -3,7 +3,7 @@
   "light": {
     "surface": {
       "0": {
-        "$value": "0.978 0.0152 314.8",
+        "$value": "0.22 0.05 314.8",
         "$type": "color"
       },
       "1": {
@@ -23,15 +23,15 @@
         "$type": "color"
       },
       "0-hover": {
-        "$value": "0.944 0.0384 314.6",
+        "$value": "0.26 0.055 315",
         "$type": "color"
       },
       "0-active": {
-        "$value": "0.912 0.0618 314.5",
+        "$value": "0.3 0.06 315",
         "$type": "color"
       },
       "0-highlight": {
-        "$value": "0.933 0.0462 314.6",
+        "$value": "0.28 0.057 315",
         "$type": "color"
       },
       "1-hover": {
@@ -107,7 +107,7 @@
         "$type": "color"
       },
       "hover": {
-        "$value": "0.917 0.0495 314.6",
+        "$value": "0.28 0.06 315",
         "$type": "color"
       }
     },
@@ -178,7 +178,7 @@
       }
     },
     "background": {
-      "$value": "0.93 0.04 315",
+      "$value": "0.22 0.05 315",
       "$type": "color"
     },
     "panel-background": {
@@ -391,6 +391,24 @@
   "surfaceScopes": {
     "light": {
       "0": {
+        "fg": {
+          "default": {
+            "$value": "0.923 0 0",
+            "$type": "color"
+          },
+          "secondary": {
+            "$value": "0.715 0 0",
+            "$type": "color"
+          },
+          "tertiary": {
+            "$value": "0.6 0 0",
+            "$type": "color"
+          },
+          "disabled": {
+            "$value": "0.48 0 0",
+            "$type": "color"
+          }
+        },
         "input": {
           "bg": {
             "$value": "1 0 0",
