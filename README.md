@@ -4,7 +4,7 @@ Unified design token system for Harmony apps — web, desktop (Electron), and mo
 
 ## Features
 
-- **63 semantic color tokens + 5 shadow tokens** covering surfaces, foreground, borders, accent, semantic states, tabs, inputs, and overlays
+- **68 semantic color tokens + 5 shadow tokens + 19 layout tokens** covering surfaces, foreground, borders, accent, CTA, semantic states, tabs, inputs, overlays, spacing, and border-radius
 - **9 theme presets**: Default, Ocean, Forest, Berry, Sand, Ayu, Doodles, Black (OLED), White
 - **OKLCH color space** — perceptually uniform, P3 wide gamut support on capable displays
 - **Light/dark/system modes** with preset-mode restrictions
@@ -19,6 +19,7 @@ Unified design token system for Harmony apps — web, desktop (Electron), and mo
 ```
 tokens/                          <- Single source of truth (W3C DTCG JSON, OKLCH values)
   base/light.json, dark.json    <- Core + extended tokens per mode
+  layout.json                   <- Spacing & border-radius (universal, mode-independent)
   surface-scopes/               <- Contextual overrides per surface level
   presets/*.json                 <- Per-preset color overrides + surface scopes
   meta/presets.json              <- Preset metadata (names, previews, allowed modes)
@@ -76,14 +77,17 @@ Import base CSS variables:
 ```css
 @import '@heyharmony/design-tokens/css/light';
 @import '@heyharmony/design-tokens/css/dark';
+@import '@heyharmony/design-tokens/css/layout'; /* spacing & border-radius */
 ```
 
-CSS variables contain full `oklch()` values — use them directly with `var()`:
+CSS variables contain full `oklch()` values (colors) or `rem`/`px` values (layout) — use them directly with `var()`:
 
 ```css
 .card {
   background: var(--harmony-surface-1);
   border: 1px solid var(--harmony-border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-3);
   box-shadow: var(--harmony-shadow-1);
 }
 .card:hover {
@@ -104,14 +108,27 @@ const colors: ThemeColors = resolveTheme('ocean', 'dark');
 
 React Native values are pre-computed hex strings (`#RRGGBB` or `#RRGGBBAA` for alpha tokens) with zero runtime conversion overhead.
 
+Layout tokens are available as numeric px values:
+
+```typescript
+import { SPACING_PX, BORDER_RADIUS_PX } from '@heyharmony/design-tokens/react-native';
+
+// SPACING_PX.spacing2 === 16
+// BORDER_RADIUS_PX.radiusLg === 12
+```
+
 ### Core (platform-agnostic)
 
 ```typescript
-import { resolveTheme, BASE_LIGHT, BASE_DARK, THEME_PRESET_IDS } from '@heyharmony/design-tokens';
+import { resolveTheme, BASE_LIGHT, BASE_DARK, THEME_PRESET_IDS, SPACING, BORDER_RADIUS } from '@heyharmony/design-tokens';
 
 // Returns raw OKLCH triplets ("L C H" or "L C H / A")
 const colors = resolveTheme('forest', 'light');
 // colors.surface0 === '0.974 0.0265 153.1'
+
+// Layout tokens (universal, mode/preset-independent)
+// SPACING.spacing2 === '1rem'
+// BORDER_RADIUS.radiusMd === '0.5rem'
 ```
 
 ## Color Space: OKLCH
@@ -137,12 +154,15 @@ Accent colors in themed presets (Ocean, Forest, Berry, Sand, Ayu) use OKLCH chro
 | Foreground | `fg`, `fgSecondary`, `fgTertiary`, `fgDisabled`, `fgInverse`, `fgLink`, `fgSuccess`, `fgWarning`, `fgError` | 9 | Text and icon colors |
 | Borders | `borderSubtle`, `borderDefault`, `borderSuccess`, `borderWarning`, `borderError` | 5 | Dividers, borders, semantic borders |
 | Accent | `accent`, `accentForeground`, `accentHover`, `accentActive`, `accentSubtle`, `accentMuted`, `accentBorder` | 7 | Primary interactive color system |
+| CTA | `ctaBg`, `ctaFg`, `ctaBgHover`, `ctaBgActive`, `ctaBorder` | 5 | Call-to-action button styling, surface-contextual |
 | Sidebar | `sidebarAccent`, `sidebarAccentForeground`, `sidebarHover` | 3 | Sidebar-specific colors |
 | Tabs | `tabBg`, `tabBgHover`, `tabOutline` | 3 | Tab component colors |
 | Inputs | `inputBg`, `inputBorder`, `inputBorderHover`, `inputBorderFocus`, `inputBorderError`, `inputBorderActive`, `inputBorderHighlight`, `inputBgActive`, `inputBgHighlight`, `inputBgDisabled`, `inputPlaceholder` | 11 | Form input colors |
 | Semantic bg | `bgSuccess`, `bgWarning`, `bgError` | 3 | Alert/toast background colors |
 | Extended | `background`, `panelBackground`, `mainPanelBackground`, `ring`, `overlay`, `surfaceGlass`, `skeleton` | 7 | Layout, overlays, loading states |
 | Shadows | `shadow0`-`shadow4` | 5 | Elevation shadow scale (CSS box-shadow) |
+| Spacing | `spacing0`-`spacing12` | 12 | 8px-base spacing scale (rem, universal) |
+| Border radius | `radiusNone`-`radiusFull` | 7 | Border radius scale (rem, universal) |
 
 ### Accent system
 
@@ -157,6 +177,30 @@ The accent system provides 7 tokens for building interactive UI:
 | `accentSubtle` | Low-emphasis tinted background |
 | `accentMuted` | Very low-emphasis, barely visible tint |
 | `accentBorder` | Accent-tinted border for outlined elements |
+
+### CTA system
+
+Five tokens dedicated to call-to-action buttons. Unlike `accent`, these are **surface-contextual** — every surface level (0–4) defines its own CTA palette, so the same `.btn-cta` automatically adjusts when placed on a different surface.
+
+| Token | CSS variable | Use case |
+|-------|-------------|----------|
+| `ctaBg` | `--cta-bg` | CTA button background |
+| `ctaFg` | `--cta-fg` | Text/icon on the CTA button |
+| `ctaBgHover` | `--cta-bg-hover` | Hover background |
+| `ctaBgActive` | `--cta-bg-active` | Pressed/active background |
+| `ctaBorder` | `--cta-border` | Border (use `transparent` if undesired) |
+
+```css
+.btn-cta {
+  background: var(--cta-bg);
+  color: var(--cta-fg);
+  border: 1px solid var(--cta-border);
+}
+.btn-cta:hover  { background: var(--cta-bg-hover); }
+.btn-cta:active { background: var(--cta-bg-active); }
+```
+
+The button automatically picks up the right scoped values when nested under any `[data-surface="N"]` ancestor. Per-preset CTA overrides can be added under `surfaceScopes.<mode>.<level>.cta` in `tokens/presets/<id>.json`.
 
 ### Semantic colors
 
@@ -191,6 +235,52 @@ Semantic tokens provide background, foreground, and border variants for success/
 
 Shadow values use `oklch()` alpha colors for consistent appearance across themes. In dark mode, shadows are more opaque for visibility.
 
+### Layout tokens (spacing & border-radius)
+
+Layout tokens are **universal** — they don't vary by mode (light/dark) or preset. Import once and use everywhere.
+
+#### Spacing scale (8px base)
+
+| Token | CSS variable | Value | px |
+|-------|-------------|-------|-----|
+| `spacing0` | `--spacing-0` | `0` | 0 |
+| `spacing05` | `--spacing-0-5` | `0.25rem` | 4 |
+| `spacing1` | `--spacing-1` | `0.5rem` | 8 |
+| `spacing15` | `--spacing-1-5` | `0.75rem` | 12 |
+| `spacing2` | `--spacing-2` | `1rem` | 16 |
+| `spacing3` | `--spacing-3` | `1.5rem` | 24 |
+| `spacing4` | `--spacing-4` | `2rem` | 32 |
+| `spacing5` | `--spacing-5` | `2.5rem` | 40 |
+| `spacing6` | `--spacing-6` | `3rem` | 48 |
+| `spacing8` | `--spacing-8` | `4rem` | 64 |
+| `spacing10` | `--spacing-10` | `5rem` | 80 |
+| `spacing12` | `--spacing-12` | `6rem` | 96 |
+
+#### Border radius scale
+
+| Token | CSS variable | Value | px |
+|-------|-------------|-------|-----|
+| `radiusNone` | `--radius-none` | `0` | 0 |
+| `radiusSm` | `--radius-sm` | `0.25rem` | 4 |
+| `radiusMd` | `--radius-md` | `0.5rem` | 8 |
+| `radiusLg` | `--radius-lg` | `0.75rem` | 12 |
+| `radiusXl` | `--radius-xl` | `1rem` | 16 |
+| `radius2xl` | `--radius-2xl` | `1.5rem` | 24 |
+| `radiusFull` | `--radius-full` | `9999px` | 9999 |
+
+```css
+.card {
+  padding: var(--spacing-3);
+  gap: var(--spacing-2);
+  border-radius: var(--radius-lg);
+}
+.avatar {
+  border-radius: var(--radius-full);
+}
+```
+
+React Native uses pre-computed numeric px values (`SPACING_PX`, `BORDER_RADIUS_PX`) with zero runtime overhead.
+
 ### Surface interaction states
 
 Each surface level (0-4) provides three interaction state tokens:
@@ -220,7 +310,7 @@ Each surface level (0-4) provides three interaction state tokens:
 
 Input, tab, and border tokens are scoped to every surface level (0-4) in both modes. Placing a form on any surface automatically yields the right contrast.
 
-The following 16 tokens are surface-contextual with per-level overrides:
+The following 21 tokens are surface-contextual with per-level overrides:
 
 | Group | Tokens |
 |-------|--------|
@@ -229,6 +319,7 @@ The following 16 tokens are surface-contextual with per-level overrides:
 | Input text | `inputPlaceholder` |
 | Tab | `tabBg`, `tabBgHover`, `tabOutline` |
 | Border | `borderSubtle`, `borderDefault` |
+| CTA | `ctaBg`, `ctaFg`, `ctaBgHover`, `ctaBgActive`, `ctaBorder` |
 
 Use `resolveSurfaceScopes()` or `applySurfaceScopeToElement()` to apply scopes programmatically.
 

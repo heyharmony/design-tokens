@@ -284,7 +284,21 @@ for (const id of presetIds) {
 const cssVarsConfig = readJson(join(TOKENS_DIR, 'meta', 'css-vars.json')) as {
   overrides: Record<string, string>;
   extended: Record<string, string>;
+  spacing: Record<string, string>;
+  radius: Record<string, string>;
 };
+
+// ---------------------------------------------------------------------------
+// Layout tokens (spacing + border-radius) — universal, mode/preset-independent
+// ---------------------------------------------------------------------------
+
+const layoutRaw = readJson(join(TOKENS_DIR, 'layout.json')) as Record<string, unknown>;
+const spacingTokens = flattenDtcg(layoutRaw, [], 'dimension');
+// Split by group prefix (spacing vs radius)
+const spacingKeys = Object.keys(spacingTokens).filter((k) => k.startsWith('spacing'));
+const radiusKeys = Object.keys(spacingTokens).filter((k) => k.startsWith('radius'));
+const spacingData = Object.fromEntries(spacingKeys.map((k) => [k, spacingTokens[k]]));
+const radiusData = Object.fromEntries(radiusKeys.map((k) => [k, spacingTokens[k]]));
 
 // ---------------------------------------------------------------------------
 // Generate src/types.ts
@@ -328,6 +342,7 @@ function generateTypes(): string {
     { label: 'Foreground', prefix: 'fg' },
     { label: 'Borders', prefix: 'border' },
     { label: 'Accent', prefix: 'accent' },
+    { label: 'CTA', prefix: 'cta' },
     { label: 'Sidebar', prefix: 'sidebar' },
     { label: 'Tabs', prefix: 'tab' },
     { label: 'Inputs', prefix: 'input' },
@@ -386,6 +401,38 @@ function generateTypes(): string {
     lines.push('');
   }
 
+  // Layout token interfaces (spacing + border-radius)
+  lines.push('// Layout tokens — universal, mode/preset-independent');
+  lines.push('');
+  lines.push('export interface ThemeSpacing {');
+  for (const key of spacingKeys) {
+    lines.push(`  ${key}: string;`);
+  }
+  lines.push('}');
+  lines.push('');
+
+  lines.push('export interface ThemeBorderRadius {');
+  for (const key of radiusKeys) {
+    lines.push(`  ${key}: string;`);
+  }
+  lines.push('}');
+  lines.push('');
+
+  // Numeric (px) versions for React Native
+  lines.push('export interface ThemeSpacingNumeric {');
+  for (const key of spacingKeys) {
+    lines.push(`  ${key}: number;`);
+  }
+  lines.push('}');
+  lines.push('');
+
+  lines.push('export interface ThemeBorderRadiusNumeric {');
+  for (const key of radiusKeys) {
+    lines.push(`  ${key}: number;`);
+  }
+  lines.push('}');
+  lines.push('');
+
   return lines.join('\n');
 }
 
@@ -414,7 +461,7 @@ function generateTokens(): string {
   const lines: string[] = [
     '// @generated — do not edit manually. Run `npm run generate` to regenerate.',
     '',
-    "import type { ThemeColors, ThemePresetId, ThemePreset, ThemeShadows, SurfaceScopes } from './types.js';",
+    "import type { ThemeColors, ThemePresetId, ThemePreset, ThemeShadows, SurfaceScopes, ThemeSpacing, ThemeBorderRadius } from './types.js';",
     '',
     '// ---------------------------------------------------------------------------',
     '// Base token sets',
@@ -577,6 +624,36 @@ function generateTokens(): string {
   lines.push('};');
   lines.push('');
 
+  // Layout tokens (spacing + border-radius)
+  lines.push(
+    '// ---------------------------------------------------------------------------',
+    '// Layout tokens — spacing & border-radius (universal)',
+    '// ---------------------------------------------------------------------------',
+    '',
+  );
+
+  lines.push(`export const SPACING: ThemeSpacing = ${formatObj(spacingData, '')};`);
+  lines.push('');
+
+  lines.push(`export const BORDER_RADIUS: ThemeBorderRadius = ${formatObj(radiusData, '')};`);
+  lines.push('');
+
+  lines.push('export const SPACING_TO_CSS: Record<keyof ThemeSpacing, string> = {');
+  for (const key of spacingKeys) {
+    const cssVar = cssVarsConfig.spacing[key] ?? camelToCssVar(key, {}, {});
+    lines.push(`  ${key}: '${cssVar}',`);
+  }
+  lines.push('};');
+  lines.push('');
+
+  lines.push('export const RADIUS_TO_CSS: Record<keyof ThemeBorderRadius, string> = {');
+  for (const key of radiusKeys) {
+    const cssVar = cssVarsConfig.radius[key] ?? camelToCssVar(key, {}, {});
+    lines.push(`  ${key}: '${cssVar}',`);
+  }
+  lines.push('};');
+  lines.push('');
+
   return lines.join('\n');
 }
 
@@ -613,12 +690,21 @@ function formatHexScopeObj(scopes: Record<string, Record<string, string>>, inden
   return '{\n' + blocks.join('\n') + `\n${indent}}`;
 }
 
+/** Convert a CSS dimension value (rem or px) to a numeric px value. */
+function dimensionToPx(value: string): number {
+  const trimmed = value.trim();
+  if (trimmed === '0') return 0;
+  if (trimmed.endsWith('rem')) return parseFloat(trimmed) * 16;
+  if (trimmed.endsWith('px')) return parseFloat(trimmed);
+  return parseFloat(trimmed);
+}
+
 function generateTokensRn(): string {
   const lines: string[] = [
     '// @generated — do not edit manually. Run `npm run generate` to regenerate.',
     '// Pre-computed hex values for React Native (OKLCH → sRGB gamut-mapped → hex).',
     '',
-    "import type { ThemeColors, ThemePresetColors, ThemePresetId, SurfaceScopes } from './types.js';",
+    "import type { ThemeColors, ThemePresetColors, ThemePresetId, SurfaceScopes, ThemeSpacingNumeric, ThemeBorderRadiusNumeric } from './types.js';",
     '',
   ];
 
@@ -676,6 +762,30 @@ function generateTokensRn(): string {
     lines.push('');
   }
 
+  lines.push('};');
+  lines.push('');
+
+  // Layout tokens — numeric px values for React Native
+  lines.push(
+    '// ---------------------------------------------------------------------------',
+    '// Layout tokens — spacing & border-radius (px numbers for React Native)',
+    '// ---------------------------------------------------------------------------',
+    '',
+  );
+
+  const spacingPx = Object.fromEntries(spacingKeys.map((k) => [k, dimensionToPx(spacingData[k])]));
+  lines.push('export const SPACING_PX: ThemeSpacingNumeric = {');
+  for (const [key, value] of Object.entries(spacingPx)) {
+    lines.push(`  ${key}: ${value},`);
+  }
+  lines.push('};');
+  lines.push('');
+
+  const radiusPx = Object.fromEntries(radiusKeys.map((k) => [k, dimensionToPx(radiusData[k])]));
+  lines.push('export const BORDER_RADIUS_PX: ThemeBorderRadiusNumeric = {');
+  for (const [key, value] of Object.entries(radiusPx)) {
+    lines.push(`  ${key}: ${value},`);
+  }
   lines.push('};');
   lines.push('');
 

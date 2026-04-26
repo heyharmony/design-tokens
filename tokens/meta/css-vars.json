@@ -8,9 +8,37 @@
     "accentSubtle": "--accent-subtle",
     "accentMuted": "--accent-muted",
     "accentBorder": "--accent-border",
+    "ctaBg": "--cta-bg",
+    "ctaFg": "--cta-fg",
+    "ctaBgHover": "--cta-bg-hover",
+    "ctaBgActive": "--cta-bg-active",
+    "ctaBorder": "--cta-border",
     "sidebarAccent": "--sidebar-accent",
     "sidebarAccentForeground": "--sidebar-accent-foreground",
     "sidebarHover": "--sidebar-hover"
+  },
+  "spacing": {
+    "spacing0": "--spacing-0",
+    "spacing05": "--spacing-0-5",
+    "spacing1": "--spacing-1",
+    "spacing15": "--spacing-1-5",
+    "spacing2": "--spacing-2",
+    "spacing3": "--spacing-3",
+    "spacing4": "--spacing-4",
+    "spacing5": "--spacing-5",
+    "spacing6": "--spacing-6",
+    "spacing8": "--spacing-8",
+    "spacing10": "--spacing-10",
+    "spacing12": "--spacing-12"
+  },
+  "radius": {
+    "radiusNone": "--radius-none",
+    "radiusSm": "--radius-sm",
+    "radiusMd": "--radius-md",
+    "radiusLg": "--radius-lg",
+    "radiusXl": "--radius-xl",
+    "radius2xl": "--radius-2xl",
+    "radiusFull": "--radius-full"
   },
   "extended": {
     "background": "--background",

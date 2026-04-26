@@ -9,11 +9,13 @@ import {
   BASE_LIGHT_HEX, BASE_DARK_HEX,
   PRESET_OVERRIDES_HEX,
   SURFACE_SCOPES_LIGHT_HEX, SURFACE_SCOPES_DARK_HEX,
+  SPACING_PX, BORDER_RADIUS_PX,
 } from './tokens-rn.js';
 
 export { isPresetAllowedForMode } from './resolve.js';
 export { THEME_PRESETS, THEME_PRESET_IDS } from './tokens.js';
-export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, PresetPreview, SurfaceLevel } from './types.js';
+export { SPACING_PX, BORDER_RADIUS_PX };
+export type { ThemeColors, ThemePresetId, ThemeMode, ThemePreset, PresetPreview, SurfaceLevel, ThemeSpacingNumeric, ThemeBorderRadiusNumeric } from './types.js';
 
 /**
  * Resolve theme colors for React Native.

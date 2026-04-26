@@ -22,6 +22,10 @@ export {
   SHADOWS_LIGHT,
   SHADOWS_DARK,
   SHADOW_TO_CSS,
+  SPACING,
+  BORDER_RADIUS,
+  SPACING_TO_CSS,
+  RADIUS_TO_CSS,
 } from './tokens.js';
 export type {
   ThemeColors,
@@ -34,4 +38,6 @@ export type {
   SurfaceLevel,
   SurfaceContextualToken,
   SurfaceScopes,
+  ThemeSpacing,
+  ThemeBorderRadius,
 } from './types.js';

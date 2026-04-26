@@ -8,7 +8,8 @@
 
 import { mkdirSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK, TOKEN_TO_CSS, EXTENDED_CSS, SHADOWS_LIGHT, SHADOWS_DARK, SHADOW_TO_CSS } from '../src/tokens.js';
+import { BASE_LIGHT, BASE_DARK, PRESET_OVERRIDES, THEME_PRESET_IDS, SURFACE_SCOPES_LIGHT, SURFACE_SCOPES_DARK, TOKEN_TO_CSS, EXTENDED_CSS, SHADOWS_LIGHT, SHADOWS_DARK, SHADOW_TO_CSS, SPACING, BORDER_RADIUS, SPACING_TO_CSS, RADIUS_TO_CSS } from '../src/tokens.js';
+import type { ThemeSpacing, ThemeBorderRadius } from '../src/types.js';
 import type { ThemeColors, ThemeShadows, ThemePresetId, SurfaceScopes, SurfaceLevel } from '../src/types.js';
 
 const DIST = join(import.meta.dirname, '..', 'dist', 'css');
@@ -169,5 +170,24 @@ for (const id of THEME_PRESET_IDS) {
     writeFileSync(join(PRESETS_DIR, `${id}-surface-scopes-dark.css`), css);
   }
 }
+
+// ---------------------------------------------------------------------------
+// Generate layout CSS (spacing + border-radius) — universal, no mode scoping
+// ---------------------------------------------------------------------------
+
+function layoutToVars(): Record<string, string> {
+  const vars: Record<string, string> = {};
+  for (const [key, cssVar] of Object.entries(SPACING_TO_CSS)) {
+    vars[cssVar] = SPACING[key as keyof ThemeSpacing];
+  }
+  for (const [key, cssVar] of Object.entries(RADIUS_TO_CSS)) {
+    vars[cssVar] = BORDER_RADIUS[key as keyof ThemeBorderRadius];
+  }
+  return vars;
+}
+
+const layoutVars = formatRawVars(layoutToVars());
+const layoutCss = `/* @heyharmony/design-tokens — layout tokens (spacing & border-radius) */\n:root {\n${layoutVars}\n}\n`;
+writeFileSync(join(DIST, 'layout.css'), layoutCss);
 
 console.log('CSS generated successfully in dist/css/');

@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="dist/css/variables-light.css">
   <link rel="stylesheet" href="dist/css/variables-dark.css">
 
+  <!-- Layout tokens (spacing & border-radius) -->
+  <link rel="stylesheet" href="dist/css/layout.css">
+
   <!-- Surface scopes -->
   <link rel="stylesheet" href="dist/css/surface-scopes-light.css">
   <link rel="stylesheet" href="dist/css/surface-scopes-dark.css">
@@ -461,6 +464,87 @@
       color: var(--harmony-fg-secondary);
     }
     .btn-ghost:hover { background: var(--accent); color: var(--accent-foreground); }
+    .btn-cta {
+      background: var(--cta-bg);
+      color: var(--cta-fg);
+      border: 1px solid var(--cta-border);
+    }
+    .btn-cta:hover { background: var(--cta-bg-hover); }
+    .btn-cta:active { background: var(--cta-bg-active); }
+
+    /* ===== CTA per surface ===== */
+    .cta-surface-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .cta-surface-cell {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      padding: 16px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--harmony-border-subtle);
+      min-height: 110px;
+      justify-content: center;
+    }
+    .cta-surface-cell[data-surface="0"] { background: var(--harmony-surface-0); }
+    .cta-surface-cell[data-surface="1"] { background: var(--harmony-surface-1); }
+    .cta-surface-cell[data-surface="2"] { background: var(--harmony-surface-2); }
+    .cta-surface-cell[data-surface="3"] { background: var(--harmony-surface-3); }
+    .cta-surface-cell[data-surface="4"] { background: var(--harmony-surface-4); }
+    .cta-surface-label {
+      font-size: 11px; font-weight: 500;
+      color: var(--harmony-fg-tertiary);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ===== Spacing Scale ===== */
+    .spacing-scale { display: flex; flex-direction: column; gap: 6px; }
+    .spacing-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 12px;
+    }
+    .spacing-label {
+      width: 100px; flex-shrink: 0;
+      font-weight: 500; font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--harmony-fg-secondary);
+      text-align: right;
+    }
+    .spacing-bar {
+      height: 20px; border-radius: 4px;
+      background: var(--accent);
+      opacity: 0.7;
+      transition: width 0.2s;
+    }
+    .spacing-value {
+      font-size: 11px; color: var(--harmony-fg-tertiary);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      flex-shrink: 0;
+    }
+
+    /* ===== Border Radius ===== */
+    .radius-grid {
+      display: flex; flex-wrap: wrap; gap: 16px;
+    }
+    .radius-demo {
+      display: flex; flex-direction: column; align-items: center; gap: 6px;
+    }
+    .radius-box {
+      width: 64px; height: 64px;
+      background: var(--accent);
+      opacity: 0.7;
+      transition: border-radius 0.2s;
+    }
+    .radius-label {
+      font-size: 11px; font-weight: 500;
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      color: var(--harmony-fg-secondary);
+    }
+    .radius-value-label {
+      font-size: 10px;
+      color: var(--harmony-fg-tertiary);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
   </style>
 </head>
 <body>
@@ -490,13 +574,7 @@
     <!-- Sidebar -->
     <aside class="sidebar" data-surface="0">
       <div style="padding: 8px 10px; margin-bottom: 4px;">
-        <svg width="28" height="28" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M8.6 33.6s-.4 2.2-.5 3.6c-.1 1.4-.1 3.6-.1 3.6L39.2 72s2.1 0 3.6-.1c1.4-.1 3.7-.5 3.7-.5L8.6 33.6Z" fill="currentColor" opacity="0.5"/>
-          <path d="M12.6 23.5s-1 1.6-1.5 2.7c-.5 1-.9 2.6-.9 2.6l41.2 41.2s1.7-.7 2.8-1.2c1-.5 2.4-1.4 2.4-1.4L12.6 23.5Z" fill="currentColor" opacity="0.5"/>
-          <path d="M19.4 15.5s-1.3 1.2-2.1 2c-.8.7-1.8 1.9-1.8 1.9l45.1 45.1s1.3-1.1 2.1-1.9c.7-.8 1.9-2.1 1.9-2.1L19.4 15.5Z" fill="currentColor" opacity="0.5"/>
-          <path d="M28.7 10s-1.6.7-2.6 1.2c-1.1.5-2.7 1.4-2.7 1.4l44 44s.9-1.6 1.4-2.6c.5-1 1.1-2.7 1.1-2.7L28.7 10Z" fill="currentColor" opacity="0.5"/>
-          <path d="M40.8 8s-2 0-3.3.1c-1.5.1-3.9.5-3.9.5L71.4 46.4l.3-3.6.3-3.6L40.8 8Z" fill="currentColor" opacity="0.5"/>
-        </svg>
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="fill-current" style="color: var(--harmony-accent-fg, var(--harmony-fg))"><path d="M4.23078 13.6082C4.23078 13.6082 4.08839 14.4397 4.04333 14.9682C3.99827 15.4967 4.00001 16.3148 4.00001 16.3148L15.6852 28C15.6852 28 16.4935 28.0003 17.0201 27.9561C17.5543 27.9112 18.3918 27.7692 18.3918 27.7692L4.23078 13.6082Z" fill="currentColor"/><path d="M5.73078 9.80056C5.73078 9.80056 5.34155 10.4179 5.15385 10.8077C4.96861 11.1924 4.77649 11.7836 4.77649 11.7836L20.2272 27.2343C20.2272 27.2343 20.8832 26.9765 21.2873 26.7762C21.6525 26.5953 22.1994 26.2692 22.1994 26.2692L5.73078 9.80056Z" fill="currentColor"/><path d="M8.26924 6.80056C8.26924 6.80056 7.77847 7.2509 7.4917 7.53768C7.20492 7.82446 6.80056 8.26923 6.80056 8.26923L23.7187 25.1891C23.7187 25.1891 24.1998 24.7791 24.4867 24.494C24.7763 24.2062 25.1871 23.7172 25.1871 23.7172L8.26924 6.80056Z" fill="currentColor"/><path d="M11.7728 4.76566C11.7728 4.76566 11.1615 5.01281 10.7821 5.1978C10.39 5.38896 9.80056 5.73077 9.80056 5.73077L26.2692 22.1994C26.2692 22.1994 26.6182 21.6083 26.8086 21.2126C26.9911 20.8335 27.2271 20.22 27.2271 20.22L11.7728 4.76566Z" fill="currentColor"/><path d="M16.3148 4C16.3148 4 15.5636 3.99981 15.0841 4.03603C14.5044 4.07982 13.6083 4.23077 13.6083 4.23077L27.7692 18.3918L27.8846 17.0385L28 15.6852L16.3148 4Z" fill="currentColor"/><path d="M12.5843 27.4991C12.5843 27.4991 9.88462 26.8462 7.46155 24.4231C5.03847 22 4.49083 19.4117 4.49083 19.4117L12.5843 27.4991Z" fill="currentColor"/><path d="M24.4806 7.51176C26.8461 9.8773 27.5119 12.5962 27.5119 12.5962L19.4047 4.49594C19.4047 4.49594 22.1151 5.14622 24.4806 7.51176Z" fill="currentColor"/></svg>
       </div>
 
       <div class="sidebar-section">
@@ -710,6 +788,35 @@
               <button class="btn btn-secondary">Secondary</button>
               <button class="btn btn-accent">Accent</button>
               <button class="btn btn-ghost">Ghost</button>
+              <button class="btn btn-cta">CTA</button>
+            </div>
+
+            <!-- CTA per surface -->
+            <h2>CTA per Surface</h2>
+            <p style="font-size: 12px; color: var(--harmony-fg-secondary); margin-bottom: 12px;">
+              The same <code>.btn-cta</code> automatically adapts via <code>--cta-*</code> tokens scoped to each <code>[data-surface]</code> level.
+            </p>
+            <div class="cta-surface-grid">
+              <div class="cta-surface-cell" data-surface="0">
+                <button class="btn btn-cta">Get Started</button>
+                <span class="cta-surface-label">surface-0</span>
+              </div>
+              <div class="cta-surface-cell" data-surface="1">
+                <button class="btn btn-cta">Get Started</button>
+                <span class="cta-surface-label">surface-1</span>
+              </div>
+              <div class="cta-surface-cell" data-surface="2">
+                <button class="btn btn-cta">Get Started</button>
+                <span class="cta-surface-label">surface-2</span>
+              </div>
+              <div class="cta-surface-cell" data-surface="3">
+                <button class="btn btn-cta">Get Started</button>
+                <span class="cta-surface-label">surface-3</span>
+              </div>
+              <div class="cta-surface-cell" data-surface="4">
+                <button class="btn btn-cta">Get Started</button>
+                <span class="cta-surface-label">surface-4</span>
+              </div>
             </div>
 
             <!-- Input States -->
@@ -769,6 +876,63 @@
             </div>
             <div class="swatch-row">
               <div class="swatch"><div class="swatch-dot" style="background: var(--harmony-input-placeholder)"></div>input-placeholder</div>
+            </div>
+
+            <!-- Spacing Scale -->
+            <h2>Spacing Scale</h2>
+            <div class="spacing-scale">
+              <div class="spacing-item"><span class="spacing-label">--spacing-0</span><div class="spacing-bar" style="width: var(--spacing-0, 0); min-width: 2px;"></div><span class="spacing-value">0</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-0-5</span><div class="spacing-bar" style="width: var(--spacing-0-5)"></div><span class="spacing-value">0.25rem / 4px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-1</span><div class="spacing-bar" style="width: var(--spacing-1)"></div><span class="spacing-value">0.5rem / 8px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-1-5</span><div class="spacing-bar" style="width: var(--spacing-1-5)"></div><span class="spacing-value">0.75rem / 12px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-2</span><div class="spacing-bar" style="width: var(--spacing-2)"></div><span class="spacing-value">1rem / 16px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-3</span><div class="spacing-bar" style="width: var(--spacing-3)"></div><span class="spacing-value">1.5rem / 24px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-4</span><div class="spacing-bar" style="width: var(--spacing-4)"></div><span class="spacing-value">2rem / 32px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-5</span><div class="spacing-bar" style="width: var(--spacing-5)"></div><span class="spacing-value">2.5rem / 40px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-6</span><div class="spacing-bar" style="width: var(--spacing-6)"></div><span class="spacing-value">3rem / 48px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-8</span><div class="spacing-bar" style="width: var(--spacing-8)"></div><span class="spacing-value">4rem / 64px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-10</span><div class="spacing-bar" style="width: var(--spacing-10)"></div><span class="spacing-value">5rem / 80px</span></div>
+              <div class="spacing-item"><span class="spacing-label">--spacing-12</span><div class="spacing-bar" style="width: var(--spacing-12)"></div><span class="spacing-value">6rem / 96px</span></div>
+            </div>
+
+            <!-- Border Radius -->
+            <h2>Border Radius</h2>
+            <div class="radius-grid">
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-none)"></div>
+                <span class="radius-label">none</span>
+                <span class="radius-value-label">0</span>
+              </div>
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-sm)"></div>
+                <span class="radius-label">sm</span>
+                <span class="radius-value-label">0.25rem</span>
+              </div>
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-md)"></div>
+                <span class="radius-label">md</span>
+                <span class="radius-value-label">0.5rem</span>
+              </div>
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-lg)"></div>
+                <span class="radius-label">lg</span>
+                <span class="radius-value-label">0.75rem</span>
+              </div>
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-xl)"></div>
+                <span class="radius-label">xl</span>
+                <span class="radius-value-label">1rem</span>
+              </div>
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-2xl)"></div>
+                <span class="radius-label">2xl</span>
+                <span class="radius-value-label">1.5rem</span>
+              </div>
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: var(--radius-full)"></div>
+                <span class="radius-label">full</span>
+                <span class="radius-value-label">9999px</span>
+              </div>
             </div>
 
           </div><!-- /showcase -->

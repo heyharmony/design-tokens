@@ -172,6 +172,28 @@
         "$type": "color"
       }
     },
+    "cta": {
+      "bg": {
+        "$value": "0.145 0 0",
+        "$type": "color"
+      },
+      "fg": {
+        "$value": "0.985 0 0",
+        "$type": "color"
+      },
+      "bg-hover": {
+        "$value": "0.25 0 0",
+        "$type": "color"
+      },
+      "bg-active": {
+        "$value": "0.32 0 0",
+        "$type": "color"
+      },
+      "border": {
+        "$value": "0.145 0 0",
+        "$type": "color"
+      }
+    },
     "sidebar": {
       "accent": {
         "$value": "0.97 0 0",

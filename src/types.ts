@@ -8,6 +8,11 @@ export type SurfaceLevel = '0' | '1' | '2' | '3' | '4';
 export type SurfaceContextualToken =
   | 'borderDefault'
   | 'borderSubtle'
+  | 'ctaBg'
+  | 'ctaBgActive'
+  | 'ctaBgHover'
+  | 'ctaBorder'
+  | 'ctaFg'
   | 'fg'
   | 'fgDisabled'
   | 'fgSecondary'
@@ -79,6 +84,12 @@ export interface ThemeColors {
   accentSubtle: string;
   accentMuted: string;
   accentBorder: string;
+  // CTA
+  ctaBg: string;
+  ctaFg: string;
+  ctaBgHover: string;
+  ctaBgActive: string;
+  ctaBorder: string;
   // Sidebar
   sidebarAccent: string;
   sidebarAccentForeground: string;
@@ -139,4 +150,56 @@ export interface ThemeShadows {
   shadow2: string;
   shadow3: string;
   shadow4: string;
+}
+
+// Layout tokens — universal, mode/preset-independent
+
+export interface ThemeSpacing {
+  spacing0: string;
+  spacing05: string;
+  spacing1: string;
+  spacing15: string;
+  spacing2: string;
+  spacing3: string;
+  spacing4: string;
+  spacing5: string;
+  spacing6: string;
+  spacing8: string;
+  spacing10: string;
+  spacing12: string;
+}
+
+export interface ThemeBorderRadius {
+  radiusNone: string;
+  radiusSm: string;
+  radiusMd: string;
+  radiusLg: string;
+  radiusXl: string;
+  radius2xl: string;
+  radiusFull: string;
+}
+
+export interface ThemeSpacingNumeric {
+  spacing0: number;
+  spacing05: number;
+  spacing1: number;
+  spacing15: number;
+  spacing2: number;
+  spacing3: number;
+  spacing4: number;
+  spacing5: number;
+  spacing6: number;
+  spacing8: number;
+  spacing10: number;
+  spacing12: number;
+}
+
+export interface ThemeBorderRadiusNumeric {
+  radiusNone: number;
+  radiusSm: number;
+  radiusMd: number;
+  radiusLg: number;
+  radiusXl: number;
+  radius2xl: number;
+  radiusFull: number;
 }

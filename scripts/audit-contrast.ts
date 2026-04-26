@@ -47,6 +47,9 @@ function getAuditPairs(): AuditPair[] {
   // Accent foreground on accent
   pairs.push({ fg: 'accentForeground', bg: 'accent', threshold: AA_NORMAL, label: 'accentForeground on accent' });
 
+  // CTA foreground on CTA background (base, non-surface-scoped)
+  pairs.push({ fg: 'ctaFg', bg: 'ctaBg', threshold: AA_NORMAL, label: 'ctaFg on ctaBg' });
+
   // Placeholder on input bg
   pairs.push({ fg: 'inputPlaceholder', bg: 'inputBg', threshold: AA_LARGE, label: 'inputPlaceholder on inputBg (large)' });
 

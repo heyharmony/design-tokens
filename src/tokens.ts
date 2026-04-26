@@ -1,6 +1,6 @@
 // @generated — do not edit manually. Run `npm run generate` to regenerate.
 
-import type { ThemeColors, ThemePresetId, ThemePreset, ThemeShadows, SurfaceScopes } from './types.js';
+import type { ThemeColors, ThemePresetId, ThemePreset, ThemeShadows, SurfaceScopes, ThemeSpacing, ThemeBorderRadius } from './types.js';
 
 // ---------------------------------------------------------------------------
 // Base token sets
@@ -48,6 +48,11 @@ export const BASE_LIGHT: ThemeColors = {
   accentSubtle: '0.965 0.005 90',
   accentMuted: '0.975 0.003 90',
   accentBorder: '0.85 0.01 90',
+  ctaBg: '0.145 0 0',
+  ctaFg: '0.985 0 0',
+  ctaBgHover: '0.25 0 0',
+  ctaBgActive: '0.32 0 0',
+  ctaBorder: '0.145 0 0',
   sidebarAccent: '0.97 0 0',
   sidebarAccentForeground: '0.204 0 0',
   sidebarHover: '0.962 0 0',
@@ -112,6 +117,11 @@ export const BASE_DARK: ThemeColors = {
   accentSubtle: '0.18 0.005 90',
   accentMuted: '0.15 0.003 90',
   accentBorder: '0.35 0.01 90',
+  ctaBg: '0.985 0 0',
+  ctaFg: '0.145 0 0',
+  ctaBgHover: '0.9 0 0',
+  ctaBgActive: '0.82 0 0',
+  ctaBorder: '0.985 0 0',
   sidebarAccent: '0.216 0 0',
   sidebarAccentForeground: '0.923 0 0',
   sidebarHover: '0.204 0 0',
@@ -160,6 +170,11 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     tabOutline: '0.829 0 0',
     borderSubtle: '0.9 0 0',
     borderDefault: '0.845 0 0',
+    ctaBg: '0.145 0 0',
+    ctaFg: '0.985 0 0',
+    ctaBgHover: '0.25 0 0',
+    ctaBgActive: '0.32 0 0',
+    ctaBorder: '0.145 0 0',
   },
   '1': {
     fg: '0.145 0 0',
@@ -182,6 +197,11 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     tabOutline: '0.829 0 0',
     borderSubtle: '0.9 0 0',
     borderDefault: '0.845 0 0',
+    ctaBg: '0.18 0 0',
+    ctaFg: '0.985 0 0',
+    ctaBgHover: '0.28 0 0',
+    ctaBgActive: '0.35 0 0',
+    ctaBorder: '0.18 0 0',
   },
   '2': {
     fg: '0.145 0 0',
@@ -204,6 +224,11 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     tabOutline: '0.829 0 0',
     borderSubtle: '0.892 0 0',
     borderDefault: '0.837 0 0',
+    ctaBg: '0.22 0 0',
+    ctaFg: '0.985 0 0',
+    ctaBgHover: '0.32 0 0',
+    ctaBgActive: '0.39 0 0',
+    ctaBorder: '0.22 0 0',
   },
   '3': {
     fg: '0.145 0 0',
@@ -226,6 +251,11 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     tabOutline: '0.829 0 0',
     borderSubtle: '0.885 0 0',
     borderDefault: '0.829 0 0',
+    ctaBg: '0.26 0 0',
+    ctaFg: '0.985 0 0',
+    ctaBgHover: '0.36 0 0',
+    ctaBgActive: '0.43 0 0',
+    ctaBorder: '0.26 0 0',
   },
   '4': {
     fg: '0.145 0 0',
@@ -248,6 +278,11 @@ export const SURFACE_SCOPES_LIGHT: SurfaceScopes = {
     tabOutline: '0.829 0 0',
     borderSubtle: '0.885 0 0',
     borderDefault: '0.829 0 0',
+    ctaBg: '0.3 0 0',
+    ctaFg: '0.985 0 0',
+    ctaBgHover: '0.4 0 0',
+    ctaBgActive: '0.47 0 0',
+    ctaBorder: '0.3 0 0',
   },
 };
 
@@ -273,6 +308,11 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     tabOutline: '0.399 0 0',
     borderSubtle: '0.321 0 0',
     borderDefault: '0.371 0 0',
+    ctaBg: '0.985 0 0',
+    ctaFg: '0.145 0 0',
+    ctaBgHover: '0.9 0 0',
+    ctaBgActive: '0.82 0 0',
+    ctaBorder: '0.985 0 0',
   },
   '1': {
     fg: '0.923 0 0',
@@ -295,6 +335,11 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     tabOutline: '0.409 0 0',
     borderSubtle: '0.341 0 0',
     borderDefault: '0.39 0 0',
+    ctaBg: '0.95 0 0',
+    ctaFg: '0.145 0 0',
+    ctaBgHover: '0.87 0 0',
+    ctaBgActive: '0.79 0 0',
+    ctaBorder: '0.95 0 0',
   },
   '2': {
     fg: '0.923 0 0',
@@ -317,6 +362,11 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     tabOutline: '0.418 0 0',
     borderSubtle: '0.38 0 0',
     borderDefault: '0.418 0 0',
+    ctaBg: '0.91 0 0',
+    ctaFg: '0.145 0 0',
+    ctaBgHover: '0.83 0 0',
+    ctaBgActive: '0.75 0 0',
+    ctaBorder: '0.91 0 0',
   },
   '3': {
     fg: '0.923 0 0',
@@ -339,6 +389,11 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     tabOutline: '0.399 0 0',
     borderSubtle: '0.361 0 0',
     borderDefault: '0.399 0 0',
+    ctaBg: '0.87 0 0',
+    ctaFg: '0.145 0 0',
+    ctaBgHover: '0.79 0 0',
+    ctaBgActive: '0.71 0 0',
+    ctaBorder: '0.87 0 0',
   },
   '4': {
     fg: '0.923 0 0',
@@ -361,6 +416,11 @@ export const SURFACE_SCOPES_DARK: SurfaceScopes = {
     tabOutline: '0.437 0 0',
     borderSubtle: '0.399 0 0',
     borderDefault: '0.437 0 0',
+    ctaBg: '0.83 0 0',
+    ctaFg: '0.145 0 0',
+    ctaBgHover: '0.75 0 0',
+    ctaBgActive: '0.67 0 0',
+    ctaBorder: '0.83 0 0',
   },
 };
 
@@ -411,7 +471,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accent: '0.947 0.0263 248.1',
       accentForeground: '0.375 0.1222 254.7',
       accentHover: '0.896 0.0533 248.4',
-      sidebarAccent: '0.55 0.2114 255',
+      sidebarAccent: '0.55 0.13 255',
       sidebarAccentForeground: '1 0 0',
       sidebarHover: '0.28 0.055 248',
       borderSubtle: '0.899 0.0058 247.9',
@@ -458,7 +518,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accent: '0.234 0.0562 251.2',
       accentForeground: '0.913 0.0443 248.3',
       accentHover: '0.298 0.0779 252.3',
-      sidebarAccent: '0.569 0.2 255',
+      sidebarAccent: '0.569 0.13 255',
       sidebarAccentForeground: '1 0 0',
       sidebarHover: '0.211 0.0371 250',
       borderSubtle: '0.318 0.0138 248.3',
@@ -696,7 +756,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accent: '0.951 0.0275 158.1',
       accentForeground: '0.402 0.1005 150.5',
       accentHover: '0.909 0.0516 157.4',
-      sidebarAccent: '0.48 0.2 155',
+      sidebarAccent: '0.48 0.12 155',
       sidebarAccentForeground: '1 0 0',
       sidebarHover: '0.28 0.055 158',
       borderSubtle: '0.904 0.0091 158.5',
@@ -743,7 +803,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accent: '0.237 0.0366 154.7',
       accentForeground: '0.914 0.0616 157.2',
       accentHover: '0.314 0.0538 154.1',
-      sidebarAccent: '0.48 0.2 155',
+      sidebarAccent: '0.48 0.12 155',
       sidebarAccentForeground: '1 0 0',
       sidebarHover: '0.211 0.0304 155',
       borderSubtle: '0.331 0.0212 157.2',
@@ -981,7 +1041,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accent: '0.937 0.0369 314.6',
       accentForeground: '0.385 0.1821 309.9',
       accentHover: '0.876 0.0748 314.4',
-      sidebarAccent: '0.53 0.2361 300',
+      sidebarAccent: '0.53 0.14 300',
       sidebarAccentForeground: '1 0 0',
       sidebarHover: '0.28 0.06 315',
       borderSubtle: '0.895 0.0101 314.8',
@@ -1028,7 +1088,7 @@ export const PRESET_OVERRIDES: Record<ThemePresetId, {
       accent: '0.217 0.0625 313.1',
       accentForeground: '0.899 0.0543 314.5',
       accentHover: '0.273 0.0871 312.8',
-      sidebarAccent: '0.502 0.2082 300',
+      sidebarAccent: '0.502 0.13 300',
       sidebarAccentForeground: '1 0 0',
       sidebarHover: '0.197 0.0537 313.3',
       borderSubtle: '0.308 0.0232 307.6',
@@ -2268,6 +2328,11 @@ export const TOKEN_TO_CSS: Record<keyof ThemeColors, string> = {
   accentSubtle: '--accent-subtle',
   accentMuted: '--accent-muted',
   accentBorder: '--accent-border',
+  ctaBg: '--cta-bg',
+  ctaFg: '--cta-fg',
+  ctaBgHover: '--cta-bg-hover',
+  ctaBgActive: '--cta-bg-active',
+  ctaBorder: '--cta-border',
   sidebarAccent: '--sidebar-accent',
   sidebarAccentForeground: '--sidebar-accent-foreground',
   sidebarHover: '--sidebar-hover',
@@ -2298,4 +2363,58 @@ export const EXTENDED_CSS: Record<string, string> = {
   overlay: '--overlay',
   surfaceGlass: '--surface-glass',
   skeleton: '--skeleton',
+};
+
+// ---------------------------------------------------------------------------
+// Layout tokens — spacing & border-radius (universal)
+// ---------------------------------------------------------------------------
+
+export const SPACING: ThemeSpacing = {
+  spacing0: '0',
+  spacing05: '0.25rem',
+  spacing1: '0.5rem',
+  spacing15: '0.75rem',
+  spacing2: '1rem',
+  spacing3: '1.5rem',
+  spacing4: '2rem',
+  spacing5: '2.5rem',
+  spacing6: '3rem',
+  spacing8: '4rem',
+  spacing10: '5rem',
+  spacing12: '6rem',
+};
+
+export const BORDER_RADIUS: ThemeBorderRadius = {
+  radiusNone: '0',
+  radiusSm: '0.25rem',
+  radiusMd: '0.5rem',
+  radiusLg: '0.75rem',
+  radiusXl: '1rem',
+  radius2xl: '1.5rem',
+  radiusFull: '9999px',
+};
+
+export const SPACING_TO_CSS: Record<keyof ThemeSpacing, string> = {
+  spacing0: '--spacing-0',
+  spacing05: '--spacing-0-5',
+  spacing1: '--spacing-1',
+  spacing15: '--spacing-1-5',
+  spacing2: '--spacing-2',
+  spacing3: '--spacing-3',
+  spacing4: '--spacing-4',
+  spacing5: '--spacing-5',
+  spacing6: '--spacing-6',
+  spacing8: '--spacing-8',
+  spacing10: '--spacing-10',
+  spacing12: '--spacing-12',
+};
+
+export const RADIUS_TO_CSS: Record<keyof ThemeBorderRadius, string> = {
+  radiusNone: '--radius-none',
+  radiusSm: '--radius-sm',
+  radiusMd: '--radius-md',
+  radiusLg: '--radius-lg',
+  radiusXl: '--radius-xl',
+  radius2xl: '--radius-2xl',
+  radiusFull: '--radius-full',
 };

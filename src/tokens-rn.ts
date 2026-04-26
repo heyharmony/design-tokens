@@ -1,7 +1,7 @@
 // @generated — do not edit manually. Run `npm run generate` to regenerate.
 // Pre-computed hex values for React Native (OKLCH → sRGB gamut-mapped → hex).
 
-import type { ThemeColors, ThemePresetColors, ThemePresetId, SurfaceScopes } from './types.js';
+import type { ThemeColors, ThemePresetColors, ThemePresetId, SurfaceScopes, ThemeSpacingNumeric, ThemeBorderRadiusNumeric } from './types.js';
 
 export const BASE_LIGHT_HEX: ThemeColors = {
   surface0: '#f2f1ef',
@@ -45,6 +45,11 @@ export const BASE_LIGHT_HEX: ThemeColors = {
   accentSubtle: '#f5f3f0',
   accentMuted: '#f7f7f4',
   accentBorder: '#d0cec7',
+  ctaBg: '#0a0a0a',
+  ctaFg: '#fafafa',
+  ctaBgHover: '#222222',
+  ctaBgActive: '#333333',
+  ctaBorder: '#0a0a0a',
   sidebarAccent: '#f5f5f5',
   sidebarAccentForeground: '#171717',
   sidebarHover: '#f2f2f2',
@@ -109,6 +114,11 @@ export const BASE_DARK_HEX: ThemeColors = {
   accentSubtle: '#12110f',
   accentMuted: '#0c0b0a',
   accentBorder: '#3c3a35',
+  ctaBg: '#fafafa',
+  ctaFg: '#0a0a0a',
+  ctaBgHover: '#dedede',
+  ctaBgActive: '#c4c4c4',
+  ctaBorder: '#fafafa',
   sidebarAccent: '#1a1a1a',
   sidebarAccentForeground: '#e5e5e5',
   sidebarHover: '#171717',
@@ -153,6 +163,11 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     tabOutline: '#c7c7c7',
     borderSubtle: '#dedede',
     borderDefault: '#cccccc',
+    ctaBg: '#0a0a0a',
+    ctaFg: '#fafafa',
+    ctaBgHover: '#222222',
+    ctaBgActive: '#333333',
+    ctaBorder: '#0a0a0a',
   },
   '1': {
     fg: '#0a0a0a',
@@ -175,6 +190,11 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     tabOutline: '#c7c7c7',
     borderSubtle: '#dedede',
     borderDefault: '#cccccc',
+    ctaBg: '#121212',
+    ctaFg: '#fafafa',
+    ctaBgHover: '#292929',
+    ctaBgActive: '#3a3a3a',
+    ctaBorder: '#121212',
   },
   '2': {
     fg: '#0a0a0a',
@@ -197,6 +217,11 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     tabOutline: '#c7c7c7',
     borderSubtle: '#dbdbdb',
     borderDefault: '#c9c9c9',
+    ctaBg: '#1b1b1b',
+    ctaFg: '#fafafa',
+    ctaBgHover: '#333333',
+    ctaBgActive: '#454545',
+    ctaBorder: '#1b1b1b',
   },
   '3': {
     fg: '#0a0a0a',
@@ -219,6 +244,11 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     tabOutline: '#c7c7c7',
     borderSubtle: '#d9d9d9',
     borderDefault: '#c7c7c7',
+    ctaBg: '#242424',
+    ctaFg: '#fafafa',
+    ctaBgHover: '#3d3d3d',
+    ctaBgActive: '#505050',
+    ctaBorder: '#242424',
   },
   '4': {
     fg: '#0a0a0a',
@@ -241,6 +271,11 @@ export const SURFACE_SCOPES_LIGHT_HEX: SurfaceScopes = {
     tabOutline: '#c7c7c7',
     borderSubtle: '#d9d9d9',
     borderDefault: '#c7c7c7',
+    ctaBg: '#2e2e2e',
+    ctaFg: '#fafafa',
+    ctaBgHover: '#484848',
+    ctaBgActive: '#5b5b5b',
+    ctaBorder: '#2e2e2e',
   },
 };
 
@@ -266,6 +301,11 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     tabOutline: '#474747',
     borderSubtle: '#333333',
     borderDefault: '#404040',
+    ctaBg: '#fafafa',
+    ctaFg: '#0a0a0a',
+    ctaBgHover: '#dedede',
+    ctaBgActive: '#c4c4c4',
+    ctaBorder: '#fafafa',
   },
   '1': {
     fg: '#e5e5e5',
@@ -288,6 +328,11 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     tabOutline: '#4a4a4a',
     borderSubtle: '#383838',
     borderDefault: '#454545',
+    ctaBg: '#eeeeee',
+    ctaFg: '#0a0a0a',
+    ctaBgHover: '#d4d4d4',
+    ctaBgActive: '#bababa',
+    ctaBorder: '#eeeeee',
   },
   '2': {
     fg: '#e5e5e5',
@@ -310,6 +355,11 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     tabOutline: '#4c4c4c',
     borderSubtle: '#424242',
     borderDefault: '#4c4c4c',
+    ctaBg: '#e1e1e1',
+    ctaFg: '#0a0a0a',
+    ctaBgHover: '#c7c7c7',
+    ctaBgActive: '#aeaeae',
+    ctaBorder: '#e1e1e1',
   },
   '3': {
     fg: '#e5e5e5',
@@ -332,6 +382,11 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     tabOutline: '#474747',
     borderSubtle: '#3d3d3d',
     borderDefault: '#474747',
+    ctaBg: '#d4d4d4',
+    ctaFg: '#0a0a0a',
+    ctaBgHover: '#bababa',
+    ctaBgActive: '#a1a1a1',
+    ctaBorder: '#d4d4d4',
   },
   '4': {
     fg: '#e5e5e5',
@@ -354,6 +409,11 @@ export const SURFACE_SCOPES_DARK_HEX: SurfaceScopes = {
     tabOutline: '#525252',
     borderSubtle: '#474747',
     borderDefault: '#525252',
+    ctaBg: '#c7c7c7',
+    ctaFg: '#0a0a0a',
+    ctaBgHover: '#aeaeae',
+    ctaBgActive: '#959595',
+    ctaBorder: '#c7c7c7',
   },
 };
 
@@ -390,7 +450,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accent: '#e0f0ff',
       accentForeground: '#00407f',
       accentHover: '#c2e1ff',
-      sidebarAccent: '#006ce8',
+      sidebarAccent: '#3772bb',
       sidebarAccentForeground: '#ffffff',
       sidebarHover: '#102b43',
       borderSubtle: '#dbdee1',
@@ -437,7 +497,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accent: '#061f37',
       accentForeground: '#cce6ff',
       accentHover: '#092e53',
-      sidebarAccent: '#0073e8',
+      sidebarAccent: '#3d78c2',
       sidebarAccentForeground: '#ffffff',
       sidebarHover: '#0a1a29',
       borderSubtle: '#2d3339',
@@ -675,7 +735,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accent: '#e0f5e8',
       accentForeground: '#105729',
       accentHover: '#c6ecd4',
-      sidebarAccent: '#007435',
+      sidebarAccent: '#00713e',
       sidebarAccentForeground: '#ffffff',
       sidebarHover: '#0b311e',
       borderSubtle: '#dbe1dd',
@@ -722,7 +782,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accent: '#0f2417',
       accentForeground: '#c2f0d3',
       accentHover: '#193925',
-      sidebarAccent: '#007435',
+      sidebarAccent: '#00713e',
       sidebarAccentForeground: '#ffffff',
       sidebarHover: '#0c1d12',
       borderSubtle: '#2d3931',
@@ -960,7 +1020,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accent: '#f4e3fc',
       accentForeground: '#610f8a',
       accentHover: '#e9c8f9',
-      sidebarAccent: '#8534dc',
+      sidebarAccent: '#7955b0',
       sidebarAccentForeground: '#ffffff',
       sidebarHover: '#341f3d',
       borderSubtle: '#dfdae1',
@@ -1007,7 +1067,7 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
       accent: '#240f2e',
       accentForeground: '#ebd4f7',
       accentHover: '#361745',
-      sidebarAccent: '#7937c6',
+      sidebarAccent: '#704fa2',
       sidebarAccentForeground: '#ffffff',
       sidebarHover: '#1e0d26',
       borderSubtle: '#332d39',
@@ -2077,4 +2137,33 @@ export const PRESET_OVERRIDES_HEX: Record<ThemePresetId, {
     },
   },
 
+};
+
+// ---------------------------------------------------------------------------
+// Layout tokens — spacing & border-radius (px numbers for React Native)
+// ---------------------------------------------------------------------------
+
+export const SPACING_PX: ThemeSpacingNumeric = {
+  spacing0: 0,
+  spacing05: 4,
+  spacing1: 8,
+  spacing15: 12,
+  spacing2: 16,
+  spacing3: 24,
+  spacing4: 32,
+  spacing5: 40,
+  spacing6: 48,
+  spacing8: 64,
+  spacing10: 80,
+  spacing12: 96,
+};
+
+export const BORDER_RADIUS_PX: ThemeBorderRadiusNumeric = {
+  radiusNone: 0,
+  radiusSm: 4,
+  radiusMd: 8,
+  radiusLg: 12,
+  radiusXl: 16,
+  radius2xl: 24,
+  radiusFull: 9999,
 };

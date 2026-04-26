@@ -99,7 +99,7 @@
     },
     "sidebar": {
       "accent": {
-        "$value": "0.53 0.2361 300",
+        "$value": "0.53 0.14 300",
         "$type": "color"
       },
       "accent-foreground": {
@@ -293,7 +293,7 @@
     },
     "sidebar": {
       "accent": {
-        "$value": "0.502 0.2082 300",
+        "$value": "0.502 0.13 300",
         "$type": "color"
       },
       "accent-foreground": {
