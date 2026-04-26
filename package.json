@@ -1,6 +1,6 @@
 {
   "name": "@heyharmony/design-tokens",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "description": "Unified design tokens for Harmony apps (web, desktop, mobile)",
   "type": "module",
   "main": "./dist/js/index.cjs",
